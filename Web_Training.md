@@ -8,6 +8,8 @@ To provide some order in chaos this guide seeks to outline training guidance as 
 Level 1 - Writing Code
 ---
 
+Most discussions on improvement and education of web technologies is on how to write code.  Writing code is the foundation.  It is a minimal requirement.  Surely there is more to being a rockstar than merely write less faulty code.  Level 1 is dedicated to write code.  If a developer is not competent at this level they shouldn't be employed as a web developer as this is the minimum requirement.  Developers are not senior principle level rockstar advocates merely because they are clever at writing code.  This only the first level of education/experience.
+
 * Objective: The expectation is for developers to be competent writing in the essential languages that comprise the web platform.
 * Expectations
    - Read/Write CSS
@@ -32,6 +34,8 @@ Level 1 - Writing Code
 Level 2 - Accessibility and Security
 ---
 
+Accessibility and Security require a certain amount of education and decision making capacity.  These also require a solid (near rockstar) understanding of Level 1 skills.
+
 * Objectives: Have a solid understanding of accessibility and security
 * Expectations
    - Understand WCAG 2.0
@@ -54,6 +58,8 @@ Level 2 - Accessibility and Security
 Level 3 - Architecture
 ---
 
+Architecture builds upon Level 2 skills by requiring a certain amount of experience making tough technical decisions to determine technical planning and the integration of various competing requirements.
+
 * Objectives: The ability to transform business requirements to a technical plan
 * Expectations
    - Interface with project stakeholders and validate business requirements
@@ -72,6 +78,8 @@ Level 3 - Architecture
       * Able to achieve buy in and support from technology teams for a custom crafted approach
 
 Level 4 - Innovation
+
+It is completely acceptable to break all the rules and be a renegade, but only if you understand what rules you are breaking and break them intentionally.  There is a lot of risk trying something new or original, but if the original idea is valid it could unlock capabilities nobody else has imagined.  To be a successful innovator or inventor Level 3 skills must be well understood and broken for deliberate reasons.
 
 * Objectives: The ability to devise custom tools and new solutions to existing problems in short time
 * Expectations
