@@ -1,7 +1,9 @@
 10 Domains of Web Development
 ===
 
-This list is inspired by the [CISSP Domains of Information Security](https://www.isc2.org/cissp-domains/default.aspx).  The CISSP domains provide a clear path towards areas of study in the assessment and management of various security concerns.  The primary advantage to this form of knowledge organization is in communicating a set of decision-making skills appropriate to a single area of concerns where those concerns together encompass the required general body of knowledge.
+This list is inspired by the [CISSP Domains of Information Security](https://www.isc2.org/cissp-domains/default.aspx).  The CISSP domains provide a clear path towards areas of study in the assessment and management of various security concerns.  The primary advantage to this form of knowledge organization is in communicating a set of decision-making skills appropriate to a single area of concerns where those concerns together to encompass the required general body of knowledge.
+
+The 10 domains are as follows:
 
 * Accessibility
 * Architecture
@@ -17,7 +19,7 @@ This list is inspired by the [CISSP Domains of Information Security](https://www
 Accessibility
 ---
 
-Accessibility (a11y) is the means of intentionally providing content, services, and products to audiences in a way that is anti-discriminatory.  The primary concentration is to ensure equivalent access to users with disabilities who may require the use of assistive technologies.  Improvements to accessibility benefits everybody by ensuring content is better organized, easier to understand, and easier to access.  The five primary disability categories of concern by web technologies are: auditory, cognitive, epileptic, motor reflex, and visual.  
+Accessibility (a11y) is the means of intentionally providing content, services, and products to audiences in a way that is anti-discriminatory.  The primary concentration is to ensure equivalent access to users with disabilities who may require the use of assistive technologies.  Improvements to accessibility benefits everybody by ensuring content is better organized, easier to understand, and easier to access.  The five primary disability categories of concern by web technologies are: auditory, cognitive, epileptic, motor reflex, and visual.
 
 Most information on the web is conveyed by a plurality of formats expressed as text.  Due to this auditory assistance is typically only required with media that contains an auditory signal such as video or a sound clip.  Auditory assistance can be accomplished by providing text captions embedded into a video allowing the conveyed speech to be read visually by the audience as it is spoken and conveyed in the video or through providing a text equivalent of the conveyed speech.
 
