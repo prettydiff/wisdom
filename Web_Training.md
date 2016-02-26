@@ -78,6 +78,7 @@ Architecture builds upon Level 2 skills by requiring a certain amount of experie
       * Able to achieve buy in and support from technology teams for a custom crafted approach
 
 Level 4 - Innovation
+---
 
 It is completely acceptable to break all the rules and be a renegade, but only if you understand what rules you are breaking and break them intentionally.  There is a lot of risk trying something new or original, but if the original idea is valid it could unlock capabilities nobody else has imagined.  To be a successful innovator or inventor Level 3 skills must be well understood and broken for deliberate reasons.
 
