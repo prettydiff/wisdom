@@ -2,7 +2,7 @@
 
 ## Definition
 
-Productivity is simply the ability to decrease the expenses required to accomplish a required business task.  From an economic perspective qualities such as labor expenses, duration, tools, talent deficits, and so forth can all be classified as expenses.  Ultimately this means all discussions of productivity are ultimately subjects of business management.  The most simple means to calculate expense is something like:
+Productivity, in general, is simply the ability to decrease the expenses required to accomplish a required business task.  From an economic perspective qualities such as labor expenses, duration, tools, talent deficits, and so forth can all be classified as expenses.  Ultimately this means all discussions of productivity are ultimately subjects of business management.  The most simple means to calculate expense is something like:
 
     var a = number of people assigned to a given effort,
         b = average cost per person,
@@ -10,6 +10,26 @@ Productivity is simply the ability to decrease the expenses required to accompli
     a * b * c = initial productivity baseline
 
 The more people assigned to a given effort the more expensive that effort becomes.  The longer it takes to complete that effort the more expensive it becomes.  Productivity is calculated from the inverse comparison of various measurements of expense for roughly equivalent efforts.  If expenses going down for similar tasks this is an indication that productivity has increased.  If for example, one developer is capable of completing a task that normally requires three developers that one developer is 3 times more productive or a third of the expense to the business objective.
+
+### Personal Productivity
+
+Understanding productivity at large is important, but for software development is perhaps more important to understand **personal productivity**.  Personal productivity, just like the generalized productivity, is a universal phenomenon of economics that can be measured objectively.  In short it can be defined as the *frequency of interval*, where an interval is the assignment, effort, completion, and verification of a given effort.  That is how many efforts (with verifications) can a person complete in a given period of time.  Since this concept is universal it applies exactly the same whether your task is writing software code, scrubbing toilets, or cutting grass.
+
+While the concept is indeed universal interval frequencies will vary greatly by task and industry.  For example modifying software requires a substantially smaller timeframe than constructing or repairing physical infrastructure or running for political office.  As a result interval frequency is best measured relative to a given profession.  Comparing the number of updates to a given software application against the number of times an astronaut has entered space is not a useful comparison, but comparing interval frequency of a JavaScript developer against a Java developer is far more valid.
+
+The primary reason why frequency of interval is important is due to learning and behavior.  As people accomplish a given task multiple times they learn to improve upon their efforts.  This procedural improvement results in refinements to precision and speed.  A given craftsman becomes more skilled and faster in his/her craft the more times their provided efforts are completed and verified.  This is how Henry Ford profoundly increased productivity with the conveyor system.
+
+### Personal Experience
+
+If personal productivity can be defined as *frequency of interval* then personal experience can be defined as *quantity of completed intervals*.  If you were hiking in the woods who would you trust more as a hiking companion: the guy who has completed the hike twice or the guy that has performed this hike once a week for the past two years?  While both are qualified companions we can agree that one is more experienced than the other.
+
+Experience is not merely a measure of effort but is also a qualitative review of that effort.  If one person has written software for 20 years we can assume that person has a great deal of experience, however if they constantly struggle to complete their work on time and frequently submit sloppy results their great experience suddenly becomes less valid.  Another person who has achieved perfect quality work every time, though only has two years experience, might be considered a superior craftsman even if they have less total experience.  This is why *quantity of completed intervals* is important, because its not just about how hard a person has tried but rather a combination of that effort and the resulting achievements.
+
+### Examples
+
+Imagine you are a software developer assigned a given task.  You are an expert in your field and you will likely accomplish the task perfectly on the first try.  Good for you, but unfortunately there is a 10 minute build process to verify your accomplishment.  Now imagine sitting next to you is another developer who doesn't have any build process or compile step.  They are going to make a software change and verify the results immediately on the command line.  This software developer is very good and doesn't really know what they are doing, but their interval is only 20 seconds long.  This means the weak developer is able to complete 30 intervals in the time the good developer can complete 1 interval.
+
+The common conclusion is that the bad developer can theoretically work 30 times faster than the good developer, but this conclusion is unreliable and is not likely to be valid.  A more accurate statement is that the weak developer can fail 29 times and still achieve the same productivity as the good developer.  This is incredibly valuable as there is learning in each of those failures.  With each an every failure the weak developer is learning to refine their approach, review how they think about the problem, and devise a new approach.  Additionally, they are also reviewing the code they are working in and thinking about how things could be better organized so as to make the intervals even faster for themselves and other people.  As they fail more often they are also faster to identify areas of frustration that could be refined.
 
 ## Business Imperative
 
