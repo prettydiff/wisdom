@@ -19,7 +19,7 @@ Trolls, in the context of online personas, are people who engage in conversation
 ## Identifying Trolls
 Please say this out loud: **A conversation is not a contest!**
 
-If a person enters a conversation with a goal to win as though there is a contest or battle the person is a troll.  Simply do not engage this person.  They will do everything to provoke a fight.  They only lose if you do not give them the fight they seek.  You on the other hand can only lose or walk away.  Engaging this form of troll often dissolves the conversation into a toxic [holy war], which is a conversation whose participants will fight exhaustively over an excruciatingly trivial subject.
+If a person enters a conversation with a goal to win as though there is a contest or battle the person is a troll.  Simply do not engage this person.  They will do everything to provoke a fight.  They only lose if you do not give them the fight they seek.  You on the other hand can only lose or walk away.  Engaging this form of troll often dissolves the conversation into a toxic holy war, which is a conversation whose participants will fight exhaustively over an excruciatingly trivial subject.
 
 Sometimes a person will intentionally seek to distract you away from the conversation at hand.  This is called [baiting](#baiting).  This typically occurs when a challenging opinion is contributed to somebody in disagreement who doesn't have a valid or credible response but still wishes to *win* the conversation.
 
