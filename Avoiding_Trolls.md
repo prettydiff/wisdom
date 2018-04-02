@@ -116,7 +116,7 @@ A personality who seeks to build a cult-like following for their own self-satisf
 ---
 
 ### Social Justice Warrior
-A social justice warrior is a fierce warrior seeking to do battle to right the social ills plaguing the world.  While this motivation is certainly noble it often has no place in many online communities and is often perceived as a horrid pest.  The primary difference between a social justice warrior and an [echo chamber](#echo-chamber) victim is that a social justice warrior if focused on subjects completely outside the scope of the community.
+A social justice warrior is a fierce warrior seeking to do battle to right the social ills plaguing the world.  While this motivation is certainly noble it often has no place in many online communities and is often perceived as a horrid pest.  The primary difference between a social justice warrior and an [echo chamber](#echo-chamber) victim is that a social justice warrior is focused on subjects completely outside the scope of the community.
 
 The unique challenge posed by social justice warrior is that they are not at war with just a single person.  They are at war with the entire community.  A typical troll focused on trolling a single person, or select few people, can be easily managed by simply ignoring them until they go away.  The problem with the social justice warriors is that to defeat this kind of troll everybody in the community must ignore them until they go away, which is unlikely at best.
 
