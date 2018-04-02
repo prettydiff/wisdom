@@ -1,5 +1,5 @@
 # Avoiding Trolls
-Trolls, in the context of online personas, are people who engage in conversations seeking to win a battle.  These personalities are often corrosive and divisive.  Any attempt to engage a troll feeds the attention they seek even if the resulting conversation displays their foolishness.  They cannot be defeated, but they can be ignored.
+Trolls, in the context of online personas, are people who engage in conversations seeking to destroy or suppress an opposing point of view or harass people.  These personalities are often corrosive and divisive.  Any attempt to engage a troll feeds the attention they seek even if the resulting conversation displays their foolishness.  They cannot be defeated, but they can be ignored.  Any attempt to challenge a troll validates their behavior and enables additional toxic behaviors.
 
 ## Table of Contents
 
@@ -31,7 +31,7 @@ Please say this out loud: **A conversation is not a contest!**
 If a person enters a conversation with a goal to win as though there is a contest or battle the person is a troll.  Simply do not engage this person.  They will do everything to provoke a fight.  They only lose if you do not give them the fight they seek.  You on the other hand can only lose or walk away.  Engaging this form of troll often dissolves the conversation into a toxic holy war, which is a conversation whose participants will fight exhaustively over an excruciatingly trivial subject.
 
 ### Distraction
-Sometimes a person will intentionally seek to distract you away from the conversation at hand.  This is called [baiting](#baiting).  This typically occurs when a challenging opinion is contributed to somebody in disagreement who doesn't have a valid or credible response but still wishes to *win* the conversation.
+Sometimes a person will intentionally seek to distract you away from the conversation at hand.  This is called [baiting](#baiting).  This typically occurs when a challenging opinion is contributed to somebody in disagreement who doesn't have a valid or credible response but still wishes to *win*, *distract*, or *terminate* the conversation.  Any attempt to suppress or discredit an opposing point of view might be trolling.
 
 ### Tag Team
 Sometimes trolling is a team action.  Misery loves company and in the case of apparent insecurity it will band together into teams of trolls who feel compelled to not just *win a conversation* but permanently banish an enemy challenger.  Conversations don't have enemies or winners/losers.  When this kind of toxic community is encountered kindly take their punishment respectfully or simply leave.  A toxic community will not make you wiser or happier but may certainly make you more depressed or less respectful.  See [echo chamber](#echo-chamber) for more details.
@@ -138,7 +138,7 @@ Simply take the punishment as devout act of humility, but **absolutely do not un
 An echo chamber is a form of moderation where the participants aren't likely moderators but feel the need to police conversations using trolling techniques in a team capacity.  Any rebuttal will feed the negativity and ignorance of persons intentionally trolling and may turn unintentional trolls into intentional trolls.
 
 #### Worst Course of Action
-Engaging the trolls is a bad mistake, but in this case isn't the worst thing either.  The worst course of action to is to cave to the group pressure and affirm their toxic values.  Instead remain forever polite and stand affirm with your opinion and humbly accept the group punishment that results.
+Engaging the trolls is a bad mistake, but in this case isn't the worst thing either.  The worst course of action to is to cave to the group pressure and affirm their toxic values.  Instead remain forever polite, stand affirm with your opinion, and humbly accept the group punishment that results.
 
 ---
 
