@@ -7,14 +7,14 @@ Trolls, in the context of online personas, are people who engage in conversation
 1. [Not Trolls](#not-trolls)
 1. [Avoid Becoming a Troll](#avoid-becoming-a-troll)
 1. [Types of Trolling Behaviors](#types-of-trolling-behaviors)
-  1. [Ad Hominem](#ad-hominem)
-  1. [Baiting](#baiting)
-  1. [Citation Baiting](#citation-baiting)
-  1. [Echo Chamber](#echo-chamber)
-  1. [Narcissistic Supply](#narcissistic-supply)
-  1. [Social Justice Warrior](#social-justice-warrior)
-  1. [Spamming](#spamming)
-  1. [Stalking](#stalking)
+   1. [Ad Hominem](#ad-hominem)
+   1. [Baiting](#baiting)
+   1. [Citation Baiting](#citation-baiting)
+   1. [Echo Chamber](#echo-chamber)
+   1. [Narcissistic Supply](#narcissistic-supply)
+   1. [Social Justice Warrior](#social-justice-warrior)
+   1. [Spamming](#spamming)
+   1. [Stalking](#stalking)
 
 ## Identifying Trolls
 Please say this out loud: **A conversation is not a contest!**
