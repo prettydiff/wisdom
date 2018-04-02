@@ -10,7 +10,7 @@ Trolls, in the context of online personas, are people who engage in conversation
    1. [Voting and Popularity](#voting-and-popularity)
 1. [Not Trolls](#not-trolls)
    1. [Troll Named](#troll-named)
-   1. [Sadness](#sadness)
+   1. [Causing Sadness](#causing-sadness)
    1. [Ignorance](#ignorance)
    1. [Tough Questions](#tough-questions)
 1. [Avoid Becoming a Troll](#avoid-becoming-a-troll)
@@ -37,17 +37,25 @@ Sometimes a person will intentionally seek to distract you away from the convers
 Sometimes trolling is a team action.  Misery loves company and in the case of apparent insecurity it will band together into teams of trolls who feel compelled to not just *win a conversation* but permanently banish an enemy challenger.  Conversations don't have enemies or winners/losers.  When this kind of toxic community is encountered kindly take their punishment respectfully or simply leave.  A toxic community will not make you wiser or happier but may certainly make you more depressed or less respectful.  See [echo chamber](#echo-chamber) for more details.
 
 ### Voting and Popularity
-Some communities, for example [Reddit](http://reddit.com/), all voting the result of that voting is immediately available to everybody.  Opinions aren't more or less valid because the community votes in a particular way.  This form of consensus authority quickly produces [echo chambers](#echo-chambers), which comprise a group of like-minded individuals acting in a team capacity to moderate the content of an opinion.  An opinion isn't more correct merely because it receives more *up votes* than another opinion.  Likewise, an opinion isn't necessarily more wrong merely because it receives down votes or is negatively scored.
+Some communities, for example [Reddit](http://reddit.com/), allow voting.  The result of that voting is immediately available to everybody.  Opinions aren't more or less valid because the community votes in a particular way.  This form of consensus authority quickly produces [echo chambers](#echo-chambers), which comprise a group of like-minded individuals acting in a team capacity to moderate the content of an opinion.  An opinion isn't more correct merely because it receives more *up votes* than another opinion.  Likewise, an opinion isn't necessarily more wrong merely because it receives down votes or is negatively scored.
 
-A lack of popularity certainly **is not** trolling, but an attacking or competitive person will use any evidence of supremacy at their disposal to qualify winning or losing.  Remember, **a conversation is not a contest**.  Identifying a person, or opinion, as trolling is an attack on a person's character, which is a form of [ad hominem](#ad-hominem) trolling.  This is particularly true if such an attack is used to turn a conversation into a contest.
+Say this out loud: **A conversation is not a contest!**.
 
-In the end if you aren't seeking to become challenged, wiser, or respectful to the people around you then you are likely a troll.  If you are easily offended or exceedingly defensive you are likely a troll.  If a conversation is a contest or ever feel that a good offense makes for a strong defense you are a troll.  If you believe team participation or any form of popularity validates an opinion you are a troll.
+A lack of popularity certainly **is not** trolling, but an attacking or competitive person will use any evidence of supremacy at their disposal to qualify winning or losing.  Remember, **a conversation is not a contest**.  Identifying a person, or opinion, as trolling is an attack on a person's character, which is a form of [ad hominem](#ad-hominem) attack.  This is particularly true if such an attack is used to turn a conversation into a battle.
+
+---
+
+In the end if you aren't seeking to become challenged, wiser, or respectful to the people around you then you are likely a troll.  If you are easily offended or exceedingly defensive you are likely a troll.  If a conversation is a contest or ever feel that a good offense makes for a strong defense you are a troll.  If your behavior reflects team participation or indicates any form of popularity as validation of any opinion you are a troll.
+
+Don't become a troll.
+
+---
 
 ## Not Trolls
 ### Troll Named
 Sometimes people are falsely accused of being trolls.  When a person provides a challenging response in conversation that challenges the status quo of value concession of the group that person may be falsely labeled a troll.  When a person or group is made to feel little or insecure the offending individual isn't necessarily trolling simply because the offended person(s) are challenged.  Trolling is only present when there is an attack or intentionally negative behavior.
 
-### Sadness
+### Causing Sadness
 Some people are easily offended.  For example the mere mention of topics like *net neutrality*, *white supremacy*, or *global warming* is enough to incite bitter emotion in people.  When a person engages in a conversation directly without any intention of attack of distraction they aren't trolling simply because you became emotional.  More directly, **your sadness is not my problem**.  A person's fragile emotional state is not evidence of trolling.
 
 If you, in your deep state of sadness and offense, respond to a person with an attack or seek to distract the person from the conversation at hand then you are a troll.  People are allowed to disagree with you no matter how sad you become.  Again, **your sadness is not my problem**.
@@ -62,16 +70,20 @@ A person certainly isn't a troll for asking challenging questions.  Merely becau
 
 A person's behavior dictates whether or not they are a troll opposed to the content of their opinion.
 
+---
+
 ## Avoid Becoming a Troll
 When a user engages the negativity of a troll the troll wins.  The troll achieves desired attention, even if negative.  Do not allow a troll to bring you down to their level.  Always maintain the moral high ground, which is most often achieved by simply ignoring the troll or abandoning a conversation that has turned toxic.
 
-Avoid calling out a person as a troll.  This is, even when well intended with evidence, a form of ad hominem attack.  Negatively labeling people, even if warranted by their negative conduct, is itself a form of trolling.
+Avoid calling out a person as a troll.  This is, even when well intended with evidence, a form of ad hominem attack.  Attacking people in any way, such as labeling people (even if warranted by their negative conduct), is itself a form of trolling.  Don't attack people.
 
-When trolling becomes clear the best action is to walk away.  Sometimes trolling behavior isn't immediately clear.  In the case where trolling is hard to identify the best response is a one word answer.  The following response is typically enough to identify the other person's motives.
+When trolling becomes clear the best action is to walk away.  Sometimes trolling behavior isn't immediately clear.  In the case where trolling is hard to identify the best response is a **one word answer**.  The response is to a one word answer is typically enough to identify the other person's motives.  As an example when a person asks you to present evidence that you do not have simply respond with: "*No.*".  Do not elaborate in any way.
 
 **Always be polite and respectful**, even if you are being attacked my multiple people.  The goal of a troll is to shatter your humility and self-confidence so as to attain the attention they crave.  Simply do not give into the pressure by always maintain a respectful and polite tone.
 
 Perhaps the most challenging aspect for a well intended online citizen is to avoid baiting.  Always be vigilant and watchful that a response to a conversation is a form of distraction.  **Always keep within the field of the current conversation.**  Never respond to somebody seeking to distract you from the conversation and don't allow yourself to become distracted.
+
+---
 
 ## Types of Trolling Behaviors
 ### Ad Hominem
@@ -126,7 +138,7 @@ Simply take the punishment as devout act of humility, but **absolutely do not un
 An echo chamber is a form of moderation where the participants aren't likely moderators but feel the need to police conversations using trolling techniques in a team capacity.  Any rebuttal will feed the negativity and ignorance of persons intentionally trolling and may turn unintentional trolls into intentional trolls.
 
 #### Worst Course of Action
-Engaging the trolls is a bad mistake, but in this isn't the worst thing to do either.  The worst course of action to is to cave to the group pressure and affirm their toxic values.
+Engaging the trolls is a bad mistake, but in this case isn't the worst thing either.  The worst course of action to is to cave to the group pressure and affirm their toxic values.  Instead remain forever polite and stand affirm with your opinion and humbly accept the group punishment that results.
 
 ---
 
