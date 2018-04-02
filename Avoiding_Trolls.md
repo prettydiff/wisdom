@@ -4,7 +4,15 @@ Trolls, in the context of online personas, are people who engage in conversation
 ## Table of Contents
 
 1. [Identifying Trolls](#identifying-trolls)
+   1. [Contests](#contests)
+   1. [Distraction](#distraction)
+   1. [Tag Team](#tag-team)
+   1. [Voting and Popularity](#voting-and-popularity)
 1. [Not Trolls](#not-trolls)
+   1. [Troll Named](#troll-named)
+   1. [Sadness](#sadness)
+   1. [Ignorance](#ignorance)
+   1. [Tough Questions](#tough-questions)
 1. [Avoid Becoming a Troll](#avoid-becoming-a-troll)
 1. [Types of Trolling Behaviors](#types-of-trolling-behaviors)
    1. [Ad Hominem](#ad-hominem)
@@ -17,24 +25,42 @@ Trolls, in the context of online personas, are people who engage in conversation
    1. [Stalking](#stalking)
 
 ## Identifying Trolls
+### Contests
 Please say this out loud: **A conversation is not a contest!**
 
 If a person enters a conversation with a goal to win as though there is a contest or battle the person is a troll.  Simply do not engage this person.  They will do everything to provoke a fight.  They only lose if you do not give them the fight they seek.  You on the other hand can only lose or walk away.  Engaging this form of troll often dissolves the conversation into a toxic holy war, which is a conversation whose participants will fight exhaustively over an excruciatingly trivial subject.
 
+### Distraction
 Sometimes a person will intentionally seek to distract you away from the conversation at hand.  This is called [baiting](#baiting).  This typically occurs when a challenging opinion is contributed to somebody in disagreement who doesn't have a valid or credible response but still wishes to *win* the conversation.
 
+### Tag Team
 Sometimes trolling is a team action.  Misery loves company and in the case of apparent insecurity it will band together into teams of trolls who feel compelled to not just *win a conversation* but permanently banish an enemy challenger.  Conversations don't have enemies or winners/losers.  When this kind of toxic community is encountered kindly take their punishment respectfully or simply leave.  A toxic community will not make you wiser or happier but may certainly make you more depressed or less respectful.  See [echo chamber](#echo-chamber) for more details.
 
-In the end if you aren't seeking to become challenged, wiser, or respectful to the people around you then you are likely a troll.  If you are easily offended or defensive you are likely a troll.  If a conversation is a contest or ever feel that a good offense makes for a strong defense you are a troll.  If you believe team participation validates an opinion you are a troll.
+### Voting and Popularity
+Some communities, for example [Reddit](http://reddit.com/), all voting the result of that voting is immediately available to everybody.  Opinions aren't more or less valid because the community votes in a particular way.  This form of consensus authority quickly produces [echo chambers](#echo-chambers), which comprise a group of like-minded individuals acting in a team capacity to moderate the content of an opinion.  An opinion isn't more correct merely because it receives more *up votes* than another opinion.  Likewise, an opinion isn't necessarily more wrong merely because it receives down votes or is negatively scored.
+
+A lack of popularity certainly **is not** trolling, but an attacking or competitive person will use any evidence of supremacy at their disposal to qualify winning or losing.  Remember, **a conversation is not a contest**.  Identifying a person, or opinion, as trolling is an attack on a person's character, which is a form of [ad hominem](#ad-hominem) trolling.  This is particularly true if such an attack is used to turn a conversation into a contest.
+
+In the end if you aren't seeking to become challenged, wiser, or respectful to the people around you then you are likely a troll.  If you are easily offended or exceedingly defensive you are likely a troll.  If a conversation is a contest or ever feel that a good offense makes for a strong defense you are a troll.  If you believe team participation or any form of popularity validates an opinion you are a troll.
 
 ## Not Trolls
+### Troll Named
 Sometimes people are falsely accused of being trolls.  When a person provides a challenging response in conversation that challenges the status quo of value concession of the group that person may be falsely labeled a troll.  When a person or group is made to feel little or insecure the offending individual isn't necessarily trolling simply because the offended person(s) are challenged.  Trolling is only present when there is an attack or intentionally negative behavior.
 
-Some people are easily offended.  For example the mere mention of topics like *net neutrality*, *white supremacy*, or *global warming* is enough to incite bitter emotion in people.  When a person engages in a conversation directly without any intention of attack of distraction they aren't trolling simply because you became emotional.
+### Sadness
+Some people are easily offended.  For example the mere mention of topics like *net neutrality*, *white supremacy*, or *global warming* is enough to incite bitter emotion in people.  When a person engages in a conversation directly without any intention of attack of distraction they aren't trolling simply because you became emotional.  More directly, **your sadness is not my problem**.  A person's fragile emotional state is not evidence of trolling.
 
-A person with a poor understand of a conversations subject or material isn't trolling if they make a false point out of ignorance.  It is possible they simply didn't know.  Kindly educate the individual with links to educational material.  It is up to that individual if they choose to accept or consume the contents of that material.  A person certainly isn't a troll for asking challenging questions.
+If you, in your deep state of sadness and offense, respond to a person with an attack or seek to distract the person from the conversation at hand then you are a troll.  People are allowed to disagree with you no matter how sad you become.  Again, **your sadness is not my problem**.
 
-A person with a different opinion on a contested subject isn't a troll.  Their behavior will dictate whether or not they are a troll opposed to the content of their opinion.
+### Ignorance
+A person with a poor understanding of a conversation's subject or material isn't trolling if they make a false point out of ignorance.  It is possible they simply didn't know.  Kindly and politely provide the individual with links to educational material.  It is up to that individual if they choose to accept or consume the contents of that material.  Even after educational material is offered the other person may still remain ignorant of have a differing opinion, which is perfectly fine.
+
+When you attempt to police the opinions of other people or force opinions upon people you become the troll.  If a difference of opinion, no matter how ignorant or uninformed, results in an attack from you then you are a troll.  **People are allowed to disagree with you.**
+
+### Tough Questions
+A person certainly isn't a troll for asking challenging questions.  Merely because a question destroys the fragility of your deeply held opinion does not mean a person is trolling.  [John Stuart Mill](http://www.bartleby.com/130/2.html) once said truth is the result of a collision of opposing points of view.  If you are incapable of accepting this without attacks or distraction you are a troll.
+
+A person's behavior dictates whether or not they are a troll opposed to the content of their opinion.
 
 ## Avoid Becoming a Troll
 When a user engages the negativity of a troll the troll wins.  The troll achieves desired attention, even if negative.  Do not allow a troll to bring you down to their level.  Always maintain the moral high ground, which is most often achieved by simply ignoring the troll or abandoning a conversation that has turned toxic.
