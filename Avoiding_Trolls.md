@@ -9,7 +9,7 @@ Trolls, in the context of online personas, are people who engage in conversation
    1. [Tag Team](#tag-team)
    1. [Voting and Popularity](#voting-and-popularity)
 1. [Not Trolls](#not-trolls)
-   1. [Troll Named](#troll-named)
+   1. [Challenging People](#challenging-people)
    1. [Causing Sadness](#causing-sadness)
    1. [Ignorance](#ignorance)
    1. [Tough Questions](#tough-questions)
@@ -23,6 +23,7 @@ Trolls, in the context of online personas, are people who engage in conversation
    1. [Social Justice Warrior](#social-justice-warrior)
    1. [Spamming](#spamming)
    1. [Stalking](#stalking)
+   1. [Troll Hunter](#troll-hunter)
 
 ## Identifying Trolls
 ### Contests
@@ -52,11 +53,11 @@ Don't become a troll.
 ---
 
 ## Not Trolls
-### Troll Named
-Sometimes people are falsely accused of being trolls.  When a person provides a challenging response in conversation that challenges the status quo of value concession of the group that person may be falsely labeled a troll.  When a person or group is made to feel little or insecure the offending individual isn't necessarily trolling simply because the offended person(s) are challenged.  Trolling is only present when there is an attack or intentionally negative behavior.
+### Challenging People
+People who provide challenging opinions are not trolling so long as they are not deviating from the conversation at hand.  There are some people whose only goal is to attain emotional harmony.  When a challenging opinion is encountered it is easy for some people to view this disruption to the social norm as trolling, when it likely isn't.  **A person isn't doing anything wrong for having a difference of opinion.**  If any stated opinion alters your emotional state or provokes you to retaliate you should ignore that opinion.  If you do retaliate then you are likely the troll.  See the next section on *Causing Sadness* for more information.
 
 ### Causing Sadness
-Some people are easily offended.  For example the mere mention of topics like *net neutrality*, *white supremacy*, or *global warming* is enough to incite bitter emotion in people.  When a person engages in a conversation directly without any intention of attack of distraction they aren't trolling simply because you became emotional.  More directly, **your sadness is not my problem**.  A person's fragile emotional state is not evidence of trolling.
+Some people are easily offended.  For example the mere mention of topics like *net neutrality*, *white supremacy*, or *global warming* is enough to incite bitter emotion in people.  When a person engages in a conversation directly without distraction they aren't trolling simply because you became emotional.  A person's fragile emotional state is not evidence of trolling.  More directly, **your sadness is not my problem**.
 
 If you, in your deep state of sadness and offense, respond to a person with an attack or seek to distract the person from the conversation at hand then you are a troll.  People are allowed to disagree with you no matter how sad you become.  Again, **your sadness is not my problem**.
 
@@ -185,3 +186,14 @@ Stalking behavior is usually an escalated response from an aggressively determin
 
 #### Worst Course of Action
 **Any response at all.**  The goal is to aggressively illicit your feedback.  Do not give in.  Continue to ignore them at all costs.  If you do crack and respond to the troll they will continue to troll you because they know they can get to you.
+
+---
+
+### Troll Hunter
+A troll hunter is somebody who seeks to do battle by calling other people trolls.  This is a specific form of [ad hominem](#ad-hominem) attack that exists for a variety of motivations.  The most common motivation is to police content instead of behavior, much like an echo chamber.  The person demonstrating this behavior could simply be uninformed as to what a troll actually is or could be picking a fight.  It could be that their attack of somebody by the description of troll is entirely valid, but it is still an attack upon a person's character.
+
+#### Best Course of Action
+Respond with a link to this document only and terminate all future communication.  The aggressor will likely continue their attacks in an attempt to provoke further responses.  Do not provide any further response.
+
+#### Worst Course of Action
+**Any other response.**  Any defense or justification of your position can either be used ammunition for further attacks or can be easily flipped to make you look like the attacker.  Either way they have already beaten you.
