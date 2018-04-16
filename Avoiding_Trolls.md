@@ -24,6 +24,7 @@ Trolls, in the context of online personas, are people who engage in conversation
    1. [Spamming](#spamming)
    1. [Stalking](#stalking)
    1. [Troll Hunter](#troll-hunter)
+1. [Possible Motivations](#possible-motivations)
 
 ## Identifying Trolls
 ### Contests
@@ -197,3 +198,56 @@ Respond with a link to this document only and terminate all future communication
 
 #### Worst Course of Action
 **Any other response.**  Any defense or justification of your position can either be used ammunition for further attacks or can be easily flipped to make you look like the attacker.  Either way they have already beaten you.
+
+---
+
+## Potential Motivations
+This following list are some personalities to look out for so that you can identify behaviors to avoid and ignore.
+
+### Arrogance and Entitlement
+Some people will believe themselves superior to you and your opinions.  This behavior is most often benign in the form of avoidance or disregard, but can turn into a hostile attack.  Either way a conversation with somebody who has no value for your opinion is a wasted endeavor.
+
+Sometimes this behavior can be manifest upon third parties in a form of argumentation called *appeal to authority*, which is a logical fallacy that says an argument must be more correct if claimed by somebody claimed as an authority figure.  Since a conversation isn't a contest appeals to authority are people just spinning their wheels when they are emotionally invested in a conversation's position but are incapable of providing an otherwise qualified response.  Appeals to authority should be ignored for the baseless hot air that they are.
+
+### Community Vandalism
+This is the deliberate act of directly seeking to harming a community or conversation trough disruptive behavior, such as flooding or spamming.
+
+### Competition
+Some people view conversations as a form of competition.  This is actually a very common adolescent behavior that most people grow out of.  When a conversation becomes a competition instead of a truth seeking examination the result is a circular spiral of degrading stupidity.  The difference between a conversation and a competition is that a competition has winners and losers while the exchanges in a conversation are potential moments of learning or persuasion for all parties.
+
+### Complaining
+In some cases complaining, when properly elaborated upon, can enhance a conversation without distracting from the conversation's subject.  Many times though complaining is a shallow form of dismissive behavior, sometimes exercised as troll baiting.  Other names for this behavior are *bitching* and *crying*.  If commentary in this manner is not described thoroughly enough to try to move a conversation forward it should be immediately ignored as *hurt feelings*.
+
+### Emotional Sponges
+Some people thrive on sympathy, victimization, and generalized negativity of non-present third parties.  These are people for whom negative emotion about external factors is always the primary subject of every conversation.  Generally these people are just an annoyance, but they can easily derail an entire conversation.
+
+Common examples includes conversations about any form of new technology and that guy in the corner that always brings up the book *1984*, no matter how irrelevant, or a person that always has to make some abstract subject completely about themselves.  Sometimes this behavior is present because a person is supremely lonely and their loneliness is unintentionally present in their online behavior.  Online interaction is only a placebo as doesn't cure loneliness.
+
+Bear in mind that emotional sponges are vaguely on topic and their behavior is mostly unintentional.  Once their behavior becomes intentional or decisively political they have graduated to [social justice warriors](#social-justice-warriors).
+
+### Fanaticism
+Some people have a devout unshifting religious-like faith in a given subject reinforced with deep amounts of emotion and possibly a closed social reference group.  Any attempt to discuss a fanatic's position with a counter-claim is met with war.  A true fanatic is a fairly equal mix of *hurt feelings* and *competition*.
+
+### Fear and Anxiety
+Some people have trouble managing real world stresses in a healthy way that may manifest in their online personas.  There are all manner of mental health disorders that can be at cause for this.  Sometimes online conversations dive into subjects that suggest change in the real world or introduce subjects of great emotional insecurity to some people.
+
+A common example of such conversations is elections of national leaders in many nations.  Fear is contagious and is likely the primary factor in the formation of echo chambers.  Fear of change is also the primary reason why rational conversations about climate change often degrade into emotional foolishness, this applies equally to people of any opinion on that subject.
+
+Another common example of fear is a response in a conversation serving as a deliberate warning directed against an opinion opposed to warning against a specified behavior.  These sorts of fear are often linked to *appeals to authority* and *fanatiscm*.  Everybody is entitled to their opinions and may express such opinions in ways that do not violate the behavioral rules of the given community.
+
+### Hurt Feelings
+When people get emotional they get irrational. Some forms of trolling aren't immediately obvious (as they could be perceived as stupidity or a savage curiosity) and may trigger retaliation thereby turning a good online citizen into a troll.  Perhaps the best way to avoid trolls is to not become one yourself by ensuring you are not an easy target.
+
+### Intimidation
+Some people like to exercise their authority just for the sake of having some authority to exercise.  In this case forced dominance is the goal without any regard for the content of the subject at hand.  Consider these people *online parents*, except the children they are attempting to parent are not theirs to monitor and their behavior is more of an asshole than a loving parent figure.
+
+### Narcissism
+Some people are all about themselves, but they may manifest their self-importance in various different ways.  Some people attempt to cultivate a cult-like following through charisma while others may attempt to force their opinion on others with every means available like a blunt hammer.
+
+A true narcissist won't hesitate to lie and cheat to get what they want and view altruism as a pathetic weakness ripe for their manipulation.  A common name for these sorts of people are called *sociopaths*.
+
+### No Impulse Control
+Some people are so easily baited into becoming trolls, because they immediately respond without any consideration for the consequences of their words.  While somebody may say something obviously stupid online there is no reason it worthy of a response from anybody.  Let stupid be.
+
+### Weak Sense of Humor
+Sometimes a person may have a poorly developed sense of humor that does not align with that of the larger group resulting in misunderstood behaviors.  Sometimes underdeveloped humor can be related to culture misunderstanding, mental health disorders, or immaturity.  One person's joke can be another person's attack or excessive annoyance.
