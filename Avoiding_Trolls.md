@@ -3,19 +3,19 @@ Trolls, in the context of online personas, are people who engage in conversation
 
 ## Table of Contents
 
-1. [Identifying Trolls](#identifying-trolls)
+* [Identifying Trolls](#identifying-trolls)
    1. [Contests](#contests)
    1. [Distraction](#distraction)
    1. [Tag Team](#tag-team)
    1. [Voting and Popularity](#voting-and-popularity)
-1. [Not Trolls](#not-trolls)
+* [Not Trolls](#not-trolls)
    1. [Challenging People](#challenging-people)
    1. [Causing Sadness](#causing-sadness)
    1. [Ignorance](#ignorance)
    1. [Stupidity](#stupidity)
    1. [Tough Questions](#tough-questions)
-1. [Avoid Becoming a Troll](#avoid-becoming-a-troll)
-1. [Types of Trolling Behaviors](#types-of-trolling-behaviors)
+* [Avoid Becoming a Troll](#avoid-becoming-a-troll)
+* [Types of Trolling Behaviors](#types-of-trolling-behaviors)
    1. [Ad Hominem](#ad-hominem)
    1. [Baiting](#baiting)
    1. [Citation Baiting](#citation-baiting)
@@ -25,7 +25,20 @@ Trolls, in the context of online personas, are people who engage in conversation
    1. [Spamming](#spamming)
    1. [Stalking](#stalking)
    1. [Troll Hunter](#troll-hunter)
-1. [Possible Motivations](#possible-motivations)
+* [Potential Motivations](#potential-motivations)
+   1. [Arrogance and Entitlement](#arrogance-and-entitlement)
+   1. [Community Vandalism](#community-vandalism)
+   1. [Competition](#competition)
+   1. [Complaining](#complaining)
+   1. [Emotional Sponges](#emotional-sponges)
+   1. [Fanaticism](#fanaticism)
+   1. [Fear and Anxiety](#fear-and-anxiety)
+   1. [Hurt Feelings](#hurt-feelings)
+   1. [Intimidation](#intimidation)
+   1. [Narcissism](#narcissism)
+   1. [No Impulse Control](#no-impulse-control)
+   1. [Rumors and Gossip](#rumors-and-gossip)
+   1. [Weak Sense of Humor](#weak-sense-of-humor)
 
 ## Identifying Trolls
 ### Contests
@@ -65,6 +78,10 @@ If you, in your deep state of sadness and offense, respond to a person with an a
 
 ### Ignorance
 A person with a poor understanding of a conversation's subject or material isn't trolling if they make a false point out of ignorance.  It is possible they simply didn't know.  Kindly and politely provide the individual with links to educational material.  It is up to that individual if they choose to accept or consume the contents of that material.  Even after educational material is offered the other person may still remain ignorant of have a differing opinion, which is perfectly fine.
+
+The most negative quality associated with ignorance is the associated second and third order consequences.  Faulty conclusions drawn from the absence of appropriate evidence can sometimes take on a life of their own that results in new conversations and wild tangents, but these new wonderful thought experiments are sweet fruit of a poisonous tree.  
+
+Even after this ignorance is clearly demonstrated in a conversation that has long since gone off track people may not choose to deviate from a the preferred ignorant path.  It is acceptable to kindly demonstrate the ignorance by presented strong evidence, but it is not acceptable to force a correction of police the conversation.
 
 When you attempt to police the opinions of other people or force opinions upon people you become the troll.  If a difference of opinion, no matter how ignorant or uninformed, results in an attack from you then you are a troll.  **People are allowed to disagree with you.**
 
@@ -268,6 +285,9 @@ A true narcissist won't hesitate to lie and cheat to get what they want and view
 
 ### No Impulse Control
 Some people are so easily baited into becoming trolls, because they immediately respond without any consideration for the consequences of their words.  While somebody may say something obviously stupid online there is no reason it worthy of a response from anybody.  Let stupid be.
+
+### Rumors and Gossip
+Some people find enjoyment from discussing commentary about other people.  That enjoyment is achieved from the act of conversing and not from the substance of the conversation.  That said the quality, accuracy, and validity of the subject matter is often irrelevant.  The most relevant quality is immediate gratification which is primarily achieved by passing along unoriginal thoughts or simply exaggerating a benign circumstance thereby resulting in toxic attacks of third parties.
 
 ### Weak Sense of Humor
 Sometimes a person may have a poorly developed sense of humor that does not align with that of the larger group resulting in misunderstood behaviors.  Sometimes underdeveloped humor can be related to culture misunderstanding, mental health disorders, or immaturity.  One person's joke can be another person's attack or excessive annoyance.
