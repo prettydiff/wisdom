@@ -152,7 +152,9 @@ Same as above for ad hominem attack.
 ### Citation Baiting
 When a conversation decays into something political a person may challenge you for evidence or a citation.  Sometimes this makes sense and elevates the conversation into greater depth and precision.  Often, though, the request for evidence occurs because a person is lazy and either cannot find the energy to do their own research or because they are using a clever form of [troll baiting](#baiting).
 
-There are some cases a request for evidence can arise that simply don't make any sense.  Questions or challenge to asserted theories do not ever require evidence.  This bad faith request is sometimes called [sea lioning](https://en.wikipedia.org/wiki/Sea_lioning).  Sometimes this toxic behavior is intentional and other times the requestor is simply too ignorant to understand the difference.
+There are some cases a request for evidence can arise that simply don't make any sense.  Questions or challenge to asserted theories do not ever require evidence.  This bad faith request is called [sea lioning](https://en.wikipedia.org/wiki/Sea_lioning).  Sometimes this toxic behavior is intentional and other times the requestor is simply too ignorant to understand the difference.
+
+A common example of unintentional citation baiting is a rhetorical question begging clarification.  If a person were sincerely asking for additional information their question would clearly reflect this.  Sometimes people will ask a question without any desire for the question to be answered in a manner they might incorrectly perceive as Socratic dialogue.  All such questions are trolling hoping for you to defensively perform research they should have performed themselves.  Answer all such questions with *I don't know* and immediately abandon the conversation.
 
 #### Best Course of Action
 If you already have the requested evidence at hand, immediately know where to find it, or are simply curious yourself then be a kind and helpful person by quickly presenting the requested evidence.
