@@ -4,7 +4,9 @@ Many of the other documents in this repository are focused on how to become a be
 At the time of this writing I have been developing web technologies for nearly 20 years.  In this time I have encountered many bad developers or people advocating very bad practices.  The most unfortunate part of this is that the underlying behaviors and motivations comprise a few commonly repeated categories and all of this bad behavior can be easily avoided.
 
 ## Summary (skippin to the end)
-To be a great developer be honest with yourself in motivation and purpose then dominate the skill with aggressive practice.  **There is no such thing as technology failure.  There are only natural disasters and bad human decisions.**
+To be a great developer be honest with yourself in motivation and purpose, and then dominate the skill with aggressive practice.
+
+**There is no such thing as technology failure.  There are only natural disasters and bad human decisions.**
 
 ## Faulty Purpose
 Disdain is by far the most common failure I have encountered as a web developer.  Advanced formal training of web technologies is rare.
@@ -29,7 +31,7 @@ In both of the prior described scenarios developers are performing work they are
 These behaviors present severe second and third order effects.  Essentially these behaviors produce distrust and bias that negatively impact success metrics, product quality, and speed of action.  Worse still is that such behaviors will result in an inferior product and degrade the interpersonal work environment.
 
 ### Solving the Contempt Problem
-Fortunately, these problems can be solved through strong leadership.  Provide mentorship and quick resolution when a developer writes bad code.  I have seen the most drastic adjustments in the behaviors of established developers by simply providing a quick bit of assitance and education around a small piece of code.  Politely, directly, and immediately correct a developer when they speak unqualified commentary with regards to either superiority or inferiority.  These sorts of comments tend to come from deeper unspoken beliefs, but a firm rebuttal that such opinions aren't acceptable may cause a person to rethink their commentary before the negativity can inspire other people.
+Fortunately, these problems can be solved through strong leadership.  Provide mentorship and quick resolution when a developer writes bad code.  I have seen the most drastic adjustments in the behaviors of established developers by simply providing a quick bit of assistance and education around a small piece of code.  Politely, directly, and immediately correct a developer when they speak unqualified commentary with regards to either superiority or inferiority.  These sorts of comments tend to come from deeper unspoken beliefs, but a firm rebuttal that such opinions aren't acceptable may cause a person to rethink their commentary before the negativity can inspire other people.
 
 ## Over Reliance Upon Terminology
 I have encountered numerous developers who need explicit language to make sense of an abstract subject.  This behavior is observed when the human expressed written language becomes more important than the subject it describes.  Some examples may include named programming patterns, definitions of terms, or some forms of explicit instructions.
@@ -38,12 +40,12 @@ The problem is an inverse of *linguistic relativity*.  That is a fancy term that
 
 Good code speaks for itself.  Aside from brief comments and minor notes good code doesn't require explicit human written communication to be read and understood.  Code isn't written for human consumption, as in a novel.  Code is written to supply instructions to computers.  Code is abstract.  Writing code is a skill that requires practice to account for and reason upon the subject matter directly.
 
-There are many developers who are either incapable or unwilling to practice programming sufficiently to attain a solid grasp upon code directly.  These people are either new to the given skill or are simply bad developers.  Unfortunately the problem is a only solution to this problem is to speed long periods of time in practice solving hard problems.
+There are many developers who are either incapable or unwilling to practice programming sufficiently to attain a solid grasp upon code directly.  These people are either new to the given skill or are simply bad developers.  Unfortunately the only solution to this problem is to spend long periods of time in practice solving hard problems.
 
 ## Wishful Thinking
 Wishful thinking is a common problem with writing JavaScript, particularly among developers who have some prior experience or education writing unrelated code.  Wishful thinking is a cognitive bias that results between conflicts of desire and capability.
 
-The primary way wishful thinking manifests when Java developers immediately jump into JavaScript is perpections how the code is to be structured.  The syntax of both languages is very similar, which could lead a rational person to falsely consider that both languages are similar even if directly informed to the contrary.  The challenge is that learning a new language takes a lot of practice and a person cannot reasonably forget prior attained skills, which results in a form of selection bias in how a new language should be written.  These sorts of opinions are common and tend to be pervasive even in the face of conflicting evidence.
+The primary way wishful thinking manifests when Java developers immediately jump into JavaScript is perceptions on how the code is to be structured.  The syntax of both languages is very similar, which could lead a rational person to falsely consider that both languages are similar even if directly informed to the contrary.  The challenge is that learning a new language takes a lot of practice and a person cannot reasonably forget prior attained skills, which results in a form of selection bias in how a new language should be written.  These sorts of opinions are common and tend to be pervasive even in the face of conflicting evidence.
 
 Another form of wishful thinking is present when developers set falsly weak expectations and execute accordingly.  There is a common bias that web technologies are weaker, slower, easier, or less capable than other computing environments or languages, and thus deserves a lower level of consideration or effort contrary to any evidence.  As an example I frequently hear about how slow JavaScript is for a programming language, when the current evidence indicates JavaScript is several times faster than most programming languages and only a couple slower than the fastest langauges.
 
