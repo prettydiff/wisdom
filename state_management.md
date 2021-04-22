@@ -28,6 +28,7 @@ Recovery is the means of reading state artifacts from storage and applying this 
 
 
 ```typescript
+// https://github.com/prettydiff/share-file-systems/blob/06e7ae50e753e7f54867fdb571ab384be7815ab7/lib/typescript/environment.d.ts#L22-L38
 interface ui_data {
     audio: boolean;
     brotli: brotli;          // 0-13
@@ -45,6 +46,7 @@ interface ui_data {
     storage: string;
     zIndex: number;
 }
+// https://github.com/prettydiff/share-file-systems/blob/06e7ae50e753e7f54867fdb571ab384be7815ab7/lib/typescript/browser.d.ts#L149-L182
 interface modal {
     agent: string;
     agentType: agentType;
@@ -83,8 +85,20 @@ interface modal {
 
 That is the entirety of the state artifact for that application.
 
-The state data is updated on each user interaction by directly writing to that object.  There is one exception, file system modals.  In that case the state artifact is updated through a function, because this change requires multiple changes to a given modal.  The abstraction allows for specifying these changes once in the code.
+The state data is updated on each user interaction by directly writing to that object.  Here are some examples:
 
-The application runs a local service and stores the state artifact on the file system in a file named *configuration.json* via an XHR call to the local service.  This occurs frequently.  The slowest part of this process is actually writing files to disk.  The application addresses this by first writing to a randomly named file and then renaming that randomly named file to the correct *configuration.json* thereby overwriting the older data.  It is faster to rename a file than to write a new file, so this effort is used to prevent conflicts and race conditions that may arise from writing to disk too frequently.
+* Modal Deletion https://github.com/prettydiff/share-file-systems/blob/06e7ae50e753e7f54867fdb571ab384be7815ab7/lib/browser/modal.ts#L42-L43
+* Modal Movement https://github.com/prettydiff/share-file-systems/blob/06e7ae50e753e7f54867fdb571ab384be7815ab7/lib/browser/modal.ts#L686-L688
+* Modal Resize https://github.com/prettydiff/share-file-systems/blob/06e7ae50e753e7f54867fdb571ab384be7815ab7/lib/browser/modal.ts#L814-L816
+* Save TextPad Text https://github.com/prettydiff/share-file-systems/blob/06e7ae50e753e7f54867fdb571ab384be7815ab7/lib/browser/modal.ts#L1016-L1017
 
-The recovery process involves multiple steps.  When the page is requested from the local service the *configuration.json* file is read from disk as well as the page's HTML file and other stored data.  The contents of the configuration.json file, and some other data, are embedded into an HTML comment and injected into the bottom of the page HTML.  The local service responds with the HTML.  A JavaScript file executes automatically as the page is parsed into the browser and this JavaScript walks the DOM to find that comment and extracts the embedded data, which is then assigned to the state artifact data object over the default data structure.  Using the state data the JavaScript recreates each user interface artifact order to the parameters provided in the state artifact.
+In those examples state changes are assigned to the state artifact directly and then stored using the `network.settings` method.  This method issues an XHR to a local service with the state artifact which is then written to a file named *configuration.json*. This occurs frequently.  The slowest part of this process is actually writing files to disk.  The application addresses this by first writing to a randomly named file and then renaming that randomly named file to the correct *configuration.json* thereby overwriting the older data.  It is faster to rename a file than to write a new file, so this effort is used to prevent conflicts and race conditions that may arise from writing to disk too frequently.  This occurs in the application at: https://github.com/prettydiff/share-file-systems/blob/06e7ae50e753e7f54867fdb571ab384be7815ab7/lib/terminal/server/settings.ts
+
+The recovery process involves multiple steps.  When the page is requested from the local service the *configuration.json* file is read from disk as well as the page's HTML file and other stored data.  The contents of the configuration.json file, and some other data, are embedded into an HTML comment and injected into the bottom of the page HTML.  See: https://github.com/prettydiff/share-file-systems/blob/06e7ae50e753e7f54867fdb571ab384be7815ab7/lib/terminal/server/methodGET.ts#L75-L99
+
+The local service responds with the HTML.  A JavaScript file executes automatically as the page is parsed into the browser and this JavaScript walks the DOM to find that comment and extracts the embedded data, which is then assigned to the state artifact data object over the default data structure.  See: https://github.com/prettydiff/share-file-systems/blob/06e7ae50e753e7f54867fdb571ab384be7815ab7/lib/browser/localhost.ts#L232-L241
+
+Using the state data the JavaScript recreates each user interface artifact order to the parameters provided in the state artifact.  See: https://github.com/prettydiff/share-file-systems/blob/06e7ae50e753e7f54867fdb571ab384be7815ab7/lib/browser/localhost.ts#L471-L490
+
+## Conclusion
+State management is trivial easy.  Don't over think this.  This is something any developer easily can perform without a framework.
