@@ -101,4 +101,4 @@ The local service responds with the HTML.  A JavaScript file executes automatica
 Using the state data the JavaScript recreates each user interface artifact order to the parameters provided in the state artifact.  See: https://github.com/prettydiff/share-file-systems/blob/06e7ae50e753e7f54867fdb571ab384be7815ab7/lib/browser/localhost.ts#L471-L490
 
 ## Conclusion
-State management is trivial easy.  Don't over think this.  This is something any developer easily can perform without a framework.
+State management is trivial easy.  Don't over think this.  This is something any developer can easily perform without a framework.
