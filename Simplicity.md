@@ -1,4 +1,5 @@
 # Writing for Simplicity
+Simplicity means few in both expression and approach as well as in steps of a process or a relationship.  Simplification is the action of making fewer.  Neither of these terms suggest any degree of effort perhaps described as *easy*.
 
 ## Definitions
 * **simple** - *adjective*,
