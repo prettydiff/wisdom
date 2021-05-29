@@ -1,6 +1,9 @@
 # Juniors and Seniors
 This document is not specific to JavaScript, web development, or even software until specifically stated otherwise. The concepts and observations mentioned in this document apply to any profession.
 
+## TLDR;
+The difference between juniors and seniors is the direction from which a problem is solved. Juniors start at the self and move toward the goal. Seniors work in the opposite direction.
+
 ## Confidence
 Ultimately the difference between junior and senior practitioners of a given career comes down to a single word: [confidence](https://en.wikipedia.org/wiki/Confidence) which is merely trust in a given hypothesis or plan.  The term *confidence* must not be confused with [arrogance](https://en.wikipedia.org/wiki/Hubris), which is more or less externalized demands of [reciprocity](https://en.wikipedia.org/wiki/Reciprocity_(social_psychology)) as opposed to confidence which is frequently innately internalized and not communicated.
 
