@@ -63,13 +63,15 @@ Compare the junior work process to the work process of an experienced senior.
 1. The senior conducts tests.
 1. The senior delivers the work.
 
-In the case of the junior developer the work process starts at the self and moves away from the self toward the end state gradually with each step while the opposite occurs for the seasoned senior. The most likely explanation for the difference of behavior and process flow occurs due to confidence, or more specifically the experience to form hasty plans and better anticipate risk. That transformation from the junior process to the senior process occurs gradually as a form of maturity resulting from the slow increase of confidence. Although risk and planning may account for how the senior workflow differs it does not account for motivation.
+In the case of the junior developer the work process starts at the self and moves away from the self toward the end state gradually with each step while the opposite occurs for the seasoned senior. The most likely explanation for the difference of behavior and process flow occurs due to confidence, or more specifically the experience to form hasty plans and better anticipate risk. That transformation from the junior process to the senior process occurs gradually as a form of maturity resulting from the slow increase of confidence. Although risk and planning may account for how the senior workflow differs it does not account for motivation. For more details on this please see **Habit 2: Begin With the End In Mind** in [7 Habits of Highly Effective People by Stephen R. Covey](https://en.wikipedia.org/wiki/The_7_Habits_of_Highly_Effective_People#2_-_Begin_with_the_end_in_mind).
 
-## Flexibility
-High confidence and continuous planning allow practitioners increased flexibility to accomplish a work product. [Flexibility](https://en.wikipedia.org/wiki/Flexibility_(engineering)), which means adapt to change or navigate around challenges, most frequently suggests simultaneously forming and weighing multiple competing approaches to a problem, known as [redundancy](https://en.wikipedia.org/wiki/Redundancy_(engineering)). Should changes occur that invalidate a proposed execution plan a secondary execution plan already in place reduces lost time and effort. Flexibility becomes more readily achievable when a given work process accounts for planning as early as possible in the process.
+## Start from the End
+Starting from the end state allows for flexibility, extensibility, a reduction of time, and a reduction of resources.
 
-### Examples of Planning Processes that Prioritize Flexibility
+### Flexibility
+High confidence and continuous planning allow practitioners increased flexibility to accomplish a work product. [Flexibility](https://en.wikipedia.org/wiki/Flexibility_(engineering)), which means adapt to change or navigate around challenges, which most frequently suggests simultaneously forming and weighing multiple competing approaches to a problem, known as [redundancy](https://en.wikipedia.org/wiki/Redundancy_(engineering)). Should changes occur that invalidate a proposed execution plan a secondary execution plan already in place reduces lost time and effort.
 
+#### Examples of Planning Processes that Prioritize Flexibility
 * [Troop Leading Procedures](https://www.globalsecurity.org/military/library/report/call/call_97-14_ntcart2.htm)
 * [Military Decision Making Process](https://en.wikipedia.org/wiki/Military_Decision_Making_Process)
 * [Risk Analysis Process](https://www.pmi.org/learning/library/risk-analysis-project-management-7070)
@@ -78,8 +80,23 @@ High confidence and continuous planning allow practitioners increased flexibilit
 * [ISO 28000](https://en.wikipedia.org/wiki/ISO_28000)
 * [ISO 31000](https://en.wikipedia.org/wiki/ISO_31000)
 
+### Extensibility
+[Extensibility](https://en.wikipedia.org/wiki/Extensibility), also known as scale, allows for the ability to grow both in capabilities and requirements with minimal or no change in existing requirements, performance, or design. When starting from the perspective of familiarity or a favored tool extensibility becomes more challenging to accomplish as a design principle because the potential capabilities are locked to current knowledge as opposed to an open plan expecting future conflicts of goals, which is also referred to as [pidgeonholing](https://en.wikipedia.org/wiki/Pigeonhole_principle). To allow for maximum extensibility start from the end state and plan for extensibility from the beginning through a published open specifications that allows the connecting of unrelated pieces. In technology extensibility is frequently achieved through standards committees that provide conformance criteria, such as multiple vendors agreeing to produce identical cable designs for vendor interoperability, or through open data formats that allow data sharing without repackaging.
+
+### Time Reduction
+The estimated time to achieve a given effort requires a solid understanding of the requirements, risks, and operating environment. A weak plan, missing requirements, or poor understanding of the operating environment will result in estimation in accuracy. Starting from a position of familiarity or a favored tool may address the operating environment and will address some risks but it does not address all risks or business requirements. In order to account for all risks, and thus form a valid estimate, proper continuous planning cannot be avoided and must always consider the delivery requirements. Starting from the end substantially minimizes risks to planning by focusing on the delivery requirements first.
+
+### Resource Reduction
+When starting from a position of familiarity or a favored tool the minimum resources required to accomplish an end state are a factor of the resources required by the starting tools, which immediately invalidates any maximum resource requirements.
+
+> We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil. Yet we should not pass up our opportunities in that critical 3%
+>
+> [Donal Knuth, Structured programming with go to statements, 1974](https://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.103.6084)
+
+Through a detailed plan premature optimizations become performance enhancements that deviate from the plan. When starting work from a favored tool premature optimizations are any efforts that distract away from a tool's principle operating capabilities without regard for the business requirements or product delivery.
+
 ## Expert Beginner
-There exists a new concept of *expert beginners*. Junior developers, as exemplified above, prioritize their needs first and gradually work towards the problem. Think of expert beginners as highly seasoned juniors in that they demonstrate mastery of popular tools but they never reach process inversion and learn to work backwards from a problem to a solution. Expert beginners never develop the flexibility to solve tough problems outside their comfort area and remain confined to the capabilities of their favorite tool(s). The second order consequence to that missing flexibility demonstrates as a fear of originality.
+There exists a new concept of *expert beginners*. Junior developers, as exemplified above, prioritize their needs first and gradually work towards the problem. Think of expert beginners as highly seasoned juniors in that they demonstrate mastery of popular tools but they never reach process inversion and learn to work backwards from a problem . Expert beginners never develop the flexibility or planning capability to solve tough problems outside their comfort area and remain confined to the capabilities of their favorite tool(s). The second order consequence to those missing capabilities demonstrates as a fear of originality and innovation.
 
 ## Dependencies
 Perception of dependencies comprise a major differentiator between juniors and seniors. Seniors, due to their experience, offer a more balanced approach to the evaluation of dependencies, specifically whether to include some external tool or produce a new original tool. See this [video example](https://www.youtube.com/watch?v=0cTq0E7gZMA) where actor Tommy Lee Jones describes musician Marco Beltrami creating original musical instruments to achieve certain unique sounds for film scores.
