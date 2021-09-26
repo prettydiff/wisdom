@@ -3,6 +3,7 @@
 ## Introduction
 
 ### Preamble
+The provided code samples come from [Share File Systems](https://github.com/prettydiff/share-file-systems) and maybe used in conformance with that project's license AGPLv3.
 The goal of this document is to provide a step-by-step walk through of writing a WebSocket server application for Node.js.  The example code provided will feature both a WebSocket server and conformance to the WebSocket [client specification](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket).
 
 This guide requires a basic knowledge of TypeScript and Node.js.  No other dependencies, conventions, or tools will be mentioned.  This guide makes use of ECMAScript Module conventions opposed to the older CommonJS *require* convention.
