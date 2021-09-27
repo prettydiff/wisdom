@@ -348,7 +348,7 @@ All remaining bytes are the actual payload data.
             } else {
                 maskKey(10);
             }
-            return socketItem;
+            return frameItem;
         }());
         // decoding complete
 
@@ -488,8 +488,8 @@ In order to send data on a websocket channel a properly formed frame heading mus
                     // 16 bit (2 bytes)
                     frameItem.writeInt16BE(input, 2);
                 } else {
-                    // 64 bit (8 bytes)
-                    frameItem.writeDoubleBE(input, 2);
+                    // 32 bit (4 bytes) in the last 4 bytes of an 8 byte allocation
+                    frameItem.writeInt32BE(input, 6);
                 }
             },
             writeFrame = function (finish:boolean, firstFrame:boolean):void {
@@ -574,4 +574,8 @@ The second byte (`frame[1]`) has no mask so the first bit is ignored.  The paylo
 * 126 if payload byte length is 126 - 65535
 * 127 if payload byte length is greater than 65535.
 
-If that second byte's value is less than 126 we ignore extend length bytes and instead just write the payload starting at buffer index 2.  Otherwise we write two bytes of extended payload length if the less than 65535 bytes long or 8 bytes of payload length.  This completes the frame header and the payload immediately follows.
+If that second byte's value is less than 126 we ignore extended length bytes and instead just write the payload starting at buffer index 2.  Otherwise we write two bytes of extended payload length if the less than 65535 bytes long or 8 bytes of payload length.
+
+It must be noted that JavaScript cannot support 64bit numbers.  The maximum number value supported by JavaScript is (2**53) - 1.  Because of that we instead write a 32 bit value into the last 4 bytes of the extended size block, which means offsetting the buffer index by 6 instead of 2: `frameItem.writeInt32BE(input, 6);`.
+
+This completes the frame header and the payload immediately follows to complete the data frame.
