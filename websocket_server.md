@@ -486,10 +486,10 @@ In order to send data on a websocket channel a properly formed frame heading mus
             writeLen = function (frameItem:Buffer, input:number):void {
                 if (input < 65536) {
                     // 16 bit (2 bytes)
-                    frameItem.writeInt16BE(input, 2);
+                    frameItem.writeUInt16BE(input, 2);
                 } else {
                     // 32 bit (4 bytes) in the last 4 bytes of an 8 byte allocation
-                    frameItem.writeInt32BE(input, 6);
+                    frameItem.writeUInt32BE(input, 6);
                 }
             },
             writeFrame = function (finish:boolean, firstFrame:boolean):void {
