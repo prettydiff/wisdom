@@ -334,7 +334,7 @@ All remaining bytes are the actual payload data.
                     payload: null
                 },
                 maskKey = function (startByte:number):void {
-                    if (frame.mask === true) {
+                    if (frameItem.mask === true) {
                         frameItem.maskKey = data.slice(startByte, startByte + 4);
                         frameItem.payload = data.slice(startByte + 4);
                     } else {
