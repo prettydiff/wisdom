@@ -3,7 +3,8 @@
 ## Introduction
 
 ### Preamble
-The provided code samples come from [Share File Systems](https://github.com/prettydiff/share-file-systems) and maybe used in conformance with that project's license AGPLv3.
+The provided code samples come from [Share File Systems](https://github.com/prettydiff/share-file-systems) and may be used in conformance with that project's license: AGPLv3.  For full license text see the completed code at the bottom.
+
 The goal of this document is to provide a step-by-step walk through of writing a WebSocket server application for Node.js.  The example code provided will feature both a WebSocket server and conformance to the WebSocket [client specification](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket).
 
 This guide requires a basic knowledge of TypeScript and Node.js.  No other dependencies, conventions, or tools will be mentioned.  This guide makes use of ECMAScript Module conventions opposed to the older CommonJS *require* convention.
@@ -93,8 +94,8 @@ const websocket:websocket = {
             return parseInt(input, 2);
         }
     },
-    send: function (socket:socketClient, data:Buffer|string),
-    server: (config:websocketServer):Server
+    send: function (socket:socketClient, data:Buffer|string):void {},
+    server: function (config:websocketServer):Server {}
 };
 
 export default websocket;
@@ -579,3 +580,225 @@ If that second byte's value is less than 126 we ignore extended length bytes and
 It must be noted that JavaScript cannot support 64bit numbers.  The maximum number value supported by JavaScript is (2**53) - 1.  Because of that we instead write a 32 bit value into the last 4 bytes of the extended size block, which means offsetting the buffer index by 6 instead of 2: `frameItem.writeUInt32BE(input, 6);`.
 
 This completes the frame header and the payload immediately follows to complete the data frame.
+
+## Completed code library
+The following code represents the prior code samples combined into a single complete library file along with license text.
+
+```typescript
+/*
+    Share File Systems is a privacy driven peer-to-peer application.
+    Copyright (C) 2021  Austin Cheney
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+Full license: https://github.com/prettydiff/share-file-systems/blob/master/license
+
+*/
+const websocket:websocket = {
+    broadcast: function (data:Buffer|string):void {},
+    clientList: socketClient[],
+    convert: {
+        toBin: function (input:number):string {
+            return (input >>> 0).toString(2);
+        },
+        toDec: function (input:string):number {
+            return parseInt(input, 2);
+        }
+    },
+    send: function (socket:socketClient, data:Buffer|string):void {
+        // data is fragmented above 1 million bytes and sent unmasked
+        if (socket.closeFlag === true) {
+            return;
+        }
+        let dataPackage:Buffer = (typeof data === "string")
+                ? Buffer.from(data)
+                : data,
+            len:number = dataPackage.length;
+        const opcode:1|2 = (typeof data === "string")
+                ? 1
+                : 2,
+            // writes extended length bytes
+            writeLen = function (frameItem:Buffer, input:number):void {
+                if (input < 65536) {
+                    // 16 bit (2 bytes)
+                    frameItem.writeUInt16BE(input, 2);
+                } else {
+                    // 32 bit (4 bytes) in the last 4 bytes of an 8 byte allocation
+                    frameItem.writeUInt32BE(input, 6);
+                }
+            },
+            writeFrame = function (finish:boolean, firstFrame:boolean):void {
+                // first two frames are required header, simplified headers because its all unmasked
+                // * payload size smaller than 126 bytes
+                //   - 0 allocated bytes for extended length value
+                //   - length value in byte index 1 is payload length
+                // * payload size 126 - 65535 bytes
+                //   - 2 bytes allocated for extended length value (indexes 2 and 3)
+                //   - length value in byte index 1 is 126
+                // * payload size larger than 65535 bytes
+                //   - 8 bytes allocated for extended length value (indexes 2 - 9)
+                //   - length value in byte index 1 is 127
+                const frame:Buffer = (len < 126)
+                    ? Buffer.alloc(2)
+                    : (len < 65536)
+                        ? Buffer.alloc(4)
+                        : Buffer.alloc(10);
+                // frame 0 is:
+                // * 128 bits for fin, 0 for unfinished plus opcode
+                // * opcode 0 - continuation of fragments
+                // * opcode 1 - text (total payload must be UTF8 and probably not contain hidden control characters)
+                // * opcode 2 - supposed to be binary, really anything that isn't 100& UTF8 text
+                // ** for fragmented data only first data frame gets a data opcode, others receive 0 (continuity)
+                frame[0] = (finish === true)
+                    ? (firstFrame === true)
+                        ? 128 + opcode
+                        : 128
+                    : (firstFrame === true)
+                        ? opcode
+                        : 0;
+                // frame 1 is length flag
+                frame[1] = (len < 126)
+                    ? len
+                    : (len < 65536)
+                        ? 126
+                        : 127;
+                if (len > 125) {
+                    writeLen(frame, len);
+                }
+                socket.write(Buffer.concat([frame, dataPackage]));
+            },
+            fragment = function (first:boolean):void {
+                if (len > 1e6) {
+                    // fragmentation
+                    if (first === true) {
+                        // first frame of fragment
+                        writeFrame(false, true);
+                    } else if (len > 1e6) {
+                        // continuation of fragment
+                        writeFrame(false, false);
+                    }
+                    dataPackage = dataPackage.slice(1e6);
+                    len = len - 1e6;
+                    fragment(false);
+                } else {
+                    // finished, not fragmented if first === true
+                    writeFrame(true, first);
+                }
+            };
+        fragment(true);
+    },
+    server: function (config:websocketServer):Server {
+        // create the server
+        const wsServer:Server = (config.cert === null)
+                ? netServer()
+                : tlsServer({
+                    cert: config.cert.cert,
+                    key: config.cert.key,
+                    requestCert: true
+                }),
+            // server created
+
+            handshake = function (socket:socketClient, data:string, callback:(key:string) => void):void {},
+            dataHandler = function (socket:socketClient):void {};
+
+        // create the listener (activates the server)
+        wsServer.listen({
+            host: config.address,
+            port: config.port
+        }, function ():void {
+            const addressInfo:AddressInfo = wsServer.address() as AddressInfo;
+            config.callback(addressInfo.port);
+        });
+        // server is listening
+
+        // assign an event handler to the "connection" event
+        wsServer.on("connection", function (socket:socketClient):void {
+            const handshakeHandler = function (data:Buffer):void {
+                    const handshakeCallback = function (key:string):void {
+
+                        // modify the socket for use in the application
+                        socket.closeFlag = false;          // closeFlag - whether the socket is (or about to be) closed, do not write
+                        socket.fragment = Buffer.alloc(0); // storehouse of data received for a fragmented data package
+                        socket.opcode = 0;                 // stores opcode of fragmented data page (1 or 2), because additional fragmented frames have code 0 (continuity)
+                        socket.sessionId = key;            // a unique identifier on which to identify and differential this socket from other client sockets
+                        socket.setKeepAlive(true, 0);      // standard method to retain socket against timeouts from inactivity until a close frame comes in
+                        websocket.clientList.push(socket); // push this socket into the list of socket clients
+
+                        // change the listener to process data
+                        socket.removeListener("data", terminal_commands_websocket_connection_handshakeHandler);
+                        dataHandler(socket);
+                    };
+                    // handshake
+                    handshake(socket, data.toString(), handshakeCallback);
+                };
+            socket.on("data", handshakeHandler);
+            socket.on("error", function (errorItem:Error) {
+                if (socket.closeFlag === false) {
+                    console.error(errorItem.toString());
+                }
+            });
+        });
+
+        // returns the server object for external access
+        return wsServer;
+    }
+};
+
+export default websocket;
+```
+
+This is the custom TypeScript type definitions taken from above.
+
+```typescript
+// yourTypes.d.ts
+import { Server, Socket } from "net";
+declare global {
+    interface socketClient extends Socket {
+        closeFlag: boolean;
+        fragment: Buffer;
+        opcode: number;
+        sessionId: string;
+    }
+    interface socketFrame {
+        fin: boolean;
+        rsv1: string;
+        rsv2: string;
+        rsv3: string;
+        opcode: number;
+        mask: boolean;
+        len: number;
+        maskKey: Buffer;
+        payload: Buffer;
+    }
+    interface websocket {
+        broadcast: (data:Buffer|string) => void;
+        clientList: socketClient[];
+        convert: {
+            toBin: (input:number) => string;
+            toDec: (input:string) => number;
+        };
+        send: (socket:socketClient, data:Buffer|string) => void;
+        server: (config:websocketServer) => Server;
+    }
+    interface websocketServer {
+        address: string;
+        callback: (port:number) => void;
+        cert: {
+            cert: string;
+            key: string;
+        };
+        port: number;
+    }
+}
+```
