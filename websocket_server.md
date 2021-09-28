@@ -147,23 +147,23 @@ Aside from the certificate the insecure and secure servers are otherwise identic
         // assign an event handler to the "connection" event
         wsServer.on("connection", function (socket:socketClient):void {
             const handshakeHandler = function (data:Buffer):void {
-                    const handshakeCallback = function (key:string):void {
+                const handshakeCallback = function (key:string):void {
 
-                        // modify the socket for use in the application
-                        socket.closeFlag = false;          // closeFlag - whether the socket is (or about to be) closed, do not write
-                        socket.fragment = Buffer.alloc(0); // storehouse of data received for a fragmented data package
-                        socket.opcode = 0;                 // stores opcode of fragmented data page (1 or 2), because additional fragmented frames have code 0 (continuity)
-                        socket.sessionId = key;            // a unique identifier on which to identify and differential this socket from other client sockets
-                        socket.setKeepAlive(true, 0);      // standard method to retain socket against timeouts from inactivity until a close frame comes in
-                        websocket.clientList.push(socket); // push this socket into the list of socket clients
+                    // modify the socket for use in the application
+                    socket.closeFlag = false;          // closeFlag - whether the socket is (or about to be) closed, do not write
+                    socket.fragment = Buffer.alloc(0); // storehouse of data received for a fragmented data package
+                    socket.opcode = 0;                 // stores opcode of fragmented data page (1 or 2), because additional fragmented frames have code 0 (continuity)
+                    socket.sessionId = key;            // a unique identifier on which to identify and differential this socket from other client sockets
+                    socket.setKeepAlive(true, 0);      // standard method to retain socket against timeouts from inactivity until a close frame comes in
+                    websocket.clientList.push(socket); // push this socket into the list of socket clients
 
-                        // change the listener to process data
-                        socket.removeListener("data", terminal_commands_websocket_connection_handshakeHandler);
-                        dataHandler(socket);
-                    };
-                    // handshake
-                    handshake(socket, data.toString(), handshakeCallback);
+                    // change the listener to process data
+                    socket.removeListener("data", terminal_commands_websocket_connection_handshakeHandler);
+                    dataHandler(socket);
                 };
+                // handshake
+                handshake(socket, data.toString(), handshakeCallback);
+            };
             socket.on("data", handshakeHandler);
             socket.on("error", function (errorItem:Error) {
                 if (socket.closeFlag === false) {
@@ -725,23 +725,23 @@ const websocket:websocket = {
         // assign an event handler to the "connection" event
         wsServer.on("connection", function (socket:socketClient):void {
             const handshakeHandler = function (data:Buffer):void {
-                    const handshakeCallback = function (key:string):void {
+                const handshakeCallback = function (key:string):void {
 
-                        // modify the socket for use in the application
-                        socket.closeFlag = false;          // closeFlag - whether the socket is (or about to be) closed, do not write
-                        socket.fragment = Buffer.alloc(0); // storehouse of data received for a fragmented data package
-                        socket.opcode = 0;                 // stores opcode of fragmented data page (1 or 2), because additional fragmented frames have code 0 (continuity)
-                        socket.sessionId = key;            // a unique identifier on which to identify and differential this socket from other client sockets
-                        socket.setKeepAlive(true, 0);      // standard method to retain socket against timeouts from inactivity until a close frame comes in
-                        websocket.clientList.push(socket); // push this socket into the list of socket clients
+                    // modify the socket for use in the application
+                    socket.closeFlag = false;          // closeFlag - whether the socket is (or about to be) closed, do not write
+                    socket.fragment = Buffer.alloc(0); // storehouse of data received for a fragmented data package
+                    socket.opcode = 0;                 // stores opcode of fragmented data page (1 or 2), because additional fragmented frames have code 0 (continuity)
+                    socket.sessionId = key;            // a unique identifier on which to identify and differential this socket from other client sockets
+                    socket.setKeepAlive(true, 0);      // standard method to retain socket against timeouts from inactivity until a close frame comes in
+                    websocket.clientList.push(socket); // push this socket into the list of socket clients
 
-                        // change the listener to process data
-                        socket.removeListener("data", terminal_commands_websocket_connection_handshakeHandler);
-                        dataHandler(socket);
-                    };
-                    // handshake
-                    handshake(socket, data.toString(), handshakeCallback);
+                    // change the listener to process data
+                    socket.removeListener("data", terminal_commands_websocket_connection_handshakeHandler);
+                    dataHandler(socket);
                 };
+                // handshake
+                handshake(socket, data.toString(), handshakeCallback);
+            };
             socket.on("data", handshakeHandler);
             socket.on("error", function (errorItem:Error) {
                 if (socket.closeFlag === false) {
