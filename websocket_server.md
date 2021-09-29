@@ -710,7 +710,107 @@ const websocket:websocket = {
             // server created
 
             handshake = function (socket:socketClient, data:string, callback:(key:string) => void):void {},
-            dataHandler = function (socket:socketClient):void {};
+            dataHandler = function (socket:socketClient):void {
+                const processor = function (data:Buffer):void {
+                    // decode the frame header
+                    const frame:socketFrame = (function ():socketFrame {
+                        const bits0:string = websocket.convert.toBin(data[0]),
+                            bits1:string = websocket.convert.toBin(data[1]),
+                            frameItem:socketFrame = {
+                                fin: (bits0.charAt(0) === "1"),
+                                rsv1: bits0.charAt(1),
+                                rsv2: bits0.charAt(2),
+                                rsv3: bits0.charAt(3),
+                                opcode: websocket.convert.toDec(bits0.slice(4)),
+                                mask: (bits1.charAt(0) === "1"),
+                                len: websocket.convert.toDec(bits1.slice(1)),
+                                maskKey: null,
+                                payload: null
+                            },
+                            maskKey = function (startByte:number):void {
+                                if (frameItem.mask === true) {
+                                    frameItem.maskKey = data.slice(startByte, startByte + 4);
+                                    frameItem.payload = data.slice(startByte + 4);
+                                } else {
+                                    frameItem.payload = data.slice(startByte);
+                                }
+                            };
+                        if (frameItem.len < 126) {
+                            maskKey(2);
+                        } else if (frameItem.len === 126) {
+                            maskKey(4);
+                        } else {
+                            maskKey(10);
+                        }
+                        return frameItem;
+                    }());
+                    // decoding complete
+
+                    // unmask payload
+                    if (frame.mask === true) {
+                        /*
+                            RFC 6455, 5.3.  Client-to-Server Masking
+                            j                   = i MOD 4
+                            transformed-octet-i = original-octet-i XOR masking-key-octet-j
+                        */
+                        frame.payload.forEach(function terminal_commands_websocket_dataHandler_unmask(value:number, index:number):void {
+                            frame.payload[index] = value ^ frame.maskKey[index % 4];
+                        });
+                    }
+                    // unmask payload complete
+
+                    // store payload or write response
+                    if (frame.fin === true) {
+                        // complete data frame
+                        const opcode:number = (frame.opcode === 0)
+                                ? socket.opcode
+                                : frame.opcode,
+                            control = function terminal_commands_websocket_dataHandler_control():void {
+                                if (opcode === 8) {
+                                    // remove closed socket from client list
+                                    let a:number = websocket.clientList.length;
+                                    do {
+                                        a = a - 1;
+                                        if (websocket.clientList[a].sessionId === socket.sessionId) {
+                                            websocket.clientList.splice(a, 1);
+                                            break;
+                                        }
+                                    } while (a > 0);
+                                    socket.closeFlag = true;
+                                } else if (opcode === 9) {
+                                    // respond to "ping" as "pong"
+                                    data[0] = websocket.convert.toDec(`1${frame.rsv1 + frame.rsv2 + frame.rsv3}1010`);
+                                }
+                                data[1] = websocket.convert.toDec(`0${websocket.convert.toBin(frame.payload.length)}`);
+                                socket.write(Buffer.concat([data.slice(0, 2), frame.payload]));
+                                if (opcode === 8) {
+                                    // end the closed socket
+                                    socket.end();
+                                }
+                            };
+
+                        // write frame header + payload
+                        if (opcode === 1 || opcode === 2) {
+                            // text or binary
+                            // !!! process data here !!!
+                            console.log(Buffer.concat([socket.fragment, frame.payload]).toString());
+
+                            // reset socket
+                            socket.fragment = Buffer.alloc(0);
+                            socket.opcode = 0;
+                        } else {
+                            control();
+                        }
+                    } else {
+                        // fragment, must be of type text (1) or binary (2)
+                        if (frame.opcode > 0) {
+                            socket.opcode = frame.opcode;
+                        }
+                        socket.fragment = Buffer.concat([socket.fragment, frame.payload]);
+                    }
+                };
+                socket.on("data", processor);
+            };
 
         // create the listener (activates the server)
         wsServer.listen({
