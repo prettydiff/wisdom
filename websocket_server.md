@@ -29,7 +29,7 @@ import { Server, Socket } from "net";
 declare global {
     interface socketClient extends Socket {
         closeFlag: boolean;
-        fragment: Buffer;
+        fragment: Buffer[];
         opcode: number;
         sessionId: string;
     }
@@ -47,10 +47,6 @@ declare global {
     interface websocket {
         broadcast: (data:Buffer|string) => void;
         clientList: socketClient[];
-        convert: {
-            toBin: (input:number) => string;
-            toDec: (input:string) => number;
-        };
         send: (socket:socketClient, data:Buffer|string) => void;
         server: (config:websocketServer) => Server;
     }
@@ -86,14 +82,6 @@ The first thing to do in the code is to create library file that will contain al
 const websocket:websocket = {
     broadcast: function (data:Buffer|string):void {},
     clientList: socketClient[],
-    convert: {
-        toBin: function (input:number):string {
-            return (input >>> 0).toString(2);
-        },
-        toDec: function (input:string):number {
-            return parseInt(input, 2);
-        }
-    },
     send: function (socket:socketClient, data:Buffer|string):void {},
     server: function (config:websocketServer):Server {}
 };
@@ -151,7 +139,7 @@ Aside from the certificate the insecure and secure servers are otherwise identic
 
                     // modify the socket for use in the application
                     socket.closeFlag = false;          // closeFlag - whether the socket is (or about to be) closed, do not write
-                    socket.fragment = Buffer.alloc(0); // storehouse of data received for a fragmented data package
+                    socket.fragment = [];              // storehouse of data received for a fragmented data package
                     socket.opcode = 0;                 // stores opcode of fragmented data page (1 or 2), because additional fragmented frames have code 0 (continuity)
                     socket.sessionId = key;            // a unique identifier on which to identify and differential this socket from other client sockets
                     socket.setKeepAlive(true, 0);      // standard method to retain socket against timeouts from inactivity until a close frame comes in
@@ -320,37 +308,48 @@ All remaining bytes are the actual payload data.
     const processor = function (data:Buffer):void {
 
         // decode the frame header
-        const frame:socketFrame = (function ():socketFrame {
-            const bits0:string = websocket.convert.toBin(data[0]),
-                bits1:string = websocket.convert.toBin(data[1]),
-                frameItem:socketFrame = {
-                    fin: (bits0.charAt(0) === "1"),
-                    rsv1: bits0.charAt(1),
-                    rsv2: bits0.charAt(2),
-                    rsv3: bits0.charAt(3),
-                    opcode: websocket.convert.toDec(bits0.slice(4)),
-                    mask: (bits1.charAt(0) === "1"),
-                    len: websocket.convert.toDec(bits1.slice(1)),
-                    maskKey: null,
-                    payload: null
-                },
-                maskKey = function (startByte:number):void {
-                    if (frameItem.mask === true) {
-                        frameItem.maskKey = data.slice(startByte, startByte + 4);
-                        frameItem.payload = data.slice(startByte + 4);
-                    } else {
-                        frameItem.payload = data.slice(startByte);
-                    }
-                };
-            if (frameItem.len < 126) {
-                maskKey(2);
-            } else if (frameItem.len === 126) {
-                maskKey(4);
-            } else {
-                maskKey(10);
-            }
-            return frameItem;
-        }());
+        const toBin = function terminal_server_transmission_websocket_listener_processor_convertBin(input:number):string {
+                return (input >>> 0).toString(2);
+            },
+            toDec = function terminal_server_transmission_websocket_listener_processor_convertDec(input:string):number {
+                return parseInt(input, 2);
+            },
+            frame:socketFrame = (function terminal_server_transmission_websocket_listener_processor_frame():socketFrame {
+                const bits0:string = toBin(data[0]), // bit string - convert byte number (0 - 255) to 8 bits
+                    bits1:string = toBin(data[1]),
+                    frameItem:socketFrame = {
+                        fin: (bits0.charAt(0) === "1"),
+                        rsv1: bits0.charAt(1),
+                        rsv2: bits0.charAt(2),
+                        rsv3: bits0.charAt(3),
+                        opcode: toDec(bits0.slice(4)),
+                        mask: (bits1.charAt(0) === "1"),
+                        len: toDec(bits1.slice(1)),
+                        extended: 0,
+                        maskKey: null,
+                        payload: null
+                    },
+                    startByte:number = (function terminal_server_transmission_websocket_listener_processor_frame_startByte():number {
+                        const keyOffset:number = (frameItem.mask === true)
+                            ? 4
+                            : 0;
+                        if (frameItem.len < 126) {
+                            frameItem.extended = frameItem.len;
+                            return 2 + keyOffset;
+                        }
+                        if (frameItem.len < 127) {
+                            frameItem.extended = data.slice(2, 4).readUInt16BE(0);
+                            return 4 + keyOffset;
+                        }
+                        frameItem.extended = data.slice(4, 10).readUIntBE(0, 6);
+                        return 10 + keyOffset;
+                    }());
+                if (frameItem.mask === true) {
+                    frameItem.maskKey = data.slice(startByte - 4, startByte);
+                }
+                frameItem.payload = data.slice(startByte);
+                return frameItem;
+            }());
         // decoding complete
 
         // unmask payload
@@ -399,11 +398,10 @@ All remaining bytes are the actual payload data.
             // write frame header + payload
             if (opcode === 1 || opcode === 2) {
                 // text or binary
-                // !!! process data here !!!
-                console.log(Buffer.concat([socket.fragment, frame.payload]).toString());
+                const result:string = Buffer.concat(socket.fragment).slice(0, frame.extended).toString();
 
                 // reset socket
-                socket.fragment = Buffer.alloc(0);
+                socket.fragment = [];
                 socket.opcode = 0;
             } else {
                 control();
@@ -476,39 +474,25 @@ In order to send data on a websocket channel a properly formed frame heading mus
         if (socket.closeFlag === true) {
             return;
         }
-        let dataPackage:Buffer = (typeof data === "string")
-                ? Buffer.from(data)
-                : data,
-            len:number = dataPackage.length;
-        const opcode:1|2 = (typeof data === "string")
-                ? 1
-                : 2,
-            // writes extended length bytes
-            writeLen = function (frameItem:Buffer, input:number):void {
-                if (input < 65536) {
-                    // 16 bit (2 bytes)
-                    frameItem.writeUInt16BE(input, 2);
-                } else {
-                    // 32 bit (4 bytes) in the last 4 bytes of an 8 byte allocation
-                    frameItem.writeUInt32BE(input, 6);
-                }
-            },
+        let len:number = 0,
+            dataPackage:Buffer = null,
+            // first two frames are required header, simplified headers because its all unmasked
+            // * payload size smaller than 126 bytes
+            //   - 0 allocated bytes for extended length value
+            //   - length value in byte index 1 is payload length
+            // * payload size 126 - 65535 bytes
+            //   - 2 bytes allocated for extended length value (indexes 2 and 3)
+            //   - length value in byte index 1 is 126
+            // * payload size larger than 65535 bytes
+            //   - 8 bytes allocated for extended length value (indexes 2 - 9)
+            //   - length value in byte index 1 is 127
+            frame:Buffer = null;
+        const isBuffer:boolean = (Buffer.isBuffer(payload) === true),
+            fragmentSize:number = 1e6,
+            opcode:1|2 = (isBuffer === true)
+                ? 2
+                : 1,
             writeFrame = function (finish:boolean, firstFrame:boolean):void {
-                // first two frames are required header, simplified headers because its all unmasked
-                // * payload size smaller than 126 bytes
-                //   - 0 allocated bytes for extended length value
-                //   - length value in byte index 1 is payload length
-                // * payload size 126 - 65535 bytes
-                //   - 2 bytes allocated for extended length value (indexes 2 and 3)
-                //   - length value in byte index 1 is 126
-                // * payload size larger than 65535 bytes
-                //   - 8 bytes allocated for extended length value (indexes 2 - 9)
-                //   - length value in byte index 1 is 127
-                const frame:Buffer = (len < 126)
-                    ? Buffer.alloc(2)
-                    : (len < 65536)
-                        ? Buffer.alloc(4)
-                        : Buffer.alloc(10);
                 // frame 0 is:
                 // * 128 bits for fin, 0 for unfinished plus opcode
                 // * opcode 0 - continuation of fragments
@@ -528,10 +512,7 @@ In order to send data on a websocket channel a properly formed frame heading mus
                     : (len < 65536)
                         ? 126
                         : 127;
-                if (len > 125) {
-                    writeLen(frame, len);
-                }
-                socket.write(Buffer.concat([frame, dataPackage]));
+                socket.write(Buffer.concat([frame, dataPackage.slice(0, fragmentSize)]));
             },
             fragment = function (first:boolean):void {
                 if (len > 1e6) {
@@ -551,6 +532,27 @@ In order to send data on a websocket channel a properly formed frame heading mus
                     writeFrame(true, first);
                 }
             };
+        dataPackage = (isBuffer === true)
+            ? payload as Buffer
+            : Buffer.from(JSON.stringify(payload));
+        len = dataPackage.length;
+        frame = (len < 126)
+            ? Buffer.alloc(2)
+            : (len < 65536)
+                ? Buffer.alloc(4)
+                : Buffer.alloc(10);
+        if (len > 125) {
+            if (len < 65536) {
+                // writes a 16 bit number
+                frame.writeUInt16BE(len, 2);
+            } else {
+                // writes a 48 bit number in the last 6 bytes of an 8 byte allocation
+                // 63 bits are allocated large payload lengths,
+                // but JavaScript's max supported number size is 53 bits
+                // 48 bits is still greater than 281 terabytes
+                frame.writeUIntBE(len, 4, 6);
+            }
+        }
         fragment(true);
     }
 ```
@@ -608,52 +610,30 @@ Full license: https://github.com/prettydiff/share-file-systems/blob/master/licen
 const websocket:websocket = {
     broadcast: function (data:Buffer|string):void {},
     clientList: socketClient[],
-    convert: {
-        toBin: function (input:number):string {
-            return (input >>> 0).toString(2);
-        },
-        toDec: function (input:string):number {
-            return parseInt(input, 2);
-        }
-    },
     send: function (socket:socketClient, data:Buffer|string):void {
         // data is fragmented above 1 million bytes and sent unmasked
         if (socket.closeFlag === true) {
             return;
         }
-        let dataPackage:Buffer = (typeof data === "string")
-                ? Buffer.from(data)
-                : data,
-            len:number = dataPackage.length;
-        const opcode:1|2 = (typeof data === "string")
-                ? 1
-                : 2,
-            // writes extended length bytes
-            writeLen = function (frameItem:Buffer, input:number):void {
-                if (input < 65536) {
-                    // 16 bit (2 bytes)
-                    frameItem.writeUInt16BE(input, 2);
-                } else {
-                    // 32 bit (4 bytes) in the last 4 bytes of an 8 byte allocation
-                    frameItem.writeUInt32BE(input, 6);
-                }
-            },
+        let len:number = 0,
+            dataPackage:Buffer = null,
+            // first two frames are required header, simplified headers because its all unmasked
+            // * payload size smaller than 126 bytes
+            //   - 0 allocated bytes for extended length value
+            //   - length value in byte index 1 is payload length
+            // * payload size 126 - 65535 bytes
+            //   - 2 bytes allocated for extended length value (indexes 2 and 3)
+            //   - length value in byte index 1 is 126
+            // * payload size larger than 65535 bytes
+            //   - 8 bytes allocated for extended length value (indexes 2 - 9)
+            //   - length value in byte index 1 is 127
+            frame:Buffer = null;
+        const isBuffer:boolean = (Buffer.isBuffer(payload) === true),
+            fragmentSize:number = 1e6,
+            opcode:1|2 = (isBuffer === true)
+                ? 2
+                : 1,
             writeFrame = function (finish:boolean, firstFrame:boolean):void {
-                // first two frames are required header, simplified headers because its all unmasked
-                // * payload size smaller than 126 bytes
-                //   - 0 allocated bytes for extended length value
-                //   - length value in byte index 1 is payload length
-                // * payload size 126 - 65535 bytes
-                //   - 2 bytes allocated for extended length value (indexes 2 and 3)
-                //   - length value in byte index 1 is 126
-                // * payload size larger than 65535 bytes
-                //   - 8 bytes allocated for extended length value (indexes 2 - 9)
-                //   - length value in byte index 1 is 127
-                const frame:Buffer = (len < 126)
-                    ? Buffer.alloc(2)
-                    : (len < 65536)
-                        ? Buffer.alloc(4)
-                        : Buffer.alloc(10);
                 // frame 0 is:
                 // * 128 bits for fin, 0 for unfinished plus opcode
                 // * opcode 0 - continuation of fragments
@@ -673,10 +653,7 @@ const websocket:websocket = {
                     : (len < 65536)
                         ? 126
                         : 127;
-                if (len > 125) {
-                    writeLen(frame, len);
-                }
-                socket.write(Buffer.concat([frame, dataPackage]));
+                socket.write(Buffer.concat([frame, dataPackage.slice(0, fragmentSize)]));
             },
             fragment = function (first:boolean):void {
                 if (len > 1e6) {
@@ -696,6 +673,27 @@ const websocket:websocket = {
                     writeFrame(true, first);
                 }
             };
+        dataPackage = (isBuffer === true)
+            ? payload as Buffer
+            : Buffer.from(JSON.stringify(payload));
+        len = dataPackage.length;
+        frame = (len < 126)
+            ? Buffer.alloc(2)
+            : (len < 65536)
+                ? Buffer.alloc(4)
+                : Buffer.alloc(10);
+        if (len > 125) {
+            if (len < 65536) {
+                // writes a 16 bit number
+                frame.writeUInt16BE(len, 2);
+            } else {
+                // writes a 48 bit number in the last 6 bytes of an 8 byte allocation
+                // 63 bits are allocated large payload lengths,
+                // but JavaScript's max supported number size is 53 bits
+                // 48 bits is still greater than 281 terabytes
+                frame.writeUIntBE(len, 4, 6);
+            }
+        }
         fragment(true);
     },
     server: function (config:websocketServer):Server {
@@ -793,10 +791,10 @@ const websocket:websocket = {
                         if (opcode === 1 || opcode === 2) {
                             // text or binary
                             // !!! process data here !!!
-                            console.log(Buffer.concat([socket.fragment, frame.payload]).toString());
+                            const result:string = Buffer.concat(socket.fragment).slice(0, frame.extended).toString();
 
                             // reset socket
-                            socket.fragment = Buffer.alloc(0);
+                            socket.fragment = [];
                             socket.opcode = 0;
                         } else {
                             control();
@@ -829,7 +827,7 @@ const websocket:websocket = {
 
                     // modify the socket for use in the application
                     socket.closeFlag = false;          // closeFlag - whether the socket is (or about to be) closed, do not write
-                    socket.fragment = Buffer.alloc(0); // storehouse of data received for a fragmented data package
+                    socket.fragment = [];              // storehouse of data received for a fragmented data package
                     socket.opcode = 0;                 // stores opcode of fragmented data page (1 or 2), because additional fragmented frames have code 0 (continuity)
                     socket.sessionId = key;            // a unique identifier on which to identify and differential this socket from other client sockets
                     socket.setKeepAlive(true, 0);      // standard method to retain socket against timeouts from inactivity until a close frame comes in
@@ -866,7 +864,7 @@ import { Server, Socket } from "net";
 declare global {
     interface socketClient extends Socket {
         closeFlag: boolean;
-        fragment: Buffer;
+        fragment: Buffer[];
         opcode: number;
         sessionId: string;
     }
@@ -884,10 +882,6 @@ declare global {
     interface websocket {
         broadcast: (data:Buffer|string) => void;
         clientList: socketClient[];
-        convert: {
-            toBin: (input:number) => string;
-            toDec: (input:string) => number;
-        };
         send: (socket:socketClient, data:Buffer|string) => void;
         server: (config:websocketServer) => Server;
     }
