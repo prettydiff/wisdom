@@ -365,6 +365,8 @@ All remaining bytes are the actual payload data.
         }
         // unmask payload complete
 
+        socket.fragment.push(frame.payload);
+
         // store payload or write response
         if (frame.fin === true) {
             // complete data frame
@@ -400,6 +402,8 @@ All remaining bytes are the actual payload data.
                 // text or binary
                 const result:string = Buffer.concat(socket.fragment).slice(0, frame.extended).toString();
 
+                // handle the result here !!!!
+
                 // reset socket
                 socket.fragment = [];
                 socket.opcode = 0;
@@ -411,7 +415,6 @@ All remaining bytes are the actual payload data.
             if (frame.opcode > 0) {
                 socket.opcode = frame.opcode;
             }
-            socket.fragment = Buffer.concat([socket.fragment, frame.payload]);
         }
     };
 ```
@@ -757,6 +760,8 @@ const websocket:websocket = {
                     }
                     // unmask payload complete
 
+                    socket.fragment.push(frame.payload);
+
                     // store payload or write response
                     if (frame.fin === true) {
                         // complete data frame
@@ -790,8 +795,9 @@ const websocket:websocket = {
                         // write frame header + payload
                         if (opcode === 1 || opcode === 2) {
                             // text or binary
-                            // !!! process data here !!!
                             const result:string = Buffer.concat(socket.fragment).slice(0, frame.extended).toString();
+
+                            // !!! process data here !!!
 
                             // reset socket
                             socket.fragment = [];
@@ -804,7 +810,6 @@ const websocket:websocket = {
                         if (frame.opcode > 0) {
                             socket.opcode = frame.opcode;
                         }
-                        socket.fragment = Buffer.concat([socket.fragment, frame.payload]);
                     }
                 };
                 socket.on("data", processor);
