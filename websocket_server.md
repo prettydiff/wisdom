@@ -489,13 +489,20 @@ In order to send data on a websocket channel a properly formed frame heading mus
             // * payload size larger than 65535 bytes
             //   - 8 bytes allocated for extended length value (indexes 2 - 9)
             //   - length value in byte index 1 is 127
+            stringData:string = null,
+            fragment:Buffer = null,
             frame:Buffer = null;
-        const isBuffer:boolean = (Buffer.isBuffer(payload) === true),
+        const socketData:socketData = payload as socketData,
+            isBuffer:boolean = (socketData.service === undefined),
+            // fragmentation is disabled by assigning a value of 0
             fragmentSize:number = 1e6,
-            opcode:1|2 = (isBuffer === true)
-                ? 2
-                : 1,
-            writeFrame = function (finish:boolean, firstFrame:boolean):void {
+            op:1|2|8|9 = (opcode === undefined)
+                ? (isBuffer === true)
+                    ? 2
+                    : 1
+                : opcode,
+            writeFrame = function terminal_server_transmission_transmitWs_send_writeFrame(finish:boolean, firstFrame:boolean):void {
+                const size:number = fragment.length;
                 // frame 0 is:
                 // * 128 bits for fin, 0 for unfinished plus opcode
                 // * opcode 0 - continuation of fragments
@@ -504,59 +511,68 @@ In order to send data on a websocket channel a properly formed frame heading mus
                 // ** for fragmented data only first data frame gets a data opcode, others receive 0 (continuity)
                 frame[0] = (finish === true)
                     ? (firstFrame === true)
-                        ? 128 + opcode
+                        ? 128 + op
                         : 128
                     : (firstFrame === true)
-                        ? opcode
+                        ? op
                         : 0;
                 // frame 1 is length flag
-                frame[1] = (len < 126)
-                    ? len
-                    : (len < 65536)
+                frame[1] = (size < 126)
+                    ? size
+                    : (size < 65536)
                         ? 126
                         : 127;
-                socket.write(Buffer.concat([frame, dataPackage.slice(0, fragmentSize)]));
+                if (size > 125) {
+                    if (size < 65536) {
+                        frame.writeUInt16BE(size, 2);
+                    } else {
+                        frame.writeUIntBE(size, 4, 6);
+                    }
+                }
+                socket.write(Buffer.concat([frame, fragment]));
             },
-            fragment = function (first:boolean):void {
-                if (len > 1e6) {
+            fragmentation = function terminal_server_transmission_transmitWs_send_fragmentation(first:boolean):void {
+                if (len > fragmentSize && fragmentSize > 0) {
+                    fragment = (isBuffer === true)
+                        ? dataPackage.slice(0, fragmentSize)
+                        : Buffer.from(stringData.slice(0, fragmentSize), "utf8");
                     // fragmentation
                     if (first === true) {
                         // first frame of fragment
                         writeFrame(false, true);
-                    } else if (len > 1e6) {
+                    } else if (len > fragmentSize) {
                         // continuation of fragment
                         writeFrame(false, false);
                     }
-                    dataPackage = dataPackage.slice(1e6);
-                    len = len - 1e6;
-                    fragment(false);
+                    if (isBuffer === true) {
+                        dataPackage = dataPackage.slice(fragmentSize);
+                        len = dataPackage.length;
+                    } else {
+                        stringData = stringData.slice(fragmentSize);
+                        len = Buffer.byteLength(stringData, "utf8")
+                    }
+                    terminal_server_transmission_transmitWs_send_fragmentation(false);
                 } else {
                     // finished, not fragmented if first === true
+                    fragment = (isBuffer === true)
+                        ? dataPackage
+                        : Buffer.from(stringData, "utf8");
                     writeFrame(true, first);
                 }
             };
+        if (isBuffer === false) {
+            stringData = JSON.stringify(payload);
+        }
         dataPackage = (isBuffer === true)
             ? payload as Buffer
-            : Buffer.from(JSON.stringify(payload));
+            : Buffer.from(stringData, "utf8");
         len = dataPackage.length;
         frame = (len < 126)
             ? Buffer.alloc(2)
             : (len < 65536)
                 ? Buffer.alloc(4)
                 : Buffer.alloc(10);
-        if (len > 125) {
-            if (len < 65536) {
-                // writes a 16 bit number
-                frame.writeUInt16BE(len, 2);
-            } else {
-                // writes a 48 bit number in the last 6 bytes of an 8 byte allocation
-                // 63 bits are allocated large payload lengths,
-                // but JavaScript's max supported number size is 53 bits
-                // 48 bits is still greater than 281 terabytes
-                frame.writeUIntBE(len, 4, 6);
-            }
-        }
-        fragment(true);
+        fragmentation(true);
     }
 ```
 
@@ -582,7 +598,9 @@ The second byte (`frame[1]`) has no mask so the first bit is ignored.  The paylo
 
 If that second byte's value is less than 126 we ignore extended length bytes and instead just write the payload starting at buffer index 2.  Otherwise we write two bytes of extended payload length if the less than 65535 bytes long or 8 bytes of payload length.
 
-It must be noted that JavaScript cannot support 64bit numbers.  The maximum number value supported by JavaScript is (2**53) - 1.  Because of that we instead write a 32 bit value into the last 4 bytes of the extended size block, which means offsetting the buffer index by 6 instead of 2: `frameItem.writeUInt32BE(input, 6);`.
+It must be noted that JavaScript cannot support 64bit numbers.  The maximum number value supported by JavaScript is (2**53) - 1.  Because of that we instead write a 48 bit value into the last 6 bytes of the extended size block, which means offsetting the buffer index by 4 instead of 2: `frame.writeUIntBE(size, 4, 6);`.
+
+Please also bear in mind that text must be fragmented differently than binary.  This is because text characters are multiple bytes in JavaScript, so fragmenting a binary representation of text could result in splitting a character between its respective bytes.  This will break receiving agents that interpret text type payloads, such as web browsers.  In the code above the different fragmentation occurs by slicing a string before converting it to binary, where as binary data is sliced directly.
 
 This completes the frame header and the payload immediately follows to complete the data frame.
 
@@ -630,13 +648,20 @@ const websocket:websocket = {
             // * payload size larger than 65535 bytes
             //   - 8 bytes allocated for extended length value (indexes 2 - 9)
             //   - length value in byte index 1 is 127
+            stringData:string = null,
+            fragment:Buffer = null,
             frame:Buffer = null;
-        const isBuffer:boolean = (Buffer.isBuffer(payload) === true),
+        const socketData:socketData = payload as socketData,
+            isBuffer:boolean = (socketData.service === undefined),
+            // fragmentation is disabled by assigning a value of 0
             fragmentSize:number = 1e6,
-            opcode:1|2 = (isBuffer === true)
-                ? 2
-                : 1,
-            writeFrame = function (finish:boolean, firstFrame:boolean):void {
+            op:1|2|8|9 = (opcode === undefined)
+                ? (isBuffer === true)
+                    ? 2
+                    : 1
+                : opcode,
+            writeFrame = function terminal_server_transmission_transmitWs_send_writeFrame(finish:boolean, firstFrame:boolean):void {
+                const size:number = fragment.length;
                 // frame 0 is:
                 // * 128 bits for fin, 0 for unfinished plus opcode
                 // * opcode 0 - continuation of fragments
@@ -645,59 +670,68 @@ const websocket:websocket = {
                 // ** for fragmented data only first data frame gets a data opcode, others receive 0 (continuity)
                 frame[0] = (finish === true)
                     ? (firstFrame === true)
-                        ? 128 + opcode
+                        ? 128 + op
                         : 128
                     : (firstFrame === true)
-                        ? opcode
+                        ? op
                         : 0;
                 // frame 1 is length flag
-                frame[1] = (len < 126)
-                    ? len
-                    : (len < 65536)
+                frame[1] = (size < 126)
+                    ? size
+                    : (size < 65536)
                         ? 126
                         : 127;
-                socket.write(Buffer.concat([frame, dataPackage.slice(0, fragmentSize)]));
+                if (size > 125) {
+                    if (size < 65536) {
+                        frame.writeUInt16BE(size, 2);
+                    } else {
+                        frame.writeUIntBE(size, 4, 6);
+                    }
+                }
+                socket.write(Buffer.concat([frame, fragment]));
             },
-            fragment = function (first:boolean):void {
-                if (len > 1e6) {
+            fragmentation = function terminal_server_transmission_transmitWs_send_fragmentation(first:boolean):void {
+                if (len > fragmentSize && fragmentSize > 0) {
+                    fragment = (isBuffer === true)
+                        ? dataPackage.slice(0, fragmentSize)
+                        : Buffer.from(stringData.slice(0, fragmentSize), "utf8");
                     // fragmentation
                     if (first === true) {
                         // first frame of fragment
                         writeFrame(false, true);
-                    } else if (len > 1e6) {
+                    } else if (len > fragmentSize) {
                         // continuation of fragment
                         writeFrame(false, false);
                     }
-                    dataPackage = dataPackage.slice(1e6);
-                    len = len - 1e6;
-                    fragment(false);
+                    if (isBuffer === true) {
+                        dataPackage = dataPackage.slice(fragmentSize);
+                        len = dataPackage.length;
+                    } else {
+                        stringData = stringData.slice(fragmentSize);
+                        len = Buffer.byteLength(stringData, "utf8")
+                    }
+                    terminal_server_transmission_transmitWs_send_fragmentation(false);
                 } else {
                     // finished, not fragmented if first === true
+                    fragment = (isBuffer === true)
+                        ? dataPackage
+                        : Buffer.from(stringData, "utf8");
                     writeFrame(true, first);
                 }
             };
+        if (isBuffer === false) {
+            stringData = JSON.stringify(payload);
+        }
         dataPackage = (isBuffer === true)
             ? payload as Buffer
-            : Buffer.from(JSON.stringify(payload));
+            : Buffer.from(stringData, "utf8");
         len = dataPackage.length;
         frame = (len < 126)
             ? Buffer.alloc(2)
             : (len < 65536)
                 ? Buffer.alloc(4)
                 : Buffer.alloc(10);
-        if (len > 125) {
-            if (len < 65536) {
-                // writes a 16 bit number
-                frame.writeUInt16BE(len, 2);
-            } else {
-                // writes a 48 bit number in the last 6 bytes of an 8 byte allocation
-                // 63 bits are allocated large payload lengths,
-                // but JavaScript's max supported number size is 53 bits
-                // 48 bits is still greater than 281 terabytes
-                frame.writeUIntBE(len, 4, 6);
-            }
-        }
-        fragment(true);
+        fragmentation(true);
     },
     server: function (config:websocketServer):Server {
         // create the server
