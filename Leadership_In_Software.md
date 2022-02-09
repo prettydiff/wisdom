@@ -150,3 +150,10 @@ It is interesting holding employment in two unrelated industries simultaneously.
 One with a strong core of leadership that is well defined by doctrine and the other with nothing of the sort.
 Through that comparison it really feels software is an immature industry where the children run the daycare.
 Any attempt to raise the bar is frequently greeted with either hostility or irrationally self-indulgent excuses.
+
+There are many subjects in software that their mere mention immediately spring to mind the [Dunning-Kruger Effect](https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect).
+One of those subjects is certainly leadership.
+When a person's entire career confined to a single line of work in a single industry they have nothing to compare it to, so its natural to believe the software industry is performing spectacularly on leadership and thus no more is needed.
+However, when your sample size for any kind of comparison is 1 of course you are 100% awesome.
+You are also 0% awesome, so unqualified self-assessments based on nothing mean nothing.
+This is why it takes an outside observer to form any kind of qualified opinion.
