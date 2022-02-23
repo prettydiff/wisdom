@@ -56,7 +56,7 @@ Those of us experienced in leadership can identify an organization's level of tr
 
 When a leader trusts their subordinates they will delegate to them as must responsibility as they are allowed.
 This frees the leader necessary availability to plan for the future, meet with external partners, and guide/observe their subordinate leaders more objectively.
-Leaders must inspire and earn the trust of subordinates through establishment of security, setting the example, and selfless service.
+Leaders must inspire and earn the trust of subordinates through establishment of security, setting the example, timely information, and selfless service.
 
 When a subordinate trusts their leader they will engage their work with increased motivation, precision, and initiative.
 A subordinate in a high trust relationship will disclose more details to their leader and demonstrate a willingness to assume greater risks in product development.
@@ -91,7 +91,7 @@ Leadership training does not exist by accident.
 > FM 6-22, 1-10
 
 #### Historic Example: A Culture of Training
-As a historical example [English Kind Henry V](https://en.wikipedia.org/wiki/Henry_V_of_England) conquered France.
+As a historical example [English King Henry V](https://en.wikipedia.org/wiki/Henry_V_of_England) conquered France.
 This was made possible by the accidental victory at the [Battle of Agincourt](https://en.wikipedia.org/wiki/Battle_of_Agincourt) in 1415 where an exhausted and poorly equipped English army retreating back to England encountered a superior French force.
 The English force comprised about 1,500 knights and 7,000 archers.
 The French force comprised about 10,000 knights with superior armor and 4,000-5,000 footmen comprising archers and crossbowmen and possibly an additional 10,000 armed valets to the knights for a total fighting force of around 25,000 men.
