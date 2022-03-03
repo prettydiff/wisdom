@@ -1,5 +1,5 @@
 # Delusional Developers
-One of the hardest things to accept for me as a senior developer are the [delusions](https://en.wikipedia.org/wiki/Delusion) less confident developers build to make sense of thw world around them.  This behavior is more widespread than a person may initially consider and to some extent biases everybody one way or another.  To be a stronger developer you must continually seek to identify delusional behaviors within yourself and deliberately work to push them out of your mind.
+One of the hardest things to accept for me as a senior developer are the [delusions](https://en.wikipedia.org/wiki/Delusion) less confident developers build to make sense of the world around them.  This behavior is more widespread than a person may initially consider and to some extent biases everybody one way or another.  To be a stronger developer you must continually seek to identify delusional behaviors within yourself and deliberately work to push them out of your mind.
 
 ## Common Developer Delusions
 As a JavaScript developer there are two delusions I encounter very frequently.  I will explain these two in further detail below, but first I must explain what delusions are.
