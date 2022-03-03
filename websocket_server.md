@@ -3,14 +3,20 @@
 ## Introduction
 
 ### Preamble
-The provided code samples come from [Share File Systems](https://github.com/prettydiff/share-file-systems) and may be used in conformance with that project's license: AGPLv3.  For full license text see the completed code at the bottom.
+The provided code samples come from [Share File Systems](https://github.com/prettydiff/share-file-systems) and may be used in conformance with that project's license: AGPLv3.
+For full license text see the completed code at the bottom.
 
-The goal of this document is to provide a step-by-step walk through of writing a WebSocket server application for Node.js.  The example code provided will feature both a WebSocket server and conformance to the WebSocket [client specification](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket).
+The goal of this document is to provide a step-by-step walk through of writing a WebSocket server application for Node.js.
+The example code provided will feature both a WebSocket server and conformance to the WebSocket [client specification](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket).
 
-This guide requires a basic knowledge of TypeScript and Node.js.  No other dependencies, conventions, or tools will be mentioned.  This guide makes use of ECMAScript Module conventions opposed to the older CommonJS *require* convention.
+This guide requires a basic knowledge of TypeScript and Node.js.
+No other dependencies, conventions, or tools will be mentioned.
+This guide makes use of ECMAScript Module conventions opposed to the older CommonJS *require* convention.
 
 ### What are WebSockets?
-The WebSocket protocol is a common API for a TCP stream as defined by [RFC 6455](https://datatracker.ietf.org/doc/html/rfc6455) with an interface defined by [WHATWG HTML Specification](https://html.spec.whatwg.org/multipage/web-sockets.html#the-websocket-interface). WebSockets provide a readable and writable network stream to web browsers.  That solves two problems not solved by HTTP:
+The WebSocket protocol is a common API for a TCP stream as defined by [RFC 6455](https://datatracker.ietf.org/doc/html/rfc6455) with an interface defined by [WHATWG HTML Specification](https://html.spec.whatwg.org/multipage/web-sockets.html#the-websocket-interface).
+WebSockets provide a readable and writable network stream to web browsers.
+That solves two problems not solved by HTTP:
 
 1. Provides a stream interface for continuous transmit of data.  This is helpful in the case of binary media such as video and audio where the media source is the browser but intended for distribution across a network.
 2. Provides a means to push data into a web browser without requests.  This is helpful to receive information updates in real time without polling a server via unnecessary HTTP requests.
@@ -18,10 +24,12 @@ The WebSocket protocol is a common API for a TCP stream as defined by [RFC 6455]
 Since the WebSocket protocol is just a primitive TCP stream interface it unlocks the same client capabilities to conveniently stream data across a network in addition to acting as a server for browser-based applications.
 
 ## Getting started
-Start by creating a new document in your favorite code editor and importing the required Node references.  This new document will serve as a stand-alone service library.
+Start by creating a new document in your favorite code editor and importing the required Node references.
+This new document will serve as a stand-alone service library.
 
 ### Build type definitions
-In a TypeScript type definition file include the following code.  TypeScript type definition files have file extension: **.d.ts**.
+In a TypeScript type definition file include the following code.
+TypeScript type definition files have file extension: **.d.ts**.
 
 ```typescript
 // yourTypes.d.ts
@@ -71,7 +79,9 @@ import { AddressInfo, createServer as netServer, Server } from "net";
 import { createServer as tlsServer } from "tls";
 ```
 
-The import statements import only what we need.  We import the `createServer` types from both the *net* and *tls* Node libraries and then alias them to avoid a naming conflict.  We also import the `AddressInfo` and `Server` types from *net* as well, which we will use later.
+The import statements import only what we need.
+We import the `createServer` types from both the *net* and *tls* Node libraries and then alias them to avoid a naming conflict.
+We also import the `AddressInfo` and `Server` types from *net* as well, which we will use later.
 
 The *crypto* library will be used for the connection handshake further down.
 
@@ -97,10 +107,14 @@ This code represents the outline of our library.
 * Method *server* creates a websocket server listening on a specified port.
 
 ## Create the server
-The server needs to support both secure and insecure WebSocket services.  A secure server requires a valid certificate, but otherwise places most of the connection burden on the client.
+The server needs to support both secure and insecure WebSocket services.
+A secure server requires a valid certificate, but otherwise places most of the connection burden on the client.
 
 ### About certificates
-If the code will use a secure server you will need to pass in a TLS certificate whether from a trusted certificate authority or [self signed](https://www.linode.com/docs/guides/create-a-self-signed-tls-certificate/).  Node requires certificates in PEM format and comprised by the certificate itself and its corresponding private key.  At the time of this writing Node ships with OpenSSL to power its *crypto* library but does not expose an API for creating certificates which OpenSSL can do.  This means that certificates can be created with Node, but require direct access to the OpenSSL library as a child process, but beware certificate storage and access varies wildly by operating system.
+If the code will use a secure server you will need to pass in a TLS certificate whether from a trusted certificate authority or [self signed](https://www.linode.com/docs/guides/create-a-self-signed-tls-certificate/).
+Node requires certificates in PEM format and comprised by the certificate itself and its corresponding private key.
+At the time of this writing Node ships with OpenSSL to power its *crypto* library but does not expose an API for creating certificates which OpenSSL can do.
+This means that certificates can be created with Node, but require direct access to the OpenSSL library as a child process, but beware certificate storage and access varies wildly by operating system.
 
 If the secure server should perform authentication against the client certificate pass in `requestCert:true` to the TLS server options along with the certificate details.
 
@@ -110,17 +124,41 @@ Aside from the certificate the insecure and secure servers are otherwise identic
 ```typescript
     server: function (config:websocketServer):Server {
         // create the server
-        const wsServer:Server = (config.cert === null)
+        const handshake = function (socket:socketClient, data:string, callback:(key:string) => void):void {},
+            dataHandler = function (socket:socketClient):void {},
+            connection = function (socket:socketClient):void {
+                const handshakeHandler = function (data:Buffer):void {
+                    const handshakeCallback = function (key:string):void {
+
+                        // modify the socket for use in the application
+                        socket.closeFlag = false;          // closeFlag - whether the socket is (or about to be) closed, do not write
+                        socket.fragment = [];              // storehouse of data received for a fragmented data package
+                        socket.opcode = 0;                 // stores opcode of fragmented data page (1 or 2), because additional fragmented frames have code 0 (continuity)
+                        socket.sessionId = key;            // a unique identifier on which to identify and differential this socket from other client sockets
+                        socket.setKeepAlive(true, 0);      // standard method to retain socket against timeouts from inactivity until a close frame comes in
+                        websocket.clientList.push(socket); // push this socket into the list of socket clients
+
+                        // change the listener to process data
+                        socket.removeListener("data", terminal_commands_websocket_connection_handshakeHandler);
+                        dataHandler(socket);
+                    };
+                    // handshake
+                    handshake(socket, data.toString(), handshakeCallback);
+                };
+                socket.on("data", handshakeHandler);
+                socket.on("error", function (errorItem:Error) {
+                    if (socket.closeFlag === false) {
+                        console.error(errorItem.toString());
+                    }
+                });
+            },
+            wsServer:Server = (config.cert === null)
                 ? netServer()
                 : tlsServer({
                     cert: config.cert.cert,
                     key: config.cert.key,
                     requestCert: true
-                }),
-            // server created
-
-            handshake = function (socket:socketClient, data:string, callback:(key:string) => void):void {},
-            dataHandler = function (socket:socketClient):void {};
+                }, connection);
 
         // create the listener (activates the server)
         wsServer.listen({
@@ -133,32 +171,9 @@ Aside from the certificate the insecure and secure servers are otherwise identic
         // server is listening
 
         // assign an event handler to the "connection" event
-        wsServer.on("connection", function (socket:socketClient):void {
-            const handshakeHandler = function (data:Buffer):void {
-                const handshakeCallback = function (key:string):void {
-
-                    // modify the socket for use in the application
-                    socket.closeFlag = false;          // closeFlag - whether the socket is (or about to be) closed, do not write
-                    socket.fragment = [];              // storehouse of data received for a fragmented data package
-                    socket.opcode = 0;                 // stores opcode of fragmented data page (1 or 2), because additional fragmented frames have code 0 (continuity)
-                    socket.sessionId = key;            // a unique identifier on which to identify and differential this socket from other client sockets
-                    socket.setKeepAlive(true, 0);      // standard method to retain socket against timeouts from inactivity until a close frame comes in
-                    websocket.clientList.push(socket); // push this socket into the list of socket clients
-
-                    // change the listener to process data
-                    socket.removeListener("data", terminal_commands_websocket_connection_handshakeHandler);
-                    dataHandler(socket);
-                };
-                // handshake
-                handshake(socket, data.toString(), handshakeCallback);
-            };
-            socket.on("data", handshakeHandler);
-            socket.on("error", function (errorItem:Error) {
-                if (socket.closeFlag === false) {
-                    console.error(errorItem.toString());
-                }
-            });
-        });
+        if (config.cert === null) {
+            wsServer.on("connection", connection);
+        }
 
         // returns the server object for external access
         return wsServer;
@@ -167,6 +182,7 @@ Aside from the certificate the insecure and secure servers are otherwise identic
 
 There are a couple of things happening in the logic above.
 1. We create a server assigned to variable *wsServer*.  The server launches in secure automatically if no certificate is provided in the passed in config object.
+    * Please note the connection handler is passed in directly upon server creation for a secure server, but assigned to the "connection" event for the unsecure server.
 2. We define two functions: *handshake* and *dataHandler*.  These two demand specific instruction further below.
 3. We spawn a listener on our new server.  The callback provided to the passed in *config* object executes in the listener's callback.
 4. We assign an event handler to the server's "connection" event listener.  This handler does two things:
@@ -174,6 +190,13 @@ There are a couple of things happening in the logic above.
    * Provides some basic error handling.
 
 The handshake function receives a callback that extends the socket for ease of management later.
+
+### TLS Connection Explanation
+As noted above the "connection" event handler is assigned in different ways depending whether the server is secure.
+A TLS server receives two connection events: "connection" and "secureConnection".
+The TLS server inherits the "connection" event from `net.createServer` method, but it receives no events.
+The "secureConnection" event replaces the "connection" event after secure connection establishment, which is an additional step not represent on the unsecure server.
+Since both servers have a "connection" event, but the unsecure server does not have a "secureConnection" event and that event is not immediately available to the secure server these servers must receive the event handler in different ways.
 
 ## Handshake
 RFC 6455 defines the handshake in section 4, but I find the [MDN reference](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_servers) a clearer explanation.
@@ -195,7 +218,10 @@ Upgrade: websocket
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36
 ```
 
-This is a typical request taken from my own browser.  The only thing we need in that is the `Sec-WebSocket-Key`, which is randomly generated by the browser.  We will perform this logic in the *handshake* function.  Here is an example of such a function at its most minimal:
+This is a typical request taken from my own browser.
+The only thing we need in that is the `Sec-WebSocket-Key`, which is randomly generated by the browser.
+We will perform this logic in the *handshake* function.
+Here is an example of such a function at its most minimal:
 
 ```typescript
     handshake = function (socket:socketClient, data:string, callback:(key:string) => void):void {
@@ -237,7 +263,8 @@ This is a typical request taken from my own browser.  The only thing we need in 
 6. Execute the passed in callback, which is the function *handshakeCallback* from the prior section's code example.  This callback also removes the *data* event handler.  We don't need that event handler anymore because the handshake is complete.
 
 ## Receiving data
-Upon completion of the handshake the specified socket will receive binary frames that do not resemble HTTP headers.  These frames must be decoded before we can access the contained data as defined in RFC 6455, Section 5.
+Upon completion of the handshake the specified socket will receive binary frames that do not resemble HTTP headers.
+These frames must be decoded before we can access the contained data as defined in RFC 6455, Section 5.
 
 ```typescript
    dataHandler = function (socket:socketClient):void {
@@ -246,7 +273,8 @@ Upon completion of the handshake the specified socket will receive binary frames
    }
 ```
 
-The above logic is written for portability within the library file.  The data processor needs access to the socket and this means of expression provides access to the socket by lexical scope without declaring additional references or constraining this logic to the body of the *handshakeCallback* function since it is no longer related to the handshake.
+The above logic is written for portability within the library file.
+The data processor needs access to the socket and this means of expression provides access to the socket by lexical scope without declaring additional references or constraining this logic to the body of the *handshakeCallback* function since it is no longer related to the handshake.
 
 ### Data gram definition
 From RFC 6455, Section 5.2.
@@ -287,7 +315,8 @@ The first byte contains a few things:
    - 10 - A **pong** control frame used as a response to a ping.
 
 #### Byte 1
-Bit 0 contains the mask flag. This bit will always be a *"1"* coming from the browser and should be on from all client messages.
+Bit 0 contains the mask flag.
+This bit will always be a *"1"* coming from the browser and should be on from all client messages.
 
 The remaining 7 bits indicate payload length according to a formula:
 * If the total payload size is **less than 126 bytes** the actual payload size is represented here.
@@ -295,7 +324,8 @@ The remaining 7 bits indicate payload length according to a formula:
 * Payload sizes greater than 65535 bytes are represented here as value **127**.
 
 #### Extended Payload Length
-If the payload length from byte 1 is value 126 the next two bytes indicate the actual payload size.  If the payload length from byte 1 is 127 the next 8 bytes indicate the actual payload size.
+If the payload length from byte 1 is value 126 the next two bytes indicate the actual payload size.
+If the payload length from byte 1 is 127 the next 8 bytes indicate the actual payload size.
 
 #### Mask key
 The mask key, 4 bytes, only occurs if the make flag from bit 0 of byte 1 is **"1"** and occurs after the extended payload length bytes whether there are 0, 2, or 8 of them.
@@ -428,7 +458,8 @@ The above code is everything we need to properly interpret websocket data on the
 Untangles the data gram to that each specified part is uniquely identified including the payload data.
 
 #### Unmask
-All communications from a websocket client to a websocket server are to be masked, according to the protocol specification, which means all websocket messages coming from web browsers will be masked.  This masking occurs regardless of encryption in order to bypass modification by network equipment in route whether physical like routers/switches or logical like proxies, firewalls, or intermediary servers.
+All communications from a websocket client to a websocket server are to be masked, according to the protocol specification, which means all websocket messages coming from web browsers will be masked.
+This masking occurs regardless of encryption in order to bypass modification by network equipment in route whether physical like routers/switches or logical like proxies, firewalls, or intermediary servers.
 
 Unmasking is defined using a simple algorithm by RFC 6455, Section 5.3:
 ```
@@ -445,7 +476,8 @@ Unmasking is defined using a simple algorithm by RFC 6455, Section 5.3:
    key.
 ```
 
-Unmasking must only occur if the *maskKey* bit is value *1*.  The applied algorithm from the prior code sample:
+Unmasking must only occur if the *maskKey* bit is value *1*.
+The applied algorithm from the prior code sample:
 
 ```typescript
     frame.payload.forEach(function terminal_commands_websocket_dataHandler_unmask(value:number, index:number):void {
@@ -454,22 +486,36 @@ Unmasking must only occur if the *maskKey* bit is value *1*.  The applied algori
 ```
 
 #### Data management
-Before we can handle the unmasked data we must understand fragmentation.  Fragmentation will only occur on data frames, which is opcodes: *text*, *binary*, or custom defined opcodes.  Control frames must not be fragmented and may be sent irrespective of completion of fragmented data.  Control frames are *close*, *ping*, and *pong*.
+Before we can handle the unmasked data we must understand fragmentation.
+Fragmentation will only occur on data frames, which is opcodes: *text*, *binary*, or custom defined opcodes.
+Control frames must not be fragmented and may be sent irrespective of completion of fragmented data.
+Control frames are *close*, *ping*, and *pong*.
 
 Fragmented data is observed by one of two characteristics:
 1. A data frame with the *fin* bit switched off.  In this case the frame will have a data type opcode for the first fragment, but all remaining fragments will have an opcode of **0** indicating continuation.
 2. A data frame, regardless of *fin* bit, having an opcode of **0**.  Receiving a data frame with *fin* bit on and opcode **0** indicates the last frame of a series of fragments.
 
-Since control frames must not be fragmented we segment the code above by fin bit.  If the fin bit is on then either the frame represents data that never fragmented, completion of fragmented data, or a control data frame.  For unfinished data we only store the opcode if not 0 and the current unmasked data payload.
+Since control frames must not be fragmented we segment the code above by fin bit.
+If the fin bit is on then either the frame represents data that never fragmented, completion of fragmented data, or a control data frame.
+For unfinished data we only store the opcode if not 0 and the current unmasked data payload.
 
-Looking at the data handling logic above we separate the control logic out into a child function.  The logic for close frames, *opcode 8*, sends a close response acknowledging receipt of the control frame.  It also removes the given socket from the `websocket.clientList` array and closes the socket killing the connection from the server.
+Looking at the data handling logic above we separate the control logic out into a child function.
+The logic for close frames, *opcode 8*, sends a close response acknowledging receipt of the control frame.
+It also removes the given socket from the `websocket.clientList` array and closes the socket killing the connection from the server.
 
-There is only 1 line of code dedicated for receipt of *ping* frames.  The opcode is converted from 9 to 10, thereby transforming the frame from *ping* to *pong*, and responds with the frame otherwise identical but unmasked.  You can see there isn't any logic supplied for receipt of *pong* type frames.
+There is only 1 line of code dedicated for receipt of *ping* frames.
+The opcode is converted from 9 to 10, thereby transforming the frame from *ping* to *pong*, and responds with the frame otherwise identical but unmasked.
+You can see there isn't any logic supplied for receipt of *pong* type frames.
 
-For data frames the above login only performs a `console.log` on the completed payload, which concatenates stored data from socket.fragment and frame.payload.  Additional logic will go there for actually handling data in your own application.  After this the properties socket.fragment and socket.opcode are reset to await the next fragmented data frame.
+For data frames the above login only performs a `console.log` on the completed payload, which concatenates stored data from socket.fragment and frame.payload.
+Additional logic will go there for actually handling data in your own application.
+After this the properties socket.fragment and socket.opcode are reset to await the next fragmented data frame.
 
 ## Send (write) operations
-In order to send data on a websocket channel a properly formed frame heading must be supplied.  The protocol specification mentions that messages from a client to a server MUST be masked, but messages from a server to a client MUST NOT be masked.  This means if communicating to a browser the messages must not be masked, but messages from one server to another should be masked if sent in the capacity of a client otherwise the remote server should close the socket.  That said all sent data in this tutorial will be unmasked.
+In order to send data on a websocket channel a properly formed frame heading must be supplied.
+The protocol specification mentions that messages from a client to a server MUST be masked, but messages from a server to a client MUST NOT be masked.
+This means if communicating to a browser the messages must not be masked, but messages from one server to another should be masked if sent in the capacity of a client otherwise the remote server should close the socket.
+That said all sent data in this tutorial will be unmasked.
 
 ```typescript
     send: function (socket:socketClient, data:Buffer|string):void {
@@ -576,31 +622,47 @@ In order to send data on a websocket channel a properly formed frame heading mus
     }
 ```
 
-In the code example provided all data payloads larger than 1 million bytes are fragmented.  Fragmentation is optional, but it reduces latency and risk of failure due to network transmission limitations.  Large data frames may also be arbitrarily rejected due to the settings of some receiving servers.  The fragmentation logic uses recursion to continually send the first million bytes of a payload until the payload has less than a million bytes left to transmit.
+In the code example provided all data payloads larger than 1 million bytes are fragmented.
+Fragmentation is optional, but it reduces latency and risk of failure due to network transmission limitations.
+Large data frames may also be arbitrarily rejected due to the settings of some receiving servers.
+The fragmentation logic uses recursion to continually send the first million bytes of a payload until the payload has less than a million bytes left to transmit.
 
 There are two interesting parts of building the frame header:
 1. Accounting for the first two bytes
 2. Accounting for extend length bytes, if necessary.
 
-This process is a bit simplified compared to receiving data frames, because masking is not applied and we are not sending control frames.  The first two bytes a defined using decimal integers as a personal preference because I lack intimate familiarity with binary and bitwise operators.  To understand how these headers are built we must remember the data gram graph from the RFC.
+This process is a bit simplified compared to receiving data frames, because masking is not applied and we are not sending control frames.
+The first two bytes a defined using decimal integers as a personal preference because I lack intimate familiarity with binary and bitwise operators.
+To understand how these headers are built we must remember the data gram graph from the RFC.
 
 The first byte (`frame[0]`) is as follows:
 * fin bit
 * rsv1/2/3 bits
 * opcode (4 bits)
 
-That first bit occupies the 128 decimal value position of an 8 bit byte.  If the fin bit is set this first byte must be at least 128.  We ignore the rsv bits, so those are 0.  The opcode will be 0 for a fragment, 1 for a text frame that is either not fragmented or the first fragment, or 2 for a binary frame that is either not fragmented or the first fragment.  We simply add those values to get 128, 129, or 130.
+That first bit occupies the 128 decimal value position of an 8 bit byte.
+If the fin bit is set this first byte must be at least 128.
+We ignore the rsv bits, so those are 0.
+The opcode will be 0 for a fragment, 1 for a text frame that is either not fragmented or the first fragment, or 2 for a binary frame that is either not fragmented or the first fragment.
+We simply add those values to get 128, 129, or 130.
 
-The second byte (`frame[1]`) has no mask so the first bit is ignored.  The payload link follows the same formula mentioned earlier:
+The second byte (`frame[1]`) has no mask so the first bit is ignored.
+The payload link follows the same formula mentioned earlier:
 * The actual length of payload in bytes if less than 126 bytes.
 * 126 if payload byte length is 126 - 65535
 * 127 if payload byte length is greater than 65535.
 
-If that second byte's value is less than 126 we ignore extended length bytes and instead just write the payload starting at buffer index 2.  Otherwise we write two bytes of extended payload length if the less than 65535 bytes long or 8 bytes of payload length.
+If that second byte's value is less than 126 we ignore extended length bytes and instead just write the payload starting at buffer index 2.
+Otherwise we write two bytes of extended payload length if the less than 65535 bytes long or 8 bytes of payload length.
 
-It must be noted that JavaScript cannot support 64bit numbers.  The maximum number value supported by JavaScript is (2**53) - 1.  Because of that we instead write a 48 bit value into the last 6 bytes of the extended size block, which means offsetting the buffer index by 4 instead of 2: `frame.writeUIntBE(size, 4, 6);`.
+It must be noted that JavaScript cannot support 64bit numbers.
+The maximum number value supported by JavaScript is (2**53) - 1.
+Because of that we instead write a 48 bit value into the last 6 bytes of the extended size block, which means offsetting the buffer index by 4 instead of 2: `frame.writeUIntBE(size, 4, 6);`.
 
-Please also bear in mind that text must be fragmented differently than binary.  This is because text characters are multiple bytes in JavaScript, so fragmenting a binary representation of text could result in splitting a character between its respective bytes.  This will break receiving agents that interpret text type payloads, such as web browsers.  In the code above the different fragmentation occurs by slicing a string before converting it to binary, where as binary data is sliced directly.
+Please also bear in mind that text must be fragmented differently than binary.
+This is because text characters are multiple bytes in JavaScript, so fragmenting a binary representation of text could result in splitting a character between its respective bytes.
+This will break receiving agents that interpret text type payloads, such as web browsers.
+In the code above the different fragmentation occurs by slicing a string before converting it to binary, where as binary data is sliced directly.
 
 This completes the frame header and the payload immediately follows to complete the data frame.
 
@@ -735,16 +797,30 @@ const websocket:websocket = {
     },
     server: function (config:websocketServer):Server {
         // create the server
-        const wsServer:Server = (config.cert === null)
-                ? netServer()
-                : tlsServer({
-                    cert: config.cert.cert,
-                    key: config.cert.key,
-                    requestCert: true
-                }),
-            // server created
-
-            handshake = function (socket:socketClient, data:string, callback:(key:string) => void):void {},
+        const handshake = function (socket:socketClient, data:string, callback:(key:string) => void):void {
+                const headers:string[] = data.split("\r\n"),
+                    output:string[] = [],
+                    hash:Hash = createHash("sha1");
+                let a:number = headers.length,
+                    key:string = "";
+                do {
+                    a = a - 1;
+                    if (headers[a].indexOf("Sec-WebSocket-Key") > -1) {
+                        // the search for whitespace is mostly unnecessary,
+                        // but this is thorough because network devices can mutilate data across the wire
+                        key = headers[a].replace(/\s*/g, "").replace("Sec-WebSocket-Key:", "");
+                        break;
+                    }
+                } while (a > 0);
+                createHash();
+                output.push("HTTP/1.1 101 Switching Protocols");
+                output.push("Upgrade: websocket");
+                output.push("Connection: Upgrade");
+                output.push(`Sec-WebSocket-Accept: ${hash.update(key + "258EAFA5-E914-47DA-95CA-C5AB0DC85B11").digest("base64")}`);
+                output.push("");
+                socket.write(output.join("\r\n"));
+                callback(key);
+            },
             dataHandler = function (socket:socketClient):void {
                 const processor = function (data:Buffer):void {
                     // decode the frame header
@@ -847,7 +923,41 @@ const websocket:websocket = {
                     }
                 };
                 socket.on("data", processor);
-            };
+            },
+            connection = function (socket:socketClient):void {
+                const handshakeHandler = function (data:Buffer):void {
+                    const handshakeCallback = function (key:string):void {
+
+                        // modify the socket for use in the application
+                        socket.closeFlag = false;          // closeFlag - whether the socket is (or about to be) closed, do not write
+                        socket.fragment = [];              // storehouse of data received for a fragmented data package
+                        socket.opcode = 0;                 // stores opcode of fragmented data page (1 or 2), because additional fragmented frames have code 0 (continuity)
+                        socket.sessionId = key;            // a unique identifier on which to identify and differential this socket from other client sockets
+                        socket.setKeepAlive(true, 0);      // standard method to retain socket against timeouts from inactivity until a close frame comes in
+                        websocket.clientList.push(socket); // push this socket into the list of socket clients
+
+                        // change the listener to process data
+                        socket.removeListener("data", terminal_commands_websocket_connection_handshakeHandler);
+                        dataHandler(socket);
+                    };
+                    // handshake
+                    handshake(socket, data.toString(), handshakeCallback);
+                };
+                socket.on("data", handshakeHandler);
+                socket.on("error", function (errorItem:Error) {
+                    if (socket.closeFlag === false) {
+                        console.error(errorItem.toString());
+                    }
+                });
+            },
+            wsServer:Server = (config.cert === null)
+                ? netServer()
+                : tlsServer({
+                    cert: config.cert.cert,
+                    key: config.cert.key,
+                    requestCert: true
+                }, connection);
+            // server created
 
         // create the listener (activates the server)
         wsServer.listen({
@@ -860,32 +970,9 @@ const websocket:websocket = {
         // server is listening
 
         // assign an event handler to the "connection" event
-        wsServer.on("connection", function (socket:socketClient):void {
-            const handshakeHandler = function (data:Buffer):void {
-                const handshakeCallback = function (key:string):void {
-
-                    // modify the socket for use in the application
-                    socket.closeFlag = false;          // closeFlag - whether the socket is (or about to be) closed, do not write
-                    socket.fragment = [];              // storehouse of data received for a fragmented data package
-                    socket.opcode = 0;                 // stores opcode of fragmented data page (1 or 2), because additional fragmented frames have code 0 (continuity)
-                    socket.sessionId = key;            // a unique identifier on which to identify and differential this socket from other client sockets
-                    socket.setKeepAlive(true, 0);      // standard method to retain socket against timeouts from inactivity until a close frame comes in
-                    websocket.clientList.push(socket); // push this socket into the list of socket clients
-
-                    // change the listener to process data
-                    socket.removeListener("data", terminal_commands_websocket_connection_handshakeHandler);
-                    dataHandler(socket);
-                };
-                // handshake
-                handshake(socket, data.toString(), handshakeCallback);
-            };
-            socket.on("data", handshakeHandler);
-            socket.on("error", function (errorItem:Error) {
-                if (socket.closeFlag === false) {
-                    console.error(errorItem.toString());
-                }
-            });
-        });
+        if (config.cert === null) {
+            wsServer.on("connection", connection);
+        }
 
         // returns the server object for external access
         return wsServer;
