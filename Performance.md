@@ -1,4 +1,9 @@
 # Performance
+Like security, performance requires trades off and sacrifices.
+This may mean writing code in a less popular way.
+Performance certainly means testing and measuring things otherwise not tested or measured.
+Also like security everybody claims to want performance, but rarely are they willing to work to achieve it.
+
 Generally technical discussions of performance imply execution performance, or more specifically time to execute specific measured tasks.
 From a managerial or product perspective performance can cover many things from execution time to hours of effort for a human to complete a given task.
 While discussions of performance may cover many different topics all discussions of performance contain one important consideration: measures.
