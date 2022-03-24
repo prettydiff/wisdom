@@ -51,6 +51,7 @@ declare global {
         len: number;
         maskKey: Buffer;
         payload: Buffer;
+        startByte: number;
     }
     interface websocket {
         broadcast: (data:Buffer|string) => void;
@@ -336,6 +337,14 @@ All remaining bytes are the actual payload data.
 ### Receiving data, the actual instructions
 ```typescript
     const processor = function (data:Buffer):void {
+        if (data.length < 3) {
+            return null;
+        }
+        if (buf !== null) {
+            // a firefox defect workaround part 2
+            data = Buffer.concat([buf, data]);
+            buf = null;
+        }
 
         // decode the frame header
         const toBin = function terminal_server_transmission_websocket_listener_processor_convertBin(input:number):string {
@@ -344,42 +353,65 @@ All remaining bytes are the actual payload data.
             toDec = function terminal_server_transmission_websocket_listener_processor_convertDec(input:string):number {
                 return parseInt(input, 2);
             },
-            frame:socketFrame = (function terminal_server_transmission_websocket_listener_processor_frame():socketFrame {
+            frame:socketFrame = (function terminal_server_transmission_transmitWs_listener_processor_frame():socketFrame {
                 const bits0:string = toBin(data[0]), // bit string - convert byte number (0 - 255) to 8 bits
-                    bits1:string = toBin(data[1]),
+                    mask:boolean = (data[1] > 127),
+                    len:number = (mask === true)
+                        ? data[1] - 128
+                        : data[1],
+                    extended:number = (function terminal_server_transmission_transmitWs_listener_processor_frame_extended():number {
+                        if (len < 126) {
+                            return len;
+                        }
+                        if (len < 127) {
+                            return data.slice(2, 4).readUInt16BE(0);
+                        }
+                        return data.slice(4, 10).readUIntBE(0, 6);
+                    }()),
                     frameItem:socketFrame = {
-                        fin: (bits0.charAt(0) === "1"),
+                        fin: (data[0] > 127),
                         rsv1: bits0.charAt(1),
                         rsv2: bits0.charAt(2),
                         rsv3: bits0.charAt(3),
                         opcode: toDec(bits0.slice(4)),
-                        mask: (bits1.charAt(0) === "1"),
-                        len: toDec(bits1.slice(1)),
-                        extended: 0,
+                        mask: mask,
+                        len: len,
+                        extended: extended,
                         maskKey: null,
-                        payload: null
-                    },
-                    startByte:number = (function terminal_server_transmission_websocket_listener_processor_frame_startByte():number {
-                        const keyOffset:number = (frameItem.mask === true)
-                            ? 4
-                            : 0;
-                        if (frameItem.len < 126) {
-                            frameItem.extended = frameItem.len;
-                            return 2 + keyOffset;
-                        }
-                        if (frameItem.len < 127) {
-                            frameItem.extended = data.slice(2, 4).readUInt16BE(0);
-                            return 4 + keyOffset;
-                        }
-                        frameItem.extended = data.slice(4, 10).readUIntBE(0, 6);
-                        return 10 + keyOffset;
-                    }());
+                        payload: null,
+                        startByte: (function terminal_server_transmission_transmitWs_listener_processor_frame_startByte():number {
+                            const keyOffset:number = (mask === true)
+                                ? 4
+                                : 0;
+                            if (len < 126) {
+                                return 2 + keyOffset;
+                            }
+                            if (len < 127) {
+                                return 4 + keyOffset;
+                            }
+                            return 10 + keyOffset;
+                        }())
+                    };
                 if (frameItem.mask === true) {
-                    frameItem.maskKey = data.slice(startByte - 4, startByte);
+                    frameItem.maskKey = data.slice(frameItem.startByte - 4, frameItem.startByte);
                 }
-                frameItem.payload = data.slice(startByte);
+                frameItem.payload = data.slice(frameItem.startByte);
+
                 return frameItem;
-            }());
+            }()),
+            opcode:number = (frame.opcode === 0)
+                ? socket.opcode
+                : frame.opcode;
+
+        if (frame.fin === true && data.length === frame.startByte) {
+            // a Firefox defect workaround part 1
+            buf = data;
+            return;
+        }
+        if (frame === null) {
+            // frame will be null if less than 5 bytes, so don't process it yet
+            return;
+        };
         // decoding complete
 
         // unmask payload
@@ -510,6 +542,13 @@ You can see there isn't any logic supplied for receipt of *pong* type frames.
 For data frames the above login only performs a `console.log` on the completed payload, which concatenates stored data from socket.fragment and frame.payload.
 Additional logic will go there for actually handling data in your own application.
 After this the properties socket.fragment and socket.opcode are reset to await the next fragmented data frame.
+
+Looking at the code there are two comments about a Firefox defect workaround.
+It seems in some cases Firefox will send two separate network frames for a single websocket frame.
+The first is the frame header and the second is the frame payload.
+This is identifiable if the frame size is exactly the length of the frame header only and yet claims to the be larger to sufficiently describe the frame payload size.
+The solution is to save the frame header and concat it to the next incoming frame.
+The solution in the code sample uses a variable named *buf* that must be declared outside the *processor* function so as to retain the value of the *data* argument.
 
 ## Send (write) operations
 In order to send data on a websocket channel a properly formed frame heading must be supplied.
@@ -822,39 +861,74 @@ const websocket:websocket = {
                 callback(key);
             },
             dataHandler = function (socket:socketClient):void {
+                let buf:Buffer = null;
                 const processor = function (data:Buffer):void {
                     // decode the frame header
-                    const frame:socketFrame = (function ():socketFrame {
-                        const bits0:string = websocket.convert.toBin(data[0]),
-                            bits1:string = websocket.convert.toBin(data[1]),
-                            frameItem:socketFrame = {
-                                fin: (bits0.charAt(0) === "1"),
-                                rsv1: bits0.charAt(1),
-                                rsv2: bits0.charAt(2),
-                                rsv3: bits0.charAt(3),
-                                opcode: websocket.convert.toDec(bits0.slice(4)),
-                                mask: (bits1.charAt(0) === "1"),
-                                len: websocket.convert.toDec(bits1.slice(1)),
-                                maskKey: null,
-                                payload: null
-                            },
-                            maskKey = function (startByte:number):void {
-                                if (frameItem.mask === true) {
-                                    frameItem.maskKey = data.slice(startByte, startByte + 4);
-                                    frameItem.payload = data.slice(startByte + 4);
-                                } else {
-                                    frameItem.payload = data.slice(startByte);
-                                }
-                            };
-                        if (frameItem.len < 126) {
-                            maskKey(2);
-                        } else if (frameItem.len === 126) {
-                            maskKey(4);
-                        } else {
-                            maskKey(10);
-                        }
-                        return frameItem;
-                    }());
+                    const toBin = function terminal_server_transmission_websocket_listener_processor_convertBin(input:number):string {
+                            return (input >>> 0).toString(2);
+                        },
+                        toDec = function terminal_server_transmission_websocket_listener_processor_convertDec(input:string):number {
+                            return parseInt(input, 2);
+                        },
+                        frame:socketFrame = (function terminal_server_transmission_transmitWs_listener_processor_frame():socketFrame {
+                            const bits0:string = toBin(data[0]), // bit string - convert byte number (0 - 255) to 8 bits
+                                mask:boolean = (data[1] > 127),
+                                len:number = (mask === true)
+                                    ? data[1] - 128
+                                    : data[1],
+                                extended:number = (function terminal_server_transmission_transmitWs_listener_processor_frame_extended():number {
+                                    if (len < 126) {
+                                        return len;
+                                    }
+                                    if (len < 127) {
+                                        return data.slice(2, 4).readUInt16BE(0);
+                                    }
+                                    return data.slice(4, 10).readUIntBE(0, 6);
+                                }()),
+                                frameItem:socketFrame = {
+                                    fin: (data[0] > 127),
+                                    rsv1: bits0.charAt(1),
+                                    rsv2: bits0.charAt(2),
+                                    rsv3: bits0.charAt(3),
+                                    opcode: toDec(bits0.slice(4)),
+                                    mask: mask,
+                                    len: len,
+                                    extended: extended,
+                                    maskKey: null,
+                                    payload: null,
+                                    startByte: (function terminal_server_transmission_transmitWs_listener_processor_frame_startByte():number {
+                                        const keyOffset:number = (mask === true)
+                                            ? 4
+                                            : 0;
+                                        if (len < 126) {
+                                            return 2 + keyOffset;
+                                        }
+                                        if (len < 127) {
+                                            return 4 + keyOffset;
+                                        }
+                                        return 10 + keyOffset;
+                                    }())
+                                };
+                            if (frameItem.mask === true) {
+                                frameItem.maskKey = data.slice(frameItem.startByte - 4, frameItem.startByte);
+                            }
+                            frameItem.payload = data.slice(frameItem.startByte);
+
+                            return frameItem;
+                        }()),
+                        opcode:number = (frame.opcode === 0)
+                            ? socket.opcode
+                            : frame.opcode;
+
+                    if (frame.fin === true && data.length === frame.startByte) {
+                        // a Firefox defect workaround part 1
+                        buf = data;
+                        return;
+                    }
+                    if (frame === null) {
+                        // frame will be null if less than 5 bytes, so don't process it yet
+                        return;
+                    };
                     // decoding complete
 
                     // unmask payload
@@ -1004,6 +1078,7 @@ declare global {
         len: number;
         maskKey: Buffer;
         payload: Buffer;
+        startByte: number;
     }
     interface websocket {
         broadcast: (data:Buffer|string) => void;
