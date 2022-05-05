@@ -236,6 +236,17 @@ Other situations in which these behaviors apply: land navigation, visual abstrac
 Further interesting is that each of those other listed skills are closely associated with basic soldiering skills but not associated with formal education or academics as those are commonly perceived.
 It must be quite frustrating when some dumb infantry soldier can spontaneously master this primitive programming skill after just a few hours of practice while many formally educated more intelligent programmers are permanently incapable of grasping this capability.
 
+It shouldn't be frustrating though or a surprise, because this isn't directly reflective of intelligence.
+Incompatibility is directly correlated with [neuroticism](https://www.youtube.com/watch?v=1lmyYyZiutg), which is has no association with intelligence.
+This is measurable and compatibility is highly predictive.
+To say that many developers are incompatible with something like the DOM is to directly assert that many developers are some degree of measurably neurotic.
+Scoring low on neuroticism, or achieving higher compatibility with a multistage decision matrix like the DOM, is associated with calmness and low negative emotion.
+These are the people that appear to barely have a pulse even under intense external environmental stress, such as remaining serenely calm under intense pressure.
+
+**If you want the best front-end developers, and at a bargain price, hire unnaturally calm people off the street that are minimally intelligent enough to learn to code. Assume all training expenses as a cost of doing business.**
+Most businesses do the opposite only to be hopelessly surprised the quality of work is garbage and the developers responsible for that garbage are extremely narcissistic when assessing responsibility.
+That narcissism is exceedingly more common than a natural social environment, because redirection is a survival mechanism of the grossly incompatible.
+
 ## Performance
 Performance evaluation requires measures.
 Software execution performance requires measuring execution time against a clock and comparing that clock time to the clock time derived from an alternate approach.
