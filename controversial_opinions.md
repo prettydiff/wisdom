@@ -2,87 +2,6 @@
 These are my personal opinions about programming.
 These options aren't are based upon personal observations.
 
-## Why Software Fails at Hiring
-Hiring software developers is a self-inflicted mortal wound of business.
-There are no agreed upon conventions, credentials, education, or any other factor that determines competence in software.
-That lack of agreement is an indication of immaturity, faulty expectations, and bias.
-
-Other industries have solved this problem.
-For example there exists a common set of credentials for teachers, real estate agents, doctors, lawyers, truck drivers, police, fire fighters, electricians, and so forth.
-In any other industry if a given person lacks the minimum required credentials they cannot work for anybody at all.
-No excuses.
-This sets a common minimum baseline of competence, ethics, and accepted practice.
-
-Business appears to not want to solve this problem as software developers are typically viewed as a disposable cost center to the business.
-That means a business is certainly not going to directly invest in the advancement of a developer's technical education unless a regulatory action or contractual obligation requires otherwise.
-Developers are also viewed as lacking loyalty and willing to switch employment frequently.
-Developer can expect to achieve a 20% raise by switching employers every two years for the first decade of their career while only gaining perhaps a 3% raise from remaining loyal, so there is no incentive to retain developers or invest in them.
-
-This hiring problem is the result wanting the freedom of maximum selection from among a group of applicants without concern for the specifics of what you want to select, which is uncertainty avoidance.
-You cannot have your cake and eat it too.
-As a result software hiring is often a race to the bottom with low retention that results in over paying for the least qualified applicant.
-
-## How Education Factors Into Software
-Generally speaking education is defined as the following:
-
-* A bachelor's degree means a person can communicate, such as write emails with the appropriate levels of specificity.
-* A master's degree means a person can perform a profession with advanced critical and/or original reasoning.
-* A doctoral degree means a person can conduct research.
-
-From the most generalized of considerations that's it.
-Education means nothing more than those few things, but those few things are exceedingly important to certain careers.
-
-So, what does that mean for software?
-In most cases, nothing relevant.
-In most cases software skills can be self-taught.
-I am self-taught and can perform software development objectively better than many university educated developers with regards to speed of delivery, originality, and quality/speed of product.
-
-It is necessary to debunk many false assumptions of education.
-First, education exists as a formal model to expand knowledge with qualified guidance.
-Second, education is not a license to practice in any profession.
-For example you need a law license to practice law, but you need a law degree to apply for the licensing process.
-Education is a prerequisite but the license to practice is the license not the education.
-Third, education is not directly an indicator of performance or potential in any regard, but is indirectly strongly correlated with both performance and potential.
-Forth, education is frequently used to determine professional compatibility, such that people with similar educations will write software in similar ways.
-That is true, but it's also both extremely good and bad, because it's a monocultural where all benefits and consequences are greatly multiplied at considerable risk.
-
-Monoculture aside, a bachelors degree in computer science is little more than worthless.
-It costs a tremendous amount of money for an insufficient increase of value.
-My recommendation to get the most of your money is to get a communications degree and teach yourself programming.
-
-Graduate degrees, on the other hand, are extremely valuable to computer science.
-Graduate degrees, masters and doctorate, provide a substantially better education than what you can provide to yourself.
-Graduate degrees also increase your earning potential and probability of promotion in the corporate world.
-
-## How to Promote
-In most larger companies there are two separate paths of elevation:
-* Management of administration, often referred to as leadership.
-* Scientist, often referred to as a principle or technical fellow.
-
-The managers typically become the leaders of the organizations who own administrative, man power, and vision for an organization.
-Conversely, the scientists perform discovery, innovation, research, and risk analysis.
-Even the US military makes these distinctions with commissioned officers versus warrant officers.
-Both positions require extremely large amounts of effort in order for a person to achieve success, but they require personality traits that are diametrically opposed.
-
-To be successful as a manager of people/organizations you need an insane level of conscientiousness.
-Conscientiousness means an ability to perceive the world around you and all the numerous variables it comprises.
-Conscientiousness is often associated the factors of conservatism and administrative success such as dutifulness, orderliness, industriousness, patriotism, and various other rigidly perceived qualifiers associated with hard work.
-
-To be successful as a scientist you need some level of passion and innovation, which are highly correlated with creativity.
-Creativity is highly correlated with openness, which explains why software developers with a passion for software are willing to continue writing software outside of work and generally prefer open source contributions.
-Contrary to conscientiousness, which is associated with conservatism, creativity and openness are generally associated with personality traits associated with concepts of liberalism.
-Scientist personality types tend to prefer transparency and precision as primary personality traits.
-
-People are not self-aware enough to objectively determine whether they are more creative or more conscientious.
-Self-evaluations are biased towards the work product performed and that bias is magnified by the commitment and work required to elevate a developer's skills and managerial prowess.
-As such developers worthy of promotion should be tested to determine if they are more creative or more conscientious.
-The conclusion of such testing should serve as a very strong guide for which path a person should elevate into.
-
-A secondary factor to consider is that every organization has a greater demand for managerial leaders than it does for scientists.
-As such scientist type positions are more rare and more competitive.
-That means you must be substantially more intelligent than your managerial peers with an amazing ability to balance insane levels of objectivity, novelty, and creativity.
-A partial exception is the military where scientist types, warrant officers, are rare but the demand far out paces the available candidate pool almost guaranteeing early selection and promotion according to minimal acceptable criteria.
-
 ## How to Hire Developers
 If a business wants to select the most ideal candidate from a given pool of potential employees there are simple things to do.
 First, know exactly what you want.
@@ -120,80 +39,25 @@ Objectivity, by the way, requires uniform measures that are relevant to the hiri
 Instead keep bias where it belongs: at the stakeholders.
 Stake holders include hiring managers, product owners, higher leadership, and so forth.
 
-## How to Retain Super Competent Developers
-Retaining excellent developers requires far less effort than most businesses suspect.
-First, pay these developers at market rate.
-This is a challenge because market rate can change rapidly and increase drastically.
-It doesn't hurt to be transparent about compensation.
-If it becomes known that one developer earns substantially more than another developer it means either the business has made a fundamental flaw of personal judgement about their employees or that the business is more interested in retaining one employee than the other.
+## Why Software Fails at Hiring
+Hiring software developers is a self-inflicted mortal wound of business.
+There are no agreed upon conventions, credentials, education, or any other factor that determines competence in software.
+That lack of agreement is an indication of immaturity, faulty expectations, and bias.
 
-Second, give the developer challenging work.
-This work should feel exploratory and be filled with discovery, research, and and original effort to create something helpful.
-If the work is not advancing the technical capabilities of a top performer then they will go somewhere else that does have such work even if that means taking less pay.
+Other industries have solved this problem.
+For example there exists a common set of credentials for teachers, real estate agents, doctors, lawyers, truck drivers, police, fire fighters, electricians, and so forth.
+In any other industry if a given person lacks the minimum required credentials they cannot work for anybody at all.
+No excuses.
+This sets a common minimum baseline of competence, ethics, and accepted practice.
 
-When challenging work is not available then give this developer no work.
-A top performer will find things to do that are beneficial to the business or software at large.
-This sounds counter-intuitive, but super competent developers only achieved super competence by solving hard problems which requires initiative and insane amounts of practice.
-If these people cannot perform the practice they need they will go elsewhere and sometimes are willing to do so for less pay.
+Business appears to not want to solve this problem as software developers are typically viewed as a disposable cost center to the business.
+That means a business is certainly not going to directly invest in the advancement of a developer's technical education unless a regulatory action or contractual obligation requires otherwise.
+Developers are also viewed as lacking loyalty and willing to switch employment frequently.
+Developer can expect to achieve a 20% raise by switching employers every two years for the first decade of their career while only gaining perhaps a 3% raise from remaining loyal, so there is no incentive to retain developers or invest in them.
 
-## How to Train Developers
-First, set the acceptable baseline extremely high.
-Product quality is a direct reflection of how high or low you define your level of acceptance.
-As such the acceptable baseline must be an agreement between stakeholders and technology leadership where technology leadership is making cost/analysis decisions about the personnel they have available.
-
-Bear in mind that despite what many developers claim a high baseline will not result in lower developer productivity or slower delivery.
-Counter-intuitively a higher baseline will result in faster code delivery because developers will accept certain risks more directly opposed to offloading everything into a giant stack of dependencies each with their own concerns and risks.
-
-The risk with setting the baseline of acceptable delivery too high is that it exposes the developers that were never really qualified to write that code in the first place.
-To be clear when quality and delivery standards are raised all developers will require some time to adjust.
-The developers that aren't qualified to perform are those who cannot make the necessary adjustments provided sufficient time and mentorship.
-
-Once a high performance baseline is established it must be enforced.
-Automated enforcement is most ideal.
-Examples of automated enforcement include things like static analysis, test automation, thorough type definitions, accessibility checks, execution performance checks, and so forth.
-Automated enforcement is ideal because it does not show bias and does not bend to personal and emotional concerns.
-
-On top of the automated checks there must also be code reviews.
-Automated enforcement will not catch everything.
-Putting a different set of eyes on code if often sufficient to catch issues the code author may have over looked.
-
-## Why JavaScript Needs Frameworks
-The glue that holds all things together on the front end is the Document Object Model (DOM).
-It is the backbone of everything in web browsers.
-The DOM is how JavaScript binds to markup and the thing that presentation addresses.
-A failure to understand the DOM results in a failure of appreciation of performance, accessibility, and some aspects of front end security.
-
-**Most developers are scared to death of the DOM.**
-I mean horrifically terrified and would rather cut a finger off or switch careers for half the money.
-It is a phobia and its completely irrational.
-This is not a technology failure, it's a social failure.
-
-There are some reasons for this and none of those reasons have anything to do with technology of the DOM itself, despite what these developers say.
-This becomes self-evident when you confront developers about their fears as the responses are often some form of poorly misinformed assumptions and deflections that resemble narcissism.
-
-First, front end developers are not properly trained by schools, businesses, boot camps, or just about anywhere else.
-That is a bad state of affairs for software.
-Developers that are smart enough to self educate **and** above the necessary cognitive threshold to understand the DOM **and** capable of measuring things will just figure it out on their own, but that is an incredible small subset of total developers.
-Some developers are above the minimum required cognitive threshold and have appropriate mentorship to learn and/or appreciate the technology, but that is perhaps even more rare, unfortunately.
-
-Second, the DOM is a tree model.
-Tree models implicitly require a formal understanding of relationships as abstractions, which is highly imperative.
-There is a minimum cognitive performance, such as IQ, required to understand relationships as abstractions.
-The concept is astonishingly simple which leaves no room for a grey area.
-If you are smart enough to understand the concept it will only take a few hours to learn the necessary APIs and master the concept, because there isn't much to it.
-If you aren't smart enough learning this is a near impossibility.
-
-This means the DOM, the glue that makes everything work, discriminates on the basis of intelligence.
-For business that is problematic.
-Most of the work on the front end is a matter of displaying text on screen and trivial amounts of presentation or minor interactions.
-From a business perspective these requirements are assumed to be highly repetitive and low skill.
-Not as low skill as data entry, but not skilled enough to write original software.
-
-This is a problem.
-It isn't a technology problem as the technology works amazingly well and allows developers to create things that scale very efficiently.
-It is a business problem.
-More specifically it is a hiring problem.
-Actually, its a training and selection problem, but business wants this to be a hiring problem so that's what it is.
+This hiring problem is the result wanting the freedom of maximum selection from among a group of applicants without concern for the specifics of what you want to select, which is uncertainty avoidance.
+You cannot have your cake and eat it too.
+As a result software hiring is often a race to the bottom with low retention that results in over paying for the least qualified applicant.
 
 ## What Makes the DOM Challenging
 In the fewest possible words: choice.
@@ -245,7 +109,143 @@ These are the people that appear to barely have a pulse even under intense exter
 
 **If you want the best front-end developers, and at a bargain price, hire unnaturally calm people off the street that are minimally intelligent enough to learn to code. Assume all training expenses as a cost of doing business.**
 Most businesses do the opposite only to be hopelessly surprised the quality of work is garbage and the developers responsible for that garbage are extremely narcissistic when assessing responsibility.
-That narcissism is exceedingly more common than a natural social environment, because redirection is a survival mechanism of the grossly incompatible.
+That narcissism is exceedingly more common than in a natural social environment, because redirection is a survival mechanism of the grossly incompatible.
+
+## Why JavaScript Needs Frameworks
+The glue that holds all things together on the front end is the Document Object Model (DOM).
+It is the backbone of everything in web browsers.
+The DOM is how JavaScript binds to markup and the thing that presentation addresses.
+A failure to understand the DOM results in a failure of appreciation of performance, accessibility, and some aspects of front end security.
+
+**Most developers are scared to death of the DOM.**
+I mean horrifically terrified and would rather cut a finger off or switch careers for half the money.
+It is a phobia and its completely irrational.
+This is not a technology failure, it's a social failure.
+
+There are some reasons for this and none of those reasons have anything to do with technology of the DOM itself, despite what these developers say.
+This becomes self-evident when you confront developers about their fears as the responses are often some form of poorly misinformed assumptions and deflections that resemble narcissism.
+
+First, front end developers are not properly trained by schools, businesses, boot camps, or just about anywhere else.
+That is a bad state of affairs for software.
+Developers that are smart enough to self educate **and** above the necessary cognitive threshold to understand the DOM **and** capable of measuring things will just figure it out on their own, but that is an incredible small subset of total developers.
+Some developers are above the minimum required cognitive threshold and have appropriate mentorship to learn and/or appreciate the technology, but that is perhaps even more rare, unfortunately.
+
+Second, the DOM is a tree model.
+Tree models implicitly require a formal understanding of relationships as abstractions, which is highly imperative.
+There is a minimum cognitive performance, such as IQ, required to understand relationships as abstractions.
+The concept is astonishingly simple which leaves no room for a grey area.
+If you are smart enough to understand the concept it will only take a few hours to learn the necessary APIs and master the concept, because there isn't much to it.
+If you aren't smart enough learning this is a near impossibility.
+
+This means the DOM, the glue that makes everything work, discriminates on the basis of intelligence.
+For business that is problematic.
+Most of the work on the front end is a matter of displaying text on screen and trivial amounts of presentation or minor interactions.
+From a business perspective these requirements are assumed to be highly repetitive and low skill.
+Not as low skill as data entry, but not skilled enough to write original software.
+
+This is a problem.
+It isn't a technology problem as the technology works amazingly well and allows developers to create things that scale very efficiently.
+It is a business problem.
+More specifically it is a hiring problem.
+Actually, its a training and selection problem, but business wants this to be a hiring problem so that's what it is.
+
+## How to Promote
+In most larger companies there are two separate paths of elevation:
+* Management of administration, often referred to as leadership.
+* Scientist, often referred to as a principle or technical fellow.
+
+The managers typically become the leaders of the organizations who own administrative, man power, and vision for an organization.
+Conversely, the scientists perform discovery, innovation, research, and risk analysis.
+Even the US military makes these distinctions with commissioned officers versus warrant officers.
+Both positions require extremely large amounts of effort in order for a person to achieve success, but they require personality traits that are diametrically opposed.
+
+To be successful as a manager of people/organizations you need an insane level of conscientiousness.
+Conscientiousness means an ability to perceive the world around you and all the numerous variables it comprises.
+Conscientiousness is often associated the factors of conservatism and administrative success such as dutifulness, orderliness, industriousness, patriotism, and various other rigidly perceived qualifiers associated with hard work.
+
+To be successful as a scientist you need some level of passion and innovation, which are highly correlated with creativity.
+Creativity is highly correlated with openness, which explains why software developers with a passion for software are willing to continue writing software outside of work and generally prefer open source contributions.
+Contrary to conscientiousness, which is associated with conservatism, creativity and openness are generally associated with personality traits associated with concepts of liberalism.
+Scientist personality types tend to prefer transparency and precision as primary personality traits.
+
+People are not self-aware enough to objectively determine whether they are more creative or more conscientious.
+Self-evaluations are biased towards the work product performed and that bias is magnified by the commitment and work required to elevate a developer's skills and managerial prowess.
+As such developers worthy of promotion should be tested to determine if they are more creative or more conscientious.
+The conclusion of such testing should serve as a very strong guide for which path a person should elevate into.
+
+A secondary factor to consider is that every organization has a greater demand for managerial leaders than it does for scientists.
+As such scientist type positions are more rare and more competitive.
+That means you must be substantially more intelligent than your managerial peers with an amazing ability to balance insane levels of objectivity, novelty, and creativity.
+A partial exception is the military where scientist types, warrant officers, are rare but the demand far out paces the available candidate pool almost guaranteeing early selection and promotion according to minimal acceptable criteria.
+
+## How to Retain Super Competent Developers
+Retaining excellent developers requires far less effort than most businesses suspect.
+First, pay these developers at market rate.
+This is a challenge because market rate can change rapidly and increase drastically.
+It doesn't hurt to be transparent about compensation.
+If it becomes known that one developer earns substantially more than another developer it means either the business has made a fundamental flaw of personal judgement about their employees or that the business is more interested in retaining one employee than the other.
+
+Second, give the developer challenging work.
+This work should feel exploratory and be filled with discovery, research, and and original effort to create something helpful.
+If the work is not advancing the technical capabilities of a top performer then they will go somewhere else that does have such work even if that means taking less pay.
+
+When challenging work is not available then give this developer no work.
+A top performer will find things to do that are beneficial to the business or software at large.
+This sounds counter-intuitive, but super competent developers only achieved super competence by solving hard problems which requires initiative and insane amounts of practice.
+If these people cannot perform the practice they need they will go elsewhere and sometimes are willing to do so for less pay.
+
+## How to Train Developers
+First, set the acceptable baseline extremely high.
+Product quality is a direct reflection of how high or low you define your level of acceptance.
+As such the acceptable baseline must be an agreement between stakeholders and technology leadership where technology leadership is making cost/analysis decisions about the personnel they have available.
+
+Bear in mind that despite what many developers claim a high baseline will not result in lower developer productivity or slower delivery.
+Counter-intuitively a higher baseline will result in faster code delivery because developers will accept certain risks more directly opposed to offloading everything into a giant stack of dependencies each with their own concerns and risks.
+
+The risk with setting the baseline of acceptable delivery too high is that it exposes the developers that were never really qualified to write that code in the first place.
+To be clear when quality and delivery standards are raised all developers will require some time to adjust.
+The developers that aren't qualified to perform are those who cannot make the necessary adjustments provided sufficient time and mentorship.
+
+Once a high performance baseline is established it must be enforced.
+Automated enforcement is most ideal.
+Examples of automated enforcement include things like static analysis, test automation, thorough type definitions, accessibility checks, execution performance checks, and so forth.
+Automated enforcement is ideal because it does not show bias and does not bend to personal and emotional concerns.
+
+On top of the automated checks there must also be code reviews.
+Automated enforcement will not catch everything.
+Putting a different set of eyes on code if often sufficient to catch issues the code author may have over looked.
+
+## How Education Factors Into Software
+Generally speaking education is defined as the following:
+
+* A bachelor's degree means a person can communicate, such as write emails with the appropriate levels of specificity.
+* A master's degree means a person can perform a profession with advanced critical and/or original reasoning.
+* A doctoral degree means a person can conduct research.
+
+From the most generalized of considerations that's it.
+Education means nothing more than those few things, but those few things are exceedingly important to certain careers.
+
+So, what does that mean for software?
+In most cases, nothing relevant.
+In most cases software skills can be self-taught.
+I am self-taught and can perform software development objectively better than many university educated developers with regards to speed of delivery, originality, and quality/speed of product.
+
+It is necessary to debunk many false assumptions of education.
+First, education exists as a formal model to expand knowledge with qualified guidance.
+Second, education is not a license to practice in any profession.
+For example you need a law license to practice law, but you need a law degree to apply for the licensing process.
+Education is a prerequisite but the license to practice is the license not the education.
+Third, education is not directly an indicator of performance or potential in any regard, but is indirectly strongly correlated with both performance and potential.
+Forth, education is frequently used to determine professional compatibility, such that people with similar educations will write software in similar ways.
+That is true, but it's also both extremely good and bad, because it's a monocultural where all benefits and consequences are greatly multiplied at considerable risk.
+
+Monoculture aside, a bachelors degree in computer science is little more than worthless.
+It costs a tremendous amount of money for an insufficient increase of value.
+My recommendation to get the most of your money is to get a communications degree and teach yourself programming.
+
+Graduate degrees, on the other hand, are extremely valuable to computer science.
+Graduate degrees, masters and doctorate, provide a substantially better education than what you can provide to yourself.
+Graduate degrees also increase your earning potential and probability of promotion in the corporate world.
 
 ## Performance
 Performance evaluation requires measures.
