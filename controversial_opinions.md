@@ -39,6 +39,42 @@ Objectivity, by the way, requires uniform measures that are relevant to the hiri
 Instead keep bias where it belongs: at the stakeholders.
 Stake holders include hiring managers, product owners, higher leadership, and so forth.
 
+## Curse of the Expert
+An expert is somebody with maximum confidence.
+Confidence is an internalizing quality grown from thoroughly repeated trial and error.
+Contrast that to arrogance which is an externalizing quality based upon a projection of the self that may not align with confidence or capability.
+
+The problem with experts is that they know, with near certainty, what is needed to achieve success in a given task that aligns with their prior practice.
+They know because they have failed at that task many times and achieved success sufficiently enough to identify what separates the successes from the failures with precision.
+Experts are excellent when you, as the hiring manager, identify a problem and the experience of the expert candidate closely aligns with that problem.
+
+In most cases software developers are disposable cost centers to a business.
+When an employee is deemed disposable and/or temporary they achieve a subordinate status in the hierarchy of the business.
+Irrespective of their compensation, intelligence, competence, and even their external credibility, it comes down to *"What can you do for me?*.
+
+In an environment where developers are inherently subordinate tools experts are likely to be perceived as a point of friction or social challenge even if as a person they measure high on agreeability.
+If as a candidate you are an expert you will be out of alignment with the hiring expectations of a business.
+That is problematic, because if the candidate is in fact an expert, the business won't know how to evaluate them or qualify their competencies, which repositions the candidate to the low end of the bell curve despite proven prior experience.
+That is compounded by the insecurity of the hiring team and how closely the goals of the business align to the job.
+For example a company that sales software solving an original problem cares much more about the competency of their developers than does a company that sells advertising and will evaluate prospective developers accordingly.
+
+If you are an expert you have two choices when looking for a job.
+If you want to maximize your probability of selection the goal is to fall into the middle of the bell curve, which means suppressing your expert knowledge and mindlessly following the same trends invalidated by your expertise.
+That is miserable and likely humiliating.
+
+If, as an expert, you want to maximize your potential compensation, discounting equity and early hiring into a startup, you need to brace for failure.
+You will fail at hiring frequently, because the need for experts is rare, especially in software where most businesses don't even know what they want from a developer at hiring time.
+Brace for frequent rejection.
+
+If you want to increase the probability of selection as an expert you need external credibility.
+External credibility provides a form of social validation.
+Most people fear evaluating something original, something that is more than the sum of their prior experiences, and social validation allows hiring teams to differ those evaluations onto strangers at no cost, even if invalid.
+
+External credibility is a tough challenge for software developers.
+Typically the people that are experts, especially in software, are introverts busy building stuff in contrast to extroverts that give talks at conventions.
+Time and energy spent socializing is time and energy not spent solving original technical problems.
+What I used to do for external credibility was claim a prior project achieved 5 million NPM downloads, which I regarded as a fairly weak signal, but it worked well enough for hiring.
+
 ## Why Software Fails at Hiring
 Hiring software developers is a self-inflicted mortal wound of business.
 There are no agreed upon conventions, credentials, education, or any other factor that determines competence in software.
@@ -108,8 +144,37 @@ Scoring low on neuroticism, or achieving higher compatibility with a multistage 
 These are the people that appear to barely have a pulse even under intense external environmental stress, such as remaining serenely calm under intense pressure.
 
 **If you want the best front-end developers, and at a bargain price, hire unnaturally calm people off the street that are minimally intelligent enough to learn to code. Assume all training expenses as a cost of doing business.**
+That prior statement describes males.
+It applies to females less directly.
 Most businesses do the opposite only to be hopelessly surprised the quality of work is garbage and the developers responsible for that garbage are extremely narcissistic when assessing responsibility.
 That narcissism is exceedingly more common than in a natural social environment, because redirection is a survival mechanism of the grossly incompatible.
+
+## Programming and Sex
+In psychology there are measured cross-cultural differences between the sexes.
+Females rate higher than males in both agreeability and neuroticism.
+Males rate higher in assertiveness and conscientiousness.
+
+This is interesting because in the prior section I specifically mentioned that for male front-end developers the primary predictor of success after intelligence is low neuroticism.
+If females regularly score higher than males in neuroticism then, all other things being equal, should achieve a lower predictor of success compared to a male population, but this isn't the case.
+The section above was specific to tree models and abstract relationships generally and the DOM specifically.
+In my experience females are substantially less restricted in navigating tree models compared to males.
+All that means is that success is more clearly identifiable and predictive for male candidates as front-end developers while female candidates have a comfortable margin of error that is both less predictive and lower risk.
+
+I don't know why female performance is different than male performance in this narrow slice of programming.
+My completely uneducated and utterly baseless assumption is that females achieve a greater non-cognitive self-awareness that allows for increased neuroticism with minimized cognitive distraction, a capability less well developed in males.
+This could be due to differences in neurophysiology.
+Female brains are measured at masses equivalent to male brains but in a measurably smaller volume indicating higher density structures.
+Female brains also have a substantially wider inter-hemispheric bridge that may allow parallel processing capabilities that are less developed in males.
+
+Males, on the other hand, are measured having a negligibly increased spatial processing capability compared to females, but dominate on spatial processing evaluations compared to females indicating a male preference, almost to the point of singular reliance, upon spatial processing for problem solving.
+That is convenient to solve for a variety of abstract reasoning problems, but it also presents as a single point of failure and its among the most expensive (tiring) of thought exercises.
+Females preference spatial processing less than males, which is less exhaustive, but may present as slower reasoning on problems best solved by spatial reasoning.
+
+Regardless, I have not discovered any research or identified any self-observations that indicate one sex performs better at programming than the other.
+It seems the greatest discriminator for programmers is intelligence and that factor applies equally to the sexes.
+Females are a minority population among developers, and if that isn't a result of capability its a result of selection and/or preference.
+My strongest recommendation is to encourage more women to become programmers as this injects a greater diversity of problem solving capabilities.
+It increases the potential for success at zero cost and no increase of risk.
 
 ## Why JavaScript Needs Frameworks
 The glue that holds all things together on the front end is the Document Object Model (DOM).
