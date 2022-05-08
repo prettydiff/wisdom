@@ -2,12 +2,27 @@
 These are my personal opinions about programming.
 These options aren't are based upon personal observations.
 
+## Table of Contents
+1. [How to Hire Developers](#how-to-hire-developers)
+1. [Curse of the Expert](#curse-of-the-expert)
+1. [Why Software Fails at Hiring](#why-software-fails-at-hiring)
+1. [What Makes the DOM Challenging](#what-makes-the-dom-challenging)
+1. [Programming and Sex](#programming-and-sex)
+1. [Why JavaScript Needs Frameworks](#why-javascript-needs-frameworks)
+1. [How to Promote](#how-to-promote)
+1. [How to Retain Super Competent Developers](#how-to-retain-super-competent-developers)
+1. [How to Train Developers](#how-to-train-developers)
+1. [How Education Factors Into Software](#how-education-factors-into-software)
+1. [Performance](#performance)
+1. [Software and Ethics](#software-and-ethics)
+
 ## How to Hire Developers
 If a business wants to select the most ideal candidate from a given pool of potential employees there are simple things to do.
 First, know exactly what you want.
 As somebody who has interviewed a lot most businesses have absolutely no idea what they want from a developer.
 For example a full stack developer will write some services or define some APIs and jump into the front end if the front end developers need help, but its all extremely vague.
 If you don't know what you want, as specifically as possible, you have no idea how to achieve candidate selection, because you need to have known goals to properly separate candidates aside from bias.
+
 Here are some examples of specificity:
 
 * Define a practice of test automation and enforce it with using a scheme of continuous integration.
@@ -61,10 +76,14 @@ For example a company that sales software solving an original problem cares much
 If you are an expert you have two choices when looking for a job.
 If you want to maximize your probability of selection the goal is to fall into the middle of the bell curve, which means suppressing your expert knowledge and mindlessly following the same trends invalidated by your expertise.
 That is miserable and likely humiliating.
+Most experts I have met would rather be unemployed, so this really only applies as a matter of extreme desperation or of strong compromise.
+For example an expert may take a job of lower stature, capability, and compensation if such a job provides maximum unallocated time for the expert to work on personal goals.
 
-If, as an expert, you want to maximize your potential compensation, discounting equity and early hiring into a startup, you need to brace for failure.
-You will fail at hiring frequently, because the need for experts is rare, especially in software where most businesses don't even know what they want from a developer at hiring time.
-Brace for frequent rejection.
+If, as an expert, you want to maximize your potential compensation or ability as a non-equity salary employee you need to brace for frequent failure.
+You will fail at hiring often, because the need for experts is rare, especially in software where most businesses don't even know what they want from a developer at hiring time.
+Worse, many business don't how to define product quality the way an expert does and doesn't care.
+As a potential candidate, likely even as an expert employee, you will not convince them because they are strongly disinterested.
+So, brace for frequent rejection.
 
 If you want to increase the probability of selection as an expert you need external credibility.
 External credibility provides a form of social validation.
@@ -140,12 +159,15 @@ It shouldn't be frustrating though or a surprise, because this isn't directly re
 Incompatibility is directly correlated with [neuroticism](https://www.youtube.com/watch?v=1lmyYyZiutg), which is has no association with intelligence.
 This is measurable and compatibility is highly predictive.
 To say that many developers are incompatible with something like the DOM is to directly assert that many developers are some degree of measurably neurotic.
-Scoring low on neuroticism, or achieving higher compatibility with a multistage decision matrix like the DOM, is associated with calmness and low negative emotion.
-These are the people that appear to barely have a pulse even under intense external environmental stress, such as remaining serenely calm under intense pressure.
+Scoring low on neuroticism, associated with calmness and low negative emotion, achieves higher compatibility with a multistage decision matrix like the DOM.
+That statement is absolutely true for males, but less so for females.
+More on that later.
 
-**If you want the best front-end developers, and at a bargain price, hire unnaturally calm people off the street that are minimally intelligent enough to learn to code. Assume all training expenses as a cost of doing business.**
-That prior statement describes males.
-It applies to females less directly.
+These are the people that appear to barely have a pulse even under intense external environmental stress, such as remaining serenely calm under intense pressure, and despite the intensity of those external pressures continue to function cognitive clarity.
+It doesn't mean these people are immune from fear, as fear executes in a different area of the brain separate from other negative emotions.
+Instead it means these people are not distracted by fear and if the fear is enough to trigger endorphin and adrenal responses they actually become more intelligent in the face of fear.
+**If you want the best front-end developers, and at a bargain price, hire unnaturally calm people off the street that are at least minimally intelligent enough to learn to code.**
+Yes, people off the street will require training and education time, but that is the cost of talent.
 Most businesses do the opposite only to be hopelessly surprised the quality of work is garbage and the developers responsible for that garbage are extremely narcissistic when assessing responsibility.
 That narcissism is exceedingly more common than in a natural social environment, because redirection is a survival mechanism of the grossly incompatible.
 
@@ -158,7 +180,7 @@ This is interesting because in the prior section I specifically mentioned that f
 If females regularly score higher than males in neuroticism then, all other things being equal, should achieve a lower predictor of success compared to a male population, but this isn't the case.
 The section above was specific to tree models and abstract relationships generally and the DOM specifically.
 In my experience females are substantially less restricted in navigating tree models compared to males.
-All that means is that success is more clearly identifiable and predictive for male candidates as front-end developers while female candidates have a comfortable margin of error that is both less predictive and lower risk.
+All that means is that success is more clearly identifiable and predictive for male candidates as front-end developers while female candidates present a lower risk of failure on the low end of competence and are less identifiable of predictive success on the high end.
 
 I don't know why female performance is different than male performance in this narrow slice of programming.
 My completely uneducated and utterly baseless assumption is that females achieve a greater non-cognitive self-awareness that allows for increased neuroticism with minimized cognitive distraction, a capability less well developed in males.
@@ -167,10 +189,14 @@ Female brains are measured at masses equivalent to male brains but in a measurab
 Female brains also have a substantially wider inter-hemispheric bridge that may allow parallel processing capabilities that are less developed in males.
 
 Males, on the other hand, are measured having a negligibly increased spatial processing capability compared to females, but dominate on spatial processing evaluations compared to females indicating a male preference, almost to the point of singular reliance, upon spatial processing for problem solving.
-That is convenient to solve for a variety of abstract reasoning problems, but it also presents as a single point of failure and its among the most expensive (tiring) of thought exercises.
+That is convenient to solve for a variety of abstract reasoning problems, but it also presents as a single point of failure.
+Its among the most expensive (tiring) of thought exercises.
 Females preference spatial processing less than males, which is less exhaustive, but may present as slower reasoning on problems best solved by spatial reasoning.
+This is actually already measured in psychology, but I think its unfair to measures of female mental performance.
+Females tend to preference low cost thought exercises to solve problems first, such as memory recall.
+While tests of spatial performance preference males, I suspect if provide a wide distribution of real world cognitive exercises spanning hours that females would be measurably less exhausted (extremely so) than males at the conclusion of evaluation.
 
-Regardless, I have not discovered any research or identified any self-observations that indicate one sex performs better at programming than the other.
+Regardless, I have not discovered any research or identified any self-observations that indicate one sex performs better at programming than the other, either in general or upon specific task evaluation.
 It seems the greatest discriminator for programmers is intelligence and that factor applies equally to the sexes.
 Females are a minority population among developers, and if that isn't a result of capability its a result of selection and/or preference.
 My strongest recommendation is to encourage more women to become programmers as this injects a greater diversity of problem solving capabilities.
@@ -185,10 +211,13 @@ A failure to understand the DOM results in a failure of appreciation of performa
 **Most developers are scared to death of the DOM.**
 I mean horrifically terrified and would rather cut a finger off or switch careers for half the money.
 It is a phobia and its completely irrational.
-This is not a technology failure, it's a social failure.
+This is not a technology failure.
+It's a social failure of poor selection, faulty expectations, and inadequate training.
 
-There are some reasons for this and none of those reasons have anything to do with technology of the DOM itself, despite what these developers say.
-This becomes self-evident when you confront developers about their fears as the responses are often some form of poorly misinformed assumptions and deflections that resemble narcissism.
+There are some reasons for this and none of those reasons have anything to do with technology of the DOM itself.
+Many developers will attempt to argue to the contrary and those arguments are extremely interesting from a behavioral perspective, but from a logical and programming perspective they are typically extremely weak.
+As a form of dark entertainment play devil's advocate and encourage a developer to voice their concerns about this matter as a form of agreement.
+Watch for what they are actually trying to say with their vocal tone and body language versus the logic they express.
 
 First, front end developers are not properly trained by schools, businesses, boot camps, or just about anywhere else.
 That is a bad state of affairs for software.
@@ -202,17 +231,26 @@ The concept is astonishingly simple which leaves no room for a grey area.
 If you are smart enough to understand the concept it will only take a few hours to learn the necessary APIs and master the concept, because there isn't much to it.
 If you aren't smart enough learning this is a near impossibility.
 
-This means the DOM, the glue that makes everything work, discriminates on the basis of intelligence.
-For business that is problematic.
+This means the DOM, the glue that makes everything work, discriminates on the basis of cognitive performance.
+As described earlier cognitive performance for just the DOM is measured as any IQ above a specified minimum and exceptionally low neuroticism.
+There is much more to the front-end than just some minor DOM traversal.
+
+For both business and practicing developers that is extremely problematic.
 Most of the work on the front end is a matter of displaying text on screen and trivial amounts of presentation or minor interactions.
 From a business perspective these requirements are assumed to be highly repetitive and low skill.
-Not as low skill as data entry, but not skilled enough to write original software.
+Not as low skill as data entry, but certainly not skilled enough to write original software.
 
 This is a problem.
 It isn't a technology problem as the technology works amazingly well and allows developers to create things that scale very efficiently.
 It is a business problem.
 More specifically it is a hiring problem.
 Actually, its a training and selection problem, but business wants this to be a hiring problem so that's what it is.
+
+The business solution to this problem is not to hire smarter people as that costs more and smarter people expect more from the business requirements.
+Instead the business solution is an additional layer of abstraction, which directs something simple yet challenging to something profoundly more confusing yet primitive.
+This opens the field of participation to a far wider distribution of people and it allows them to build really complex things which is supremely empowering.
+The problem with that is that it economically substantially increases the cost of the product through excess processes, additional technologies, tech debt, advanced maintenance costs, slower enhancement/feature delivery, and so forth.
+The business is forced to assume those extreme additional costs or pass those additional expenses to their customers.
 
 ## How to Promote
 In most larger companies there are two separate paths of elevation:
@@ -317,16 +355,59 @@ Performance evaluation requires measures.
 Software execution performance requires measuring execution time against a clock and comparing that clock time to the clock time derived from an alternate approach.
 If a developer does not do this they are guessing.
 
-The problem with guessing at performance is that such guesses are wrong about 80% of the time.
+The problem with guessing at execution performance is that such guesses are wrong about 80% of the time.
 Of those wrong guesses more than half, perhaps 50% of all guesses, are catastrophically wrong by several orders of magnitude.
 That shouldn't be a surprise.
 People most typically guess out of convenience for self-serving validations, which can't be trusted.
+Worse, there is no way to know how bad a guess actually is unless it is measured.
+So, if you want to know what is actually happening there are 3 possibilities:
 
-Since performance, when done properly, requires evidence from clock times it is strenuously objective.
+1. Measure the various approaches up front and proceed in an evidence-based manner.
+1. Guess, and measure the guess later to see how wrong it is.
+1. Never measure and be blissfully ignorant about how slow things perform and how wrong you are.
+
+Since execution performance, when done properly, requires evidence from clock times it is strenuously objective.
 Such objectivity is the most useful means to determine the character of a developer.
 A developer must either accept, discard, or ignore evidence presented to them.
 The motivations for any such decision can indicate a developer's thinking when presented with a challenge.
 
 For example, is the developer discarding the evidence because it destroys or invalidates positions they require to perform work?
 If a developer is provided evidence that querySelectors are, at best, 400x slower than other means of DOM access they may discard such evidence if they cannot do their jobs without querySelectors.
-That is a form of integrity violation, which could indicate narcissism but more likely demonstrates a lesser self-serving bias of face-saving behaviors.
+That is a form of integrity violation, which could indicate narcissism but more likely demonstrates a lesser self-serving bias of face-saving behaviors in the context of gross incompatibility.
+
+## Software and Ethics
+I wrote a bit about [Ethics](./Leadership_In_Software.md#ethics).
+Ethics is a thoroughly studied and well known phenomenon, just not in software.
+In practice is so well known that it in other industries it is codified into a series of agreed upon rule the violation of which will end your career forever.
+In software the very idea of ethics is absolutely foreign.
+
+As an example of just how foreign ethics are to software the following thought is commonly uttered by many developers: *"My first priority is to put the interest of my users first."*
+In theory that sounds ethical, but in practice it isn't achievable.
+When you challenge this asserting with evidence the rebuttal is most frequently some form of narcissism thereby indicating the motive behind the term is inherently a self-serving platitude.
+Self-serving motivations at cost to the primary consumer of a good or service is the opposite of ethics.
+
+For example, if a developer uses query selectors to access a page and they are provided evidence demonstrating query selectors are 400x slower than other means of access they have to make a decision.
+In order to put the user first they have to discard query selectors so that the application executes faster for the end user.
+For many developers this simply isn't possible, because they lack the capability to understand the alternate conventions.
+At that point they are claiming to put the user first when they know, with evidence, they are not.
+That is deception, a lie.
+
+Deception is a demonstration of narcissism whereby a person is using false statements to make themselves feel important and then using this newly formulated pseudo-confidence to convince others of the same.
+When deceptions are reinforced and tolerated by an employer toxicity follows.
+Even though the immediate impact of these tiny deceptions is a minor tarnish of product quality the problem is the behavior and human behavior is not so narrowly confined.
+Toxic behavior will manifest and grow in a variety of concerns far outside product.
+In practice such toxic behavior is allowed to occur, because the controls necessary to eliminate such are poorly understand and not worth the investment if developers are frequently perceived as a disposable cost center.
+To lower risk to the business of larger employers the behavior is frequently isolated through the use of complex tools, excess processes, and division of labor separate from revenue generation aspects of the business.
+
+Since in software ethics are foreign there is no reason not to behave in this manner as a developer.
+This behavior absolutely tarnishes the quality of product and increases risk in a definite measurable way, but it increases the perceived value of the developer in a narrowly limited social context, which is necessary for career advancement in the absence of other measures.
+As a result ethical violations are frequently rewarded and reinforced by the harmed business.
+
+The best way to combat ethical violations is to always lean into objectivity in a deliberate and forceful way.
+Objectivity, with evidence, is necessary because it does not allow improper social validations as qualifiers for product validation.
+Objectivity is accomplished through the use of measures and automated controls.
+Measures provided uniform evidence of quality in various different ways and automated controls ensure that quality targets are applied equally without bias.
+
+From a leadership perspective transform the thinking from qualitative asserts of importance to quantitative goals of product.
+Instead of claiming some easily abused gibberish like *"My first priority is to put the interest of my users first."* instead claim something specific and measurable like *"My pages will load in less than half a second."*
+A quantitative goal forces some level of quality compliance as opposed to vague qualitative statements that reinforce deceptive behavior.
