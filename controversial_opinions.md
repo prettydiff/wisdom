@@ -190,11 +190,12 @@ Female brains also have a substantially wider inter-hemispheric bridge that may 
 
 Males, on the other hand, are measured having a negligibly increased spatial processing capability compared to females, but dominate on spatial processing evaluations compared to females indicating a male preference, almost to the point of singular reliance, upon spatial processing for problem solving.
 That is convenient to solve for a variety of abstract reasoning problems, but it also presents as a single point of failure.
-Its among the most expensive (tiring) of thought exercises.
+It's among the most expensive (tiring) of thought exercises.
 Females preference spatial processing less than males, which is less exhaustive, but may present as slower reasoning on problems best solved by spatial reasoning.
 This is actually already measured in psychology, but I think its unfair to measures of female mental performance.
 Females tend to preference low cost thought exercises to solve problems first, such as memory recall.
-While tests of spatial performance preference males, I suspect if provide a wide distribution of real world cognitive exercises spanning hours that females would be measurably less exhausted (extremely so) than males at the conclusion of evaluation.
+While tests of spatial performance preference males, I suspect if provided a wide distribution of real world cognitive exercises spanning hours that females would be measurably less exhausted (extremely so) than males at the conclusion of evaluation.
+The importance of that distinction cannot be understated in a field like programming where tough problems demand intense mental concentration that simply does not exist during moments of fatigue.
 
 Regardless, I have not discovered any research or identified any self-observations that indicate one sex performs better at programming than the other, either in general or upon specific task evaluation.
 It seems the greatest discriminator for programmers is intelligence and that factor applies equally to the sexes.
@@ -257,10 +258,10 @@ In most larger companies there are two separate paths of elevation:
 * Management of administration, often referred to as leadership.
 * Scientist, often referred to as a principle or technical fellow.
 
-The managers typically become the leaders of the organizations who own administrative, man power, and vision for an organization.
+The managers typically become the leaders of the organizations who own administration, man power, and vision for an organization.
 Conversely, the scientists perform discovery, innovation, research, and risk analysis.
 Even the US military makes these distinctions with commissioned officers versus warrant officers.
-Both positions require extremely large amounts of effort in order for a person to achieve success, but they require personality traits that are diametrically opposed.
+Both positions require extremely large amounts of work effort in order for a person to achieve success, but they require personality traits that are diametrically opposed.
 
 To be successful as a manager of people/organizations you need an insane level of conscientiousness.
 Conscientiousness means an ability to perceive the world around you and all the numerous variables it comprises.
@@ -271,9 +272,15 @@ Creativity is highly correlated with openness, which explains why software devel
 Contrary to conscientiousness, which is associated with conservatism, creativity and openness are generally associated with personality traits associated with concepts of liberalism.
 Scientist personality types tend to prefer transparency and precision as primary personality traits.
 
-People are not self-aware enough to objectively determine whether they are more creative or more conscientious.
+To be more clear conscientiousness and openness (creativity) are not diametrically opposed qualities.
+Each of those qualities are separate measured as 2 channels of the big five personality index in psychology and a person can measure high in both.
+While those two channels of personal are not diametrically opposed the resulting interests and preferences are frequently opposing qualities.
+As an example a person may measure high in both openness and conscientiousness which indicates a capability for exploration and awareness of many variables simultaneously, but if the person prefers exploration they will be less happy keeping their ideas locked away behind administrative concerns.
+Likewise a person that is more interested in orderliness and goal completion will be less happy innovating or exploring distracting ideas outside their primary goals.
+
+People are not self-aware enough to objectively determine whether they are more creative or more conscientious, because those qualities are not oppositional.
 Self-evaluations are biased towards the work product performed and that bias is magnified by the commitment and work required to elevate a developer's skills and managerial prowess.
-As such developers worthy of promotion should be tested to determine if they are more creative or more conscientious.
+As such developers worthy of promotion should be tested to determine how their interests differ from their capabilities so as to indicate where their interests more closely align to their potential and current capabilities.
 The conclusion of such testing should serve as a very strong guide for which path a person should elevate into.
 
 A secondary factor to consider is that every organization has a greater demand for managerial leaders than it does for scientists.
