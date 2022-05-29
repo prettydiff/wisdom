@@ -1,6 +1,6 @@
 # Fragility
 Fragility is the state of being easily broken, the opposite of durability.
-Fragile persons are poisonous weak people looking to bring their world down to their weakness as opposed to strong people who are eager to improvement themselves as necessary to conquer the world's challenges.
+Fragile persons are poisonous weak people looking to bring the world down to their weakness as opposed to strong people who are eager to improvement themselves as necessary to conquer the world's challenges.
 
 ## Harm
 Fragile people are harmful, toxic.
@@ -28,6 +28,13 @@ If a person were readily capable of self-reflecting on their current emotional s
 
 The most common behavior associated with self-serving qualities is narcissism.
 Other behaviors include unwanted aggressive inter-personal competition, such as somebody competing for superiority in an unstated dominance hierarchy as though public displays of their competition win them social gratification.
+Sometimes this unwarranted competition is demonstrated as one-upping where a person feels the need to dominate a conversation with some fantastical victory they achieved in distraction to the subject at hand.
+Practice some finesse to ensure if you need to communicate an opportunity for improvement from your own personal experience that you keep to objective criteria and to the subject of conversation.
+Take extra care to not make it an opportunity to broadcast your personal victories.
+
+One particular behavior associated with narcissism is unwanted self-injection.
+Unwanted self-injection is the condition where a conversation is occurring and a person from outside the details of the conversation will inject their personal details in an effort to direct the subject matter of discussion to be about them.
+You see that a lot with small children, but when you see it occur with adults warning alarms should be going off in your brain, particularly if that behavior occurs repeatedly.
 
 Although narcissism is the ultimate indicate of selfishness it is not the ultimate relationship killer.
 Narcissists will often curate and maintain relationships with great care because it serves their own emotional needs at great expense and trauma to all other persons involved.
@@ -100,11 +107,11 @@ Surgery is unpleasant, but cancer spreading across your body is more unpleasant.
 
 ## Trust
 The enemy of fragility is trust.
-Trust means empowering your people to be more than they currently are, which may result in a failure.
+Trust means empowering your people to be more than they currently are, which may result in a task failure.
 This requires mentorship on the part of a leader and a bit of bravery on the part of the subordinate.
-Good leaders seek to reassure their people to properly evaluate risks and take minor risks.
+Good leaders seek to reassure their people to properly evaluate risk conditions and take minor risks.
 That also means that good leaders provide a safe working environment where people know they have the support to do their best when evaluating risk.
-People not capable of accepting or extending trust must be identified as a potential of toxicity.
+People not capable of accepting or extending trust must be identified as a potential point of toxicity.
 
 ## Becoming Less Fragile
 To be less fragile a person must invest in honesty as deep internalizing emotional quality.
