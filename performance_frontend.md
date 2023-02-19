@@ -61,7 +61,7 @@ It is unknown what defines a solid foundation as this can only be learned from e
 Due to the compounding, and possibly unseen, nature of amplification the ultimate logical conclusion is that any single decision is cheap in the immediate and expensive in the future.
 For persons intentionally focused upon mastering control of amplification three actions result:
 1. All things are frequently measured, which may require the invention of new tools.
-2. Humility. A person must quickly admit when they are in error, because righteousness is a grave distraction when chasing a superior measure.
+2. Humility. A person must quickly admit when they are in error, because righteousness and [conservatism bias](https://en.wikipedia.org/wiki/Conservatism_(belief_revision)) are terminal distractions when chasing a superior measure.
 3. Everything is open to isolation, decoupling, and frequent refactoring as these are the means to counter-attack compounding effects.
 
 Those three behaviors comprise what I call the **Solid Foundation First Mindset**.
@@ -210,7 +210,7 @@ When changes to the application are introduced you cannot help but be aware of d
 Looking at the build tool I have some idea how many seconds it takes to compile the code, update documentation files, bundle assets, and a variety of other things.
 When I run the test automation I have an idea how long it takes, in fractions of a millisecond, for a user to request data through interaction and how long it takes put that data into the page.
 
-## Compound Effect on the Developer/User
+## Compound Effect On Humans
 Above I mentioned the nature of compound effects and second/third order consequences.
 Perhaps the most important unintended consequence of poor performance is a less focused user.
 This one consideration, focused engagement, is more important than it sounds.
@@ -218,5 +218,57 @@ It's how TikTok is taking billions of dollars of market share from Facebook.
 It's how casinos keep users spending money.
 It's how software developers can become 10 times more productive.
 
+Most of this section will focus on human behavior and attempt to explain how humans concentrate, which drives human/software interaction more than all other factors combined.
+The goal of this section desires to express that humans are naturally open to distraction, slow software is extremely distracting, frequent engagement following distraction is costly with catastrophic consequences.
+It's my personal opinion that computer entertainment software, games, have mastered these observations but business and web applications tend to ignore these observations.
+That difference is mostly likely due to directness of associations between audience and engagement and those associates drive sales targets.
+
+### Iteration and Learning
 15 years ago when JavaScript was still very slow I used to tell Java developers that I had no compile time.
 As slow, comparatively, as the language was I could try 10 different things in the time it took a Java developer to iterate once, which means I could fail 9 times as much and still be as equally productive.
+Furthermore, that means learning from failure and experimentation 9 times faster.
+
+Becoming more productive, in any task, requires numerous iterations completing a given task.
+Task completion results in learning both cognitive and non-cognitive.
+High frequency task completion teaches the brain, often non-cognitively, how to more frequently attain a completion state and thus achieve drive further increased frequency of completion.
+Completion of challenging tasks train the brain, often only cognitively, how to accomplish something not accomplished before.
+That is the [psychology of learning](https://en.wikipedia.org/wiki/Psychology_of_learning) and is the primary determinant factor in human/task interaction.
+
+Faster more responsive software eases costs of human learning and drives more rapid engagement/fulfillment.
+
+### Concentration and Drug Consumption
+The same forces that compel, distract, or disengage users from actively concentrating on a given application/task equally affect developer concentration in building such applications.
+Retaining constant engagement, and thus persistent unbroken focus, requires that a given application respond to user interactions before a given person's attention diminishes or shifts.
+The compounding effect as this applies to human behavior is more strongly correlated with the frequency of interruption than the duration of interruption in any single isolated instance.
+Resuming concentration from a broken or distracted state requires an alteration of the [dopamine](https://en.wikipedia.org/wiki/Dopamine), a primary brain neurotransmitter, cycle.
+
+In neurophysiology dopamine is responsible for processing task completion stimulus.
+That is often falsely exaggerated as associated with a sensation of pleasure.
+Actually, the dopamine processing is associated with any directed cognitive task completion even if the task and/or result are not pleasant.
+
+The degree of dopamine processed in a single cycle is directly correlated with the perceived effort required to fulfill task completion.
+This means large tasks requiring extensive time and multiple stages of planning result in a dramatically concentrated release of dopamine as compared to a micro-task which may only require a few seconds of attention.
+That explains why people feel a massive sudden sensation of relaxation and disengagement at the completion of a large task.
+
+The reason why this is critical to understand with regards to software application engagement because interacting with software typically comprises completion of a variety of micro tasks.
+The completion of a micro-task produces completion stimulus insignificant to major task completion, which means the feels and sensations associated with task completion are more likely to go unnoticed.
+Although the completion state may be unnoticed the effort required, in the brain, to start or resume a dopamine cycle is identical between micro-tasks and major tasks.
+
+That behavior also explains most human stimulus drug interactions.
+For example nicotine can increase dopamine production by as much as 1.5x normal, cocaine can double dopamine production in the brain, and methamphetamine can increase dopamine production by as much as 10 times normal production.
+Caffeine, the most consumed drug, does not increase dopamine production, however caffeine increases the brain's receptivity to dopamine by as much as double.
+This, more than all other factors, explains why many people crave caffeine to perform work tasks, because the brain becomes more pronounced attuned to task completion stimulus driving human behavior to continue processing work tasks.
+The false perceptions of this altered behavior are increased concentration, focused attention, and/or better work discipline.
+
+### Fatigue and Concentration
+When applications better engage their users with persistent high performance and rapid feedback there exists less opportunity for task distraction.
+That means humans remain engaged directly for longer durations without need for external stimulus.
+Reliance upon stimulants, even including caffeine, is directly associated with cognitive decline and lost executive functioning over time.
+Although we, as stimulant consumers, may perceive the effect of these drugs as increasing focus/concentration they only actually attenuate completion feedback mechanisms already in place at cost of increased fatigue.
+
+Naturally animal brains are extremely well attuned to listen to fatigue, which results in disengaging a variety of task-oriented behaviors and drives the animal to seek rest.
+That fatigue processing is directly correlated with risk/response processing such that rest and recovery become more desirable than task completion when quality of task performance rapidly deteriorates.
+Listening to fatigue and down processing are fundamentally essential to survival, which is why the brain's response to fatigue is so challenging to ignore.
+Use of stimulants to alter task engagement allow the brain to unnaturally process task completion stimulus as higher priorities than responding to fatigue.
+Not only does that result in low quality output, but it also unnaturally forces the brain to prioritize minor tasks over higher priority tasks which may require greater effort.
+This explains why over consumption of stimulants drives humans to seek high energy stimulus and seek more stimulants as opposed to doing things like eating food or preparing for important tasks the next day.
