@@ -3,9 +3,9 @@ Written 18 February 2023.
 
 <!-- cspell: words protobuf, SODIMM, unminified, WHATWG, Xeon -->
 
-In a personal project I am able to load my application in as fast as **104ms**.
-This application displays as the equivalent of an operating system GUI with 7 windows open.
-This document discusses how I did it.
+In a personal project I am able to load my application as fast as **104ms**.
+This application displays as the equivalent of an operating system GUI with 7 windows open with full state restoration.
+This document discusses how I did it and what that means for human engagement.
 
 ## Raw Data
 All speed measurements obtained from the *Performance* tab of Chrome Developer Tools and payload sizes obtained form the *Network* tab.
