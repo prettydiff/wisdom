@@ -256,7 +256,7 @@ Although the completion state may be unnoticed the effort required, in the brain
 
 That behavior also explains most human stimulus drug interactions.
 For example nicotine can increase dopamine production by as much as 1.5x normal, cocaine can double dopamine production in the brain, and methamphetamine can increase dopamine production by as much as 10 times normal production.
-Caffeine, the most consumed drug, does not increase dopamine production, however caffeine increases the brain's receptivity to dopamine by as much as double.
+Caffeine, the most consumed drug, does not increase dopamine production, however [caffeine increases the brain's receptivity to dopamine](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4462609/) by as much as double.
 This, more than all other factors, explains why many people crave caffeine to perform work tasks, because the brain becomes more pronounced attuned to task completion stimulus driving human behavior to continue processing work tasks.
 The false perceptions of this altered behavior are increased concentration, focused attention, and/or better work discipline.
 
@@ -272,3 +272,8 @@ Listening to fatigue and down processing are fundamentally essential to survival
 Use of stimulants to alter task engagement allow the brain to unnaturally process task completion stimulus as higher priorities than responding to fatigue.
 Not only does that result in low quality output, but it also unnaturally forces the brain to prioritize minor tasks over higher priority tasks which may require greater effort.
 This explains why over consumption of stimulants drives humans to seek high energy stimulus and seek more stimulants as opposed to doing things like eating food or preparing for important tasks the next day.
+
+## Summary
+When accounting for a few techniques that lower application complexity web applications in the browser can become fast enough to exceed human visual and cognitive information processing.
+These techniques are easily accomplished and result in highly reproducible dramatic speed improvements, but may require an understanding a Solid Foundation First Mindset.
+Increasing web application speed such that users and developers remain constantly engaged results in massive productivity benefits, lower fatigue, and increased learning speed.
