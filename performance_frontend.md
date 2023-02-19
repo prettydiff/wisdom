@@ -57,7 +57,7 @@ Actions without considerations for amplification may result in unseen [Pyrrhic V
 The inability to accept the nature of amplification will certainly result in a variety of [logical fallacies](https://en.wikipedia.org/wiki/List_of_fallacies), most commonly: equivocation, sunk cost, and single cause.
 
 The ultimate conclusion to thinking in terms of amplification most commonly results in thoughts of building from solid foundations.
-It is unknown what defines a solid foundation as this can only be learned from experience through critical double, measurements, and comparisons.
+It is unknown what defines a solid foundation as this can only be learned from experience through critical doubt, measurements, and comparisons.
 Due to the compounding, and possibly unseen, nature of amplification the ultimate logical conclusion is that any single decision is cheap in the immediate and expensive in the future.
 For persons intentionally focused upon mastering control of amplification three actions result:
 1. All things are frequently measured, which may require the invention of new tools.
