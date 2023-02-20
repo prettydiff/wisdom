@@ -3,7 +3,7 @@ Written 18 February 2023.
 
 <!-- cspell: words protobuf, SODIMM, unminified, WHATWG, Xeon -->
 
-In a personal project I am able to load my application as fast as **99ms**.
+In a personal project, a single page application, I am able to load my application as fast as **99ms**.
 This application displays as the equivalent of an operating system GUI with 7 windows open with full state restoration.
 This document discusses how I did it and what that means for human engagement.
 I have listed screenshots of the performance graph at the bottom of the document.
@@ -26,7 +26,7 @@ All speed measurements obtained from the *Performance* tab of Chrome Developer T
    * CPU - Intel Xeon E5-1660 @ 3.3GHz (6 Cores)
    * Memory - 64GB DDR3 @ 1333MHz
    * Application Load Speed (Fastest) - 98.90ms
-   * Application Load Speed (Average) - 128ms
+   * Application Load Speed (Average) - 119ms
    * State Restoration Logic (Fastest) - 24ms
    * State Restoration Logic (Average) - 26ms
    * Browser - Chrome 110.0.5481.96
@@ -123,13 +123,21 @@ I ultimately chose to use a hidden input tag, because even though there is no pr
 ## String Parsing
 String parsing is perhaps the greatest villain to performance.
 In isolation string parsing using a standard convention does not appear to be slow, but practical performance considerations do not account for instruction isolation.
-Examples of automated string parsing in the browser include: assignments to innerHTML, query selectors, JSON.stringify and so forth.
-I shave 100ms of load time off my application by eliminating using of assignment to innerHTML.
+Examples of automated string parsing in the browser include: assignments to innerHTML, query selectors, console.log, JSON.stringify, and so forth.
+I shaved 100ms of load time off my application by eliminating using of assignment to innerHTML.
 Query selectors are several orders of magnitude slower than searching the DOM using other standard methods and/or relational properties.
 
 The solution to eliminating use of JSON.stringify, at least for network traffic, is gRPC from Google.
 Google claims gRPC is 10 times faster than JSON over HTTP and I agree with their assessment.
 gRPC makes using of binary data payloads in a format called *protobuf* over a single TCP socket, which in the browser means [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API).
+
+## Logging
+Any logging to the console or terminal imposes a measurable performance penalty.
+With consideration for compounding effects numerous uses of console.log can add substantial time to a page load.
+I continue to use logging as my prior means of debugging and code investigation, but ensure logging is limited to debugging.
+To accomplish this I use an ESLint rule to error on any use of console.log with exceptions for a few files dedicated for logging output.
+I wrote a small library to perform console.log on the terminal, which in Node is a convenience method over `process.stdout`.
+I also wrote extended console.log in the browser so that any troubleshooting occurring in the browser is reported to Node for logging in the terminal in case I am not able to see it in the browser even with persistent logging enabled from the developer tools.
 
 ## Transmission
 In the application I have chosen to not use gRPC because I have found protobuf to be extremely inconvenient.
@@ -207,6 +215,7 @@ There is one CSS trick that has helped me save a lot of screen repainting.
 Always put as much presentation instructions as possible in CSS files and load those files into the page's `<head>` tag before the `<body>`.
 That way the CSS is applied to the HTML on the initial paint, but there are times when element dimensions must be dynamically calculated, which requires use of JavaScript and will always impose repainting.
 One of the most common challenges in CSS involves rule `height: 100%` not forcing an element to 100% of the element's parent calculated dimension as `width: 100%` does.
+CSS rule `height: 100%` only performs its job if the height of a containing ancestor element is statically specified, as opposed to dynamically computed.
 My first inclination for solving this problem involves gathering the parent element's `clientHeight` property and assigning that value to the given element.
 Instead I stumbled upon a simple CSS solution that solves this problem directly without use of JavaScript and repainting: `min-height: 100%`.
 
@@ -217,6 +226,24 @@ When these tasks are executed frequently enough on a given piece of hardware you
 When changes to the application are introduced you cannot help but be aware of disruptions to these duration baselines.
 Looking at the build tool I have some idea how many seconds it takes to compile the code, update documentation files, bundle assets, and a variety of other things.
 When I run the test automation I have an idea how long it takes, in fractions of a millisecond, for a user to request data through interaction and how long it takes put that data into the page.
+
+## Observations of Hardware
+Front end performance leverages three different kinds of hardware performance: CPU, memory, and GPU.
+The least important of these is generally CPU.
+CPU processes actual JavaScript instructions.
+The better optimized a given set of code becomes the lesser role instruction processing plays in performance as performance penalties are either eliminated or transferred to areas more challenging to optimize.
+
+Memory speed and GPU are generally of equal importance for load or generating artifacts to screen.
+Navigation of tree models, even incredibly large tree model data, almost exclusively belongs to memory operations.
+Earlier in this article, in the [Framework section](#frameworks), I provided a link to a [DOM performance test](https://jsbench.github.io/#b39045cacae8d8c4a3ec044e538533dc).
+Executing that performance test varies insignificantly by CPU speed and incredibly by memory speed.
+Although the CPU is quite a bit more powerful and faster in my desktop machine my laptop reports a greater than 50% faster DOM navigation speed because its memory is more than 50%.
+
+The speed with which a computer can access, navigate, and modify the DOM effects performance more than all other factors combined after page load is complete and is critically important during page load.
+Despite this my desktop computer reports nearly double page load speed compared to my laptop.
+The staggering difference in load speed, in this narrow case, is the result of GPU.
+The area I struggled with most to inadequately solve for page performance is with visual render of artifacts on screen.
+Modern browsers [pass visual rendering instructions directly to the GPU](https://helgeklein.com/blog/impact-gpu-acceleration-browser-cpu-usage/), which simultaneously decreases the importance of CPU speed in loading websites.
 
 ## Compound Effect On Humans
 Above I mentioned the nature of compound effects and second/third order consequences.
