@@ -3,9 +3,10 @@ Written 18 February 2023.
 
 <!-- cspell: words protobuf, SODIMM, unminified, WHATWG, Xeon -->
 
-In a personal project I am able to load my application as fast as **104ms**.
+In a personal project I am able to load my application as fast as **99ms**.
 This application displays as the equivalent of an operating system GUI with 7 windows open with full state restoration.
 This document discusses how I did it and what that means for human engagement.
+I have listed screenshots of the performance graph at the bottom of the document.
 
 ## Raw Data
 All speed measurements obtained from the *Performance* tab of Chrome Developer Tools and payload sizes obtained form the *Network* tab.
@@ -24,7 +25,7 @@ All speed measurements obtained from the *Performance* tab of Chrome Developer T
    * OS - Windows 10.0.19044
    * CPU - Intel Xeon E5-1660 @ 3.3GHz (6 Cores)
    * Memory - 64GB DDR3 @ 1333MHz
-   * Application Load Speed (Fastest) - 104ms
+   * Application Load Speed (Fastest) - 98.90ms
    * Application Load Speed (Average) - 128ms
    * State Restoration Logic (Fastest) - 24ms
    * State Restoration Logic (Average) - 26ms
@@ -202,6 +203,13 @@ Typically changes to background color, text color, and opacity will not result i
 Changes that result in display or hiding elements, moving elements, changes to element dimensions, and changes to text size or position all result in page repainting and will extend a page's load time.
 At this point about 40% of my application page's load time is waiting on visual rendering of artifacts outside of JavaScript instructions.
 
+There is one CSS trick that has helped me save a lot of screen repainting.
+Always put as much presentation instructions as possible in CSS files and load those files into the page's `<head>` tag before the `<body>`.
+That way the CSS is applied to the HTML on the initial paint, but there are times when element dimensions must be dynamically calculated, which requires use of JavaScript and will always impose repainting.
+One of the most common challenges in CSS involves rule `height: 100%` not forcing an element to 100% of the element's parent calculated dimension as `width: 100%` does.
+My first inclination for solving this problem involves gathering the parent element's `clientHeight` property and assigning that value to the given element.
+Instead I stumbled upon a simple CSS solution that solves this problem directly without use of JavaScript and repainting: `min-height: 100%`.
+
 ## Tools and Measures
 I use the *Performance* tab of the browser's developer tools to monitor speed of JavaScript execute and page load speed, but there is more to a fast application than just what executes in the browser.
 I attach a timer to all automation tasks in the application, such as the build tool and various forms of test automation.
@@ -277,3 +285,26 @@ This explains why over consumption of stimulants drives humans to seek high ener
 When accounting for a few techniques that lower application complexity web applications in the browser can become fast enough to exceed human visual and cognitive information processing.
 These techniques are easily accomplished and result in highly reproducible dramatic speed improvements, but may require an understanding a Solid Foundation First Mindset.
 Increasing web application speed such that users and developers remain constantly engaged results in massive productivity benefits, lower fatigue, and increased learning speed.
+
+## Screenshots
+![Fully zoomed out and displaying the entirety of the load time.](./images/performance_frontend1.png)
+
+Fully zoomed out and displaying the entirety of the load time.
+
+---
+
+![Zoomed in showing the entirety of the state restoration logic at 24ms.](./images/performance_frontend2.png)
+
+Zoomed in showing the entirety of the state restoration logic at 24ms.
+
+---
+
+![Fully zoomed into the end of the load logic showing the file time.](./images/performance_frontend3.png)
+
+Fully zoomed into the end of the load logic showing the file time.
+
+---
+
+![The rendered application. Please note the file system contents dynamically populate after initial page load at 210ms and 230ms.](./images/performance_frontend4.png)
+
+The rendered application. Please note the file system contents dynamically populate after initial page load at 210ms and 230ms.
