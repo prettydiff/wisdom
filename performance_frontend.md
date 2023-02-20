@@ -245,6 +245,13 @@ The staggering difference in load speed, in this narrow case, is the result of G
 The area I struggled with most to inadequately solve for page performance is with visual render of artifacts on screen.
 Modern browsers [pass visual rendering instructions directly to the GPU](https://helgeklein.com/blog/impact-gpu-acceleration-browser-cpu-usage/), which simultaneously decreases the importance of CPU speed in loading websites.
 
+From observations of the browser's performance graph it appears high resolution images render in a parallel thread by the GPU.
+In my tests elimination of high resolution images did not influence load time performance on the low end, which is to say the load times did not become lower than measured with the images.
+The presence of high resolution images did, however, radically increase variability in the load measurements.
+When the high resolution images were eliminated I could complete load of the application on the desktop computer in around 119ms in almost every observation with some cases falling to 102-104ms.
+With the high resolution images present the page load time still averaged at around 119ms, and still occasionally dropped to 99-104ms, but the load times frequently spiked to 149ms with large blocks of GPU render time preceding the state restoration logic.
+The images in this case are 598kb and 3.2mb in file size.
+
 ## Compound Effect On Humans
 Above I mentioned the nature of compound effects and second/third order consequences.
 Perhaps the most important unintended consequence of poor performance is a less focused user.
