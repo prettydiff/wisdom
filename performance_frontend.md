@@ -252,6 +252,24 @@ When the high resolution images were eliminated I could complete load of the app
 With the high resolution images present the page load time still averaged at around 119ms, and still occasionally dropped to 99-104ms, but the load times frequently spiked to 149ms with large blocks of GPU render time preceding the state restoration logic.
 The images in this case are 598kb and 3.2mb in file size.
 
+## Server Side Rendering
+A common technique of many JavaScript frameworks is server side rendering, wherein a set of code is compiled into HTML on the server between the HTTP request and response of a given page.
+This application makes no use of server side rendering.
+Instead the HTML is a string assigned to a variable.
+When the browser requests the page that string is dynamically populated with the application name, version number, and state information.
+I found by not opening a file I am saving about 15ms of load time.
+
+Server side rendering provides unnecessary complexity, but first let's establish performance criteria already addressed in this document:
+1. The DOM, when executed properly, is extremely fast because its operations executed against memory.
+2. In the browser static HTML is faster than dynamically created HTML from JavaScript only because its populated before the JavaScript can execute.
+3. Points of interaction, such as population of dynamic content or assignment of event handlers/listeners, must still occur from JavaScript in the browser irrespective of HTML in the page whether dynamic or static.
+4. HTML must be transferred and parsed before JavaScript can be requested and executed.
+
+That being said the most important thing that must occur, for performance, is parsing HTML in the browser as early as possible.
+The longer that takes the less everything else matters.
+In the case of this application the earliest possible parse completion time of the HTML is critical towards low load times to such an extent that building all content dynamically with JavaScript is still faster.
+The reason for calling server side rendering unnecessarily complex is because it requires a compile step that static HTML does not without a performance benefit as evidenced by this document.
+
 ## Compound Effect On Humans
 Above I mentioned the nature of compound effects and second/third order consequences.
 Perhaps the most important unintended consequence of poor performance is a less focused user.
