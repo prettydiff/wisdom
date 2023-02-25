@@ -1,9 +1,9 @@
 # Execution Performance - Browser
-Written 18 February 2023.
+Written 18 February 2023. Updated 25 February 2023.
 
 <!-- cspell: words protobuf, SODIMM, unminified, WHATWG, Xeon -->
 
-In a personal project, a single page application, I am able to load my application as fast as **99ms**.
+In a personal project, a single page application, I am able to load my application as fast as **81ms**.
 This application displays as the equivalent of an operating system GUI with 7 windows open with full state restoration.
 This document discusses how I did it and what that means for human engagement.
 I have listed screenshots of the performance graph at the bottom of the document.
@@ -25,23 +25,38 @@ All speed measurements obtained from the *Performance* tab of Chrome Developer T
    * OS - Windows 10.0.19044
    * CPU - Intel Xeon E5-1660 @ 3.3GHz (6 Cores)
    * Memory - 64GB DDR3 @ 1333MHz
-   * Application Load Speed (Fastest) - 98.90ms
-   * Application Load Speed (Average) - 119ms
-   * State Restoration Logic (Fastest) - 24ms
-   * State Restoration Logic (Average) - 26ms
-   * Browser - Chrome 110.0.5481.96
+   * GPU - NVidia GeForce GTX 1650 - driver version 528.49
+   * Application Load Speed (Fastest) - 80.94ms
+   * Application Load Speed (Average of 10 Loads) - 88.67ms
+   * State Restoration Logic (Fastest) - 21ms
+   * State Restoration Logic (Average of 10 Loads) - 25ms
+   * Browser - Chrome 110.0.5481.178
 * Machine - Laptop
    * OS - Windows 10.0.19044
    * CPU - Intel Core i7-7500U @ 2.7Ghz (2 Cores)
    * Memory - 16GB SODIMM @ 2133MHz
-   * Application Load Speed (Fastest) - 146ms
-   * Application Load Speed (Average) - 198ms
+   * GPU - Intel HD Graphics 620
+   * Application Load Speed (Fastest) - 134.47ms
+   * Application Load Speed (Average of 10 Loads) - 149.31ms
    * State Restoration Logic (Fastest) - 20ms
-   * State Restoration Logic (Average) - 32ms
-   * Browser - Chrome 110.0.5481.104
+   * State Restoration Logic (Average of 10 Loads) - 32ms
+   * Browser - Chrome 110.0.5481.178
 
-For sake of transparency the page was loaded from a localhost domain, which means download time is less than 1ms, because it is coming from a service running on the same computer.
+For sake of transparency the page was loaded from a localhost domain, which allowed the page assets to download within the first 30ms, because it is coming from a service running on the same computer.
 Even with consideration for download across the continental United States the total transmission time would take less than 100ms on a 1 gigabit fiber connection, which means the page would still come with full render and state restoration in less than a quarter second.
+
+### Session Data
+For the same reproduction I am including the session data I used for these measurements.
+
+* `/lib/settings/configuration.json`
+   ```json
+   {"audio":true,"brotli":7,"color":"default","colors":{"device":{"0eb9ffa92736e09e303331a6b071098f6f3266a77e5b07ffce5c7458939085e82dd99399c7ae69f7822ac29b7899bab88736ca87b08790699349b1807322d89e":["fff","eee"],"754ba418d2f79a429e40a2969cfd37e1fe53acba499e5fbdcc4a781ece28906649b1f45af6c498b24c20eb8752fc760f120e9c33562b595cbeee02dc336b03c3":["fff","eee"]},"user":{}},"fileSort":"file-system-type","hashDevice":"0eb9ffa92736e09e303331a6b071098f6f3266a77e5b07ffce5c7458939085e82dd99399c7ae69f7822ac29b7899bab88736ca87b08790699349b1807322d89e","hashType":"sha3-512","hashUser":"9f0119be867bf7602d011efe0e16401e70c8ee17c9d18dc43059bf68c6799540e19cf4bd102504876e219ec00215cb6e0bc5ecd20af9604715165a50e41d894d","minimizeAll":false,"modals":{"configuration-modal":{"agent":"0eb9ffa92736e09e303331a6b071098f6f3266a77e5b07ffce5c7458939085e82dd99399c7ae69f7822ac29b7899bab88736ca87b08790699349b1807322d89e","agentIdentity":false,"agentType":"device","content":{},"id":"configuration-modal","read_only":false,"single":true,"status":"hidden","type":"configuration","height":1094,"left":1124,"top":682,"width":569,"zIndex":9,"inputs":["close"]},"file-navigate-0.2936007454935674221":{"agent":"0eb9ffa92736e09e303331a6b071098f6f3266a77e5b07ffce5c7458939085e82dd99399c7ae69f7822ac29b7899bab88736ca87b08790699349b1807322d89e","agentIdentity":true,"agentType":"device","content":{},"footer":{},"inputs":["close","maximize","minimize","text"],"read_only":false,"selection":{},"share":"","text_placeholder":"Optionally type a file system address here.","text_value":"C:\\MP3","title_supplement":"","type":"file-navigate","width":800,"zIndex":6,"left":245,"top":131,"height":400,"status":"minimized","id":"file-navigate-0.2936007454935674221","search":["","jain"],"history":["**root**","G:\\","G:\\VM","G:\\VM\\VM1","G:\\VM","G:\\","\\","K:\\","K:\\Games","C:\\","C:\\MP3","C:\\MP3\\Electronic","C:\\MP3","C:\\MP3\\Alternative","C:\\MP3","C:\\","C:\\Windows","C:\\","C:\\MP3","C:\\MP3\\Comedy","C:\\MP3","C:\\MP3\\Theatrical","C:\\MP3"],"focus":{}},"shares-0.9307572827545383231":{"agent":"0eb9ffa92736e09e303331a6b071098f6f3266a77e5b07ffce5c7458939085e82dd99399c7ae69f7822ac29b7899bab88736ca87b08790699349b1807322d89e","agentIdentity":true,"agentType":"device","content":{},"inputs":["close","maximize","minimize"],"read_only":false,"type":"shares","width":800,"zIndex":5,"left":829,"top":364,"height":400,"status":"normal","id":"shares-0.9307572827545383231"},"agent-management-0.13696002399352003251":{"agent":"0eb9ffa92736e09e303331a6b071098f6f3266a77e5b07ffce5c7458939085e82dd99399c7ae69f7822ac29b7899bab88736ca87b08790699349b1807322d89e","agentIdentity":false,"agentType":"device","content":{},"inputs":["cancel","close","confirm","maximize","minimize"],"read_only":false,"single":true,"type":"agent-management","width":750,"zIndex":4,"left":289,"top":804,"height":400,"status":"normal","id":"agent-management-0.13696002399352003251"},"file-navigate-0.51026166001780251":{"agent":"754ba418d2f79a429e40a2969cfd37e1fe53acba499e5fbdcc4a781ece28906649b1f45af6c498b24c20eb8752fc760f120e9c33562b595cbeee02dc336b03c3","agentIdentity":true,"agentType":"device","content":{},"footer":{},"inputs":["close","maximize","minimize","text"],"read_only":false,"selection":{},"share":"","text_placeholder":"Optionally type a file system address here.","text_value":"/home/share/.npm","title_supplement":"","type":"file-navigate","width":800,"zIndex":3,"left":935,"top":1005,"height":400,"status":"normal","id":"file-navigate-0.51026166001780251","search":["",""],"history":["**root**","/home","/home/share","/home/share/Downloads","/home/share","/home/share/.npm"],"focus":{}},"export-0.0997164931469116751":{"agent":"0eb9ffa92736e09e303331a6b071098f6f3266a77e5b07ffce5c7458939085e82dd99399c7ae69f7822ac29b7899bab88736ca87b08790699349b1807322d89e","agentIdentity":false,"agentType":"device","content":{},"inputs":["cancel","close","confirm","maximize","minimize"],"read_only":false,"single":true,"type":"export","zIndex":7,"left":363,"top":82,"width":565,"height":400,"status":"normal","id":"export-0.0997164931469116751"},"file-navigate-0.2081472332522305101":{"agent":"0eb9ffa92736e09e303331a6b071098f6f3266a77e5b07ffce5c7458939085e82dd99399c7ae69f7822ac29b7899bab88736ca87b08790699349b1807322d89e","agentIdentity":true,"agentType":"device","content":{},"footer":{},"inputs":["close","maximize","minimize","text"],"read_only":false,"selection":{},"share":"","text_placeholder":"Optionally type a file system address here.","text_value":"C:\\Users","title_supplement":"","type":"file-navigate","width":800,"zIndex":2,"left":1438,"top":867,"height":400,"status":"normal","id":"file-navigate-0.2081472332522305101","search":["",""],"history":["**root**","/","C:\\","C:\\MP3","C:\\","C:\\Users","C:\\Users\\austincheney","C:\\Users"],"focus":{}},"file-navigate-0.9333835963041073141":{"agent":"0eb9ffa92736e09e303331a6b071098f6f3266a77e5b07ffce5c7458939085e82dd99399c7ae69f7822ac29b7899bab88736ca87b08790699349b1807322d89e","agentIdentity":true,"agentType":"device","content":{},"footer":{},"inputs":["close","maximize","minimize","text"],"read_only":false,"selection":{},"share":"","text_placeholder":"Optionally type a file system address here.","text_value":"C:\\","title_supplement":"","type":"file-navigate","width":800,"zIndex":1,"left":-4,"top":574,"height":400,"status":"normal","id":"file-navigate-0.9333835963041073141","search":["",""],"history":["**root**","K:\\","C:\\"],"focus":{}},"shares-0.882680345450007681":{"agent":"0eb9ffa92736e09e303331a6b071098f6f3266a77e5b07ffce5c7458939085e82dd99399c7ae69f7822ac29b7899bab88736ca87b08790699349b1807322d89e","agentIdentity":true,"agentType":"device","content":{},"inputs":["close","maximize","minimize"],"read_only":false,"type":"shares","width":1674,"zIndex":11,"left":272,"top":272,"height":404,"status":"normal","id":"shares-0.882680345450007681"}},"modalTypes":["configuration","file-navigate","shares","agent-management","export"],"nameDevice":"desktop","nameUser":"Austin","statusTime":15000,"storage":"C:\\Users\\austincheney\\share-file-systems\\lib\\storage\\","tutorial":false,"zIndex":11}
+   ```
+* `/lib/settings/device.json`
+   ```json
+   {"0eb9ffa92736e09e303331a6b071098f6f3266a77e5b07ffce5c7458939085e82dd99399c7ae69f7822ac29b7899bab88736ca87b08790699349b1807322d89e":{"deviceData":{"cpuCores":12,"cpuID":"Intel(R) Xeon(R) CPU E5-1660 0 @ 3.30GHz","platform":"win32","memTotal":68639502336,"osType":"Windows_NT","osVersion":"10.0.19044"},"ipAll":{"IPv4":["192.168.0.145","192.168.56.1"],"IPv6":["2600:1700:70e1:14bf::3"]},"ipSelected":"192.168.56.1","name":"desktop","ports":{"http":443,"ws":444},"shares":{},"status":"active"},"754ba418d2f79a429e40a2969cfd37e1fe53acba499e5fbdcc4a781ece28906649b1f45af6c498b24c20eb8752fc760f120e9c33562b595cbeee02dc336b03c3":{"deviceData":{"cpuCores":1,"cpuID":"Intel(R) Xeon(R) CPU E5-1660 0 @ 3.30GHz","platform":"linux","memTotal":8341577728,"osType":"Linux","osVersion":"5.11.0-40-generic"},"ipAll":{"IPv4":["10.0.2.15","192.168.56.101"],"IPv6":[]},"ipSelected":"192.168.56.101","name":"vm1-device","ports":{"http":443,"ws":444},"shares":{},"status":"offline"}}
+   ```
+* `/lib/settings/user.json` - empty
 
 ## Second and Third Order Consequences
 Before talking further about performance it must be stated that increased performance in one area frequently results in increased performance in other areas.
@@ -124,7 +139,7 @@ I ultimately chose to use a hidden input tag, because even though there is no pr
 String parsing is perhaps the greatest villain to performance.
 In isolation string parsing using a standard convention does not appear to be slow, but practical performance considerations do not account for instruction isolation.
 Examples of automated string parsing in the browser include: assignments to innerHTML, query selectors, console.log, JSON.stringify, and so forth.
-I shaved 100ms of load time off my application by eliminating using of assignment to innerHTML.
+I shaved 100ms of load time off my application by eliminating use of assignment to innerHTML.
 Query selectors are several orders of magnitude slower than searching the DOM using other standard methods and/or relational properties.
 
 The solution to eliminating use of JSON.stringify, at least for network traffic, is gRPC from Google.
@@ -163,6 +178,13 @@ WebSocket protocol transmits data as binary buffers in segments called *frames* 
 Message payloads may optionally be divided amongst multiple frames as necessary to reduce network congestion and transmission reliability.
 HTTP offers no internal segmentation mechanism, which can result in a burst of enormous payload sizes.
 HTTP headers are also strings that require string parsing, which takes extra time, and large often averaging at 1kb in length.
+
+I saved about 20ms by ensuring I did not accidentally open additional connections out of the browser and by pushing socket connection until after state restoration.
+There are costs and benefits to pushing out socket connections to later in the application load.
+Before the first two things I was doing in the JavaScript was adjusting the presentation of the page which caused a minor repaint and opening a WebSocket connection.
+All other logic executed from a callback to the WebSocket open, which comprised a delay of about 12-15ms.
+When the socket connection opened as early as possible the application received and fully rendered file system information in the page from the Node.js service in about 210ms and 240ms respectively.
+After moving the socket connection to after state restoration that same file system information fully rendered in about 300ms and 350ms respectively after the garbage collection heartbeat started in the page.
 
 ## Images
 In the application I have chosen to eliminate use of images except large background wallpaper images.
@@ -244,13 +266,6 @@ Despite this my desktop computer reports nearly double page load speed compared 
 The staggering difference in load speed, in this narrow case, is the result of GPU.
 The area I struggled with most to inadequately solve for page performance is with visual render of artifacts on screen.
 Modern browsers [pass visual rendering instructions directly to the GPU](https://helgeklein.com/blog/impact-gpu-acceleration-browser-cpu-usage/), which simultaneously decreases the importance of CPU speed in loading websites.
-
-From observations of the browser's performance graph it appears high resolution images render in a parallel thread by the GPU.
-In my tests elimination of high resolution images did not influence load time performance on the low end, which is to say the load times did not become lower than measured with the images.
-The presence of high resolution images did, however, radically increase variability in the load measurements.
-When the high resolution images were eliminated I could complete load of the application on the desktop computer in around 119ms in almost every observation with some cases falling to 102-104ms.
-With the high resolution images present the page load time still averaged at around 119ms, and still occasionally dropped to 99-104ms, but the load times frequently spiked to 149ms with large blocks of GPU render time preceding the state restoration logic.
-The images in this case are 598kb and 3.2mb in file size.
 
 ## Server Side Rendering
 A common technique of many JavaScript frameworks is server side rendering, wherein a set of code is compiled into HTML on the server between the HTTP request and response of a given page.
@@ -339,24 +354,24 @@ These techniques are easily accomplished and result in highly reproducible drama
 Increasing web application speed such that users and developers remain constantly engaged results in massive productivity benefits, lower fatigue, and increased learning speed.
 
 ## Screenshots
-![Fully zoomed out and displaying the entirety of the load time.](./images/performance_frontend1.png)
 
-Fully zoomed out and displaying the entirety of the load time.
+### Full Graph
+Fully zoomed out and displaying the entirety of the load time from 0 to beyond the 81ms state restoration.
 
----
+![Image 1](./images/performance_frontend1.png)
 
-![Zoomed in showing the entirety of the state restoration logic at 24ms.](./images/performance_frontend2.png)
+### State Restoration Only
+Zoomed in showing the entirety of the state restoration logic at 35ms, which is on the slow end despite the page loading under 81ms.
 
-Zoomed in showing the entirety of the state restoration logic at 24ms.
+![Image 2](./images/performance_frontend2.png)
 
----
+### Ending Time Details
+Fully zoomed into the end of the load logic showing the final time at 80.94ms.
 
-![Fully zoomed into the end of the load logic showing the file time.](./images/performance_frontend3.png)
+![Image 3](./images/performance_frontend3.png)
 
-Fully zoomed into the end of the load logic showing the file time.
+### Rendered Application
+Please note the file system contents dynamically populate into page load at 300ms and 350ms.
+Before moving the socket connection from before state restoration to after the total load time was averaging around 109ms but the file system contents rendered into the page at around 210ms and 230ms.
 
----
-
-![The rendered application. Please note the file system contents dynamically populate after initial page load at 210ms and 230ms.](./images/performance_frontend4.png)
-
-The rendered application. Please note the file system contents dynamically populate after initial page load at 210ms and 230ms.
+![Image 4](./images/performance_frontend4.png)
