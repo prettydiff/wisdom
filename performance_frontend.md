@@ -3,8 +3,8 @@ Written 18 February 2023. Updated 25 February 2023.
 
 <!-- cspell: words protobuf, SODIMM, unminified, WHATWG, Xeon -->
 
-In a personal project, a single page application, I am able to load my application as fast as **81ms**.
-This application displays as the equivalent of an operating system GUI with 7 windows open with full state restoration.
+In a personal project, a single page application, I am able to load my application as fast as **80ms**.
+This application displays as the equivalent of an operating system GUI of 7 windows open with full state restoration.
 This document discusses how I did it and what that means for human engagement.
 I have listed screenshots of the performance graph at the bottom of the document.
 
@@ -26,7 +26,7 @@ All speed measurements obtained from the *Performance* tab of Chrome Developer T
    * CPU - Intel Xeon E5-1660 @ 3.3GHz (6 Cores)
    * Memory - 64GB DDR3 @ 1333MHz
    * GPU - NVidia GeForce GTX 1650 - driver version 528.49
-   * Application Load Speed (Fastest) - 80.94ms
+   * Application Load Speed (Fastest) - 79.87ms
    * Application Load Speed (Average of 10 Loads) - 88.67ms
    * State Restoration Logic (Fastest) - 21ms
    * State Restoration Logic (Average of 10 Loads) - 25ms
@@ -46,7 +46,7 @@ For sake of transparency the page was loaded from a localhost domain, which allo
 Even with consideration for download across the continental United States the total transmission time would take less than 100ms on a 1 gigabit fiber connection, which means the page would still come with full render and state restoration in less than a quarter second.
 
 ### Session Data
-For the same reproduction I am including the session data I used for these measurements.
+For the same reproduction I am including the session data I used for these measurements with file system paths relative to the application root.
 
 * `/lib/settings/configuration.json`
    ```json
