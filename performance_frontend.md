@@ -46,7 +46,7 @@ For sake of transparency the page was loaded from a localhost domain, which allo
 Even with consideration for download across the continental United States the total transmission time would take less than 100ms on a 1 gigabit fiber connection, which means the page would still come with full render and state restoration in less than a quarter second.
 
 ### Session Data
-For the same reproduction I am including the session data I used for these measurements with file system paths relative to the application root.
+For reproduction I am including the session data I used for these measurements with file system paths relative to the application root.
 
 * `/lib/settings/configuration.json`
    ```json
