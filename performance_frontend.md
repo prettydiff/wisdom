@@ -196,6 +196,16 @@ This means embedding and reading these icons directly in code editors and in the
 I did noticed a low, but measurably significant performance improvement from bundling my JavaScript and CSS code into single files.
 For performance reasons I [wrote my own application specific bundler](https://github.com/prettydiff/share-file-systems/blob/master/lib/terminal/commands/library/build.ts#L241-L392) that is a single step in my build tool.
 
+In the case of this application bundling is easily measurable.
+The HTML content is located as a string assigned to a variable in the file `/lib/terminal/server/transmission/methodGET.ts`.
+Find that page string and notice that it references a JavaScript bundle `js/lib/browser/bundle.js`.
+Change that value to `js/lib/browser/index.js`.
+
+At the time I measured for bundling the bundle file represented 527kb file size for 1 file.
+The unbundled code represented 23 JavaScript files comprising 566kb.
+After 10 page loads for each the bundled and unbundled JavaScript I measured 97.95ms and 145.05ms respectively, a difference of 47.1ms.
+Please keep in mind these files come from localhost so the network transmission time is tiny compared to transmission over the internet, which will likely expand the differences of these numbers significantly.
+
 ## State Management
 Unlike many popular frameworks I chose not to architect the application with the concept of components in mind.
 That results in phenomenally lower complexity, at the consequence of managing state globally using a single state management artifact.
