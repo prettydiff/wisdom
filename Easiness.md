@@ -52,9 +52,16 @@ As a person, myself, with exceptionally low neuroticism here are examples of beh
 
 Many people might find these behaviors challenging to understand.
 For people with exceptionally low neuroticism fear and emotional discomfort are processed differently resulting in these people not fearing things that would likely invoke extreme panic in others.
-It does not mean these people are without avoidance behaviors, but that their avoid behaviors are triggered by different things many other people would likely not bother avoiding.
-For example people with a deeper comfort for writing code in a given programming language and environment are more inclined to write imperative lower level code, which would appear foreign to persons with higher neuroticism favoring a more declarative code style.
-For a specific example of neuroticism and programming see my examination of [behaviors and the Document Object Model](./controversial_opinions.md#what-makes-the-dom-challenging).
+It is challenging to say exactly why unusual behavior occurs.
+One answer points to impaired processing of the [Amygdala](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2882379/), which is one of the oldest structures common to most animal brains.
+A person with impaired fear response will likely also demonstrate impaired processing of other reflexive emotional responses as well.
+This does not mean these people lack emotion, but only that these people are slower to display emotion in the specific context of immediate stimulus reflex.
+
+It also does not mean these people are without avoidance behaviors, but that their avoid behaviors are triggered by different things many other people would likely not bother avoiding.
+For people with typical reflexive fear responses they may avoid things or situations known to trigger an unpleasant response, even without direct realization of such avoidance.
+Consider the list of behaviors mentioned above.
+For persons with a normal fear response those behaviors might look like thrill seeking behaviors, or activities of a high risk nature taken to provoke a fear or adventurous condition.
+For persons with without a normal fear response those behaviors are actually just learning activities, such as learning to drive or taking a test in school.
 
 #### Cultures
 Avoidance also occurs as a cultural phenomenon measured as [uncertainty avoidance](https://en.wikipedia.org/wiki/Uncertainty_avoidance), which is one of the [Geert Hofstede cross-cultural indexes](https://en.wikipedia.org/wiki/Hofstede%27s_cultural_dimensions_theory).
