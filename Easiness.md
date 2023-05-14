@@ -62,6 +62,8 @@ For people with typical reflexive fear responses they may avoid things or situat
 Consider the list of behaviors mentioned above.
 For persons with a normal fear response those behaviors might look like thrill seeking behaviors, or activities of a high risk nature taken to provoke a fear or adventurous condition.
 For persons with without a normal fear response those behaviors are actually just learning activities, such as learning to drive or taking a test in school.
+I had to remind people many times that I was an order of magnitude more likely to die driving to work in safe conditions within the speed limit on the freeway in the US than in a military combat zone like Afghanistan.
+When you look at the seemingly crazy behaviors of low neurotic person in context of measures compared to everyday behaviors of the population at large they suddenly become boring and pedestrian.
 
 #### Cultures
 Avoidance also occurs as a cultural phenomenon measured as [uncertainty avoidance](https://en.wikipedia.org/wiki/Uncertainty_avoidance), which is one of the [Geert Hofstede cross-cultural indexes](https://en.wikipedia.org/wiki/Hofstede%27s_cultural_dimensions_theory).
