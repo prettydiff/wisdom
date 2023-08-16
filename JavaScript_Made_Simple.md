@@ -1,3 +1,5 @@
+<!-- cspell: words automaticity, Gottman -->
+
 # JavaScript Made Simple
 Anything that can be written in JavaScript can be written with only 4 ingredients: data structures, primitives, functions, and APIs.
 The problem with writing code then is not the language or an instance of code so much as the assumptions a developer places upon that code.
@@ -55,6 +57,9 @@ Anybody can build better organizational capacity but doing so requires practice,
 After mitigating away unnecessary complexity the next step on the journey to simple JavaScript requires and understanding of the environment you are writing for.
 The compile target of the web browser is the DOM, and for Node.js it is Node's standard API.
 Those inescapable facts will alter how a developer perceives the code they write once those facts become accepted by the developer on an emotional level.
+Emotional connections to the work form the key to attaining [automaticity](https://en.wikipedia.org/wiki/Automaticity), which describes how the brain learns to complete large series of low level tasks without cognitive effort.
+Muscle memory demonstrates one example of automaticity.
+Achieving the apex of skill mastery, [unconscious competence](https://en.wikipedia.org/wiki/Four_stages_of_competence), only occurs through automaticity.
 
 ### Negativity
 Since many developers get lost in the insanity of unnecessary complexity they become utterly incapable of accepting the nature of their environment.
