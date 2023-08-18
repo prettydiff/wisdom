@@ -28,6 +28,7 @@ So, don't use `this`.
 The language does not force that convention upon you, so do not voluntarily punish yourself with it.
 Never is there a good reason to do so.
 Despite all evidence and logic many developers will continue to reinforce poor practices due to the behaviors of [conservatism](https://en.wikipedia.org/wiki/Conservatism_(belief_revision)) and [anchoring bias](https://en.wikipedia.org/wiki/Anchoring_(cognitive_bias)).
+If you suffer from conservatism or anchoring bias please read this [explanation of OOP](./Object_Oriented_Programming.md).
 
 ### Organization
 I have been writing JavaScript full time for more than 15 years as I write this.
@@ -54,7 +55,7 @@ That means intelligence alone remains largely unreliable to solve for better org
 Anybody can build better organizational capacity but doing so requires practice, repetition, and experimentation no differently than improving any other cognitive skill.
 
 ## Knowing Your Environment
-After mitigating away unnecessary complexity the next step on the journey to simple JavaScript requires and understanding of the environment you are writing for.
+After mitigating away unnecessary complexity the next step on the journey to simple JavaScript requires an understanding of the environment you are writing for.
 The compile target of the web browser is the DOM, and for Node.js it is Node's standard API.
 Those inescapable facts will alter how a developer perceives the code they write once those facts become accepted by the developer on an emotional level.
 Emotional connections to the work form the key to attaining [automaticity](https://en.wikipedia.org/wiki/Automaticity), which describes how the brain learns to complete large series of low level tasks without cognitive effort.
