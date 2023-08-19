@@ -92,4 +92,11 @@ Since the value of *this* is never clear or predictable by developers just readi
 So, just don't do OOP in the language.
 I promise, you will thank me later.
 
+## Conclusion
 The only two times use of OOP cannot be avoided in JavaScript is to extend OOP code you didn't write or to extend internal features of the language directly.
+As a thought exercise ask yourself: "Self, what is the most value quality of OOP?".
+When you ask yourself that question out loud so you can hear it in your voice typically the place your mind will go to is searching through all things you know of programming.
+When you ask it of another person in casual conversation the answer is almost always and almost exclusively something related to attaining employment.
+The distinction is both striking and interesting.
+The most interesting part of this is that people want to validate this investment of time.
+They spend the time and cognitive energy attempting to qualify this consideration so long as that time is available, but in conversation where timing is condensed away the creativity they immediately go to a more honest place.
