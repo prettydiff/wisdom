@@ -11,7 +11,7 @@ A developer then clones and extends the objects as necessary through a process c
 Poly-instantiation allows for the cloning of objects, called *inheritance*, but the cloned object shares the same memory as the object from which it was cloned.
 
 The only purpose of these programming paradigms, procedural and OOP, involved code reuse versus memory conservation.
-Looking at the [history cost of memory](https://jcmit.net/memoryprice.htm) 1mb costed about $734,000 in 1967 when Simula 67 was invented.
+Looking at the [historic cost of memory](https://jcmit.net/memoryprice.htm) 1mb costed about $734,000 in 1967 when Simula 67 was invented.
 
 In 1979 a Danish academic started work on C language with classes.
 This did not work and so he started over with a new language named [C++](https://en.wikipedia.org/wiki/C%2B%2B) that he published with his PhD dissertation in 1982.
