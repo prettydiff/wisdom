@@ -61,7 +61,7 @@ First, is to maintain legacy applications.
 Second, is for social compatibility with older developers who only know OOP programming paradigm.
 
 ## Future
-It appears the future of programming is [functional programming](https://en.wikipedia.org/wiki/Functional_programming) paradigm.
+It appears the [future of programming](http://sevangelatos.com/john-carmack-on/) is [functional programming](https://en.wikipedia.org/wiki/Functional_programming) paradigm, according to [John Carmack](https://en.wikipedia.org/wiki/John_Carmack).
 In difference to the Wikipedia link I provide for function programming it is frequently a [declarative](https://en.wikipedia.org/wiki/Declarative_programming) programming style, but not inherently so and may be exceedingly [imperative](https://en.wikipedia.org/wiki/Imperative_programming).
 For example a program that makes explicit use of event handling in the control flow of its logic and is designed solely around that consideration would be extremely imperative.
 
