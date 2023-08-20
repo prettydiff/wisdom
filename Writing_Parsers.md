@@ -77,11 +77,11 @@ The methods and approaches are expressed according to JavaScript language.
 
    index | attrs | begin | daddy | jscom | linen | lines | presv | token | types
    ------|-------|-------|-------|-------|-------|-------|-------|-------|-------
-   0     | []    | 0     | "root"| false | 1     | 0     | false | `<a>` | "start"
+   0     | []    | -1    | "root"| false | 1     | 0     | false | `<a>` | "start"
    1     | []    | 0     | "a"   | false | 1     | 0     | false | `<b>` | "start"
    2     | []    | 1     | "b"   | false | 2     | 1     | false | sample text | "content"
    3     | []    | 1     | "b"   | false | 3     | 1     | false | `</b>`| "end"
-   4     | []    | 1     | "b"   | false | 3     | 1     | false | `</a>`| "end"
+   4     | []    | 0     | "a"   | false | 3     | 1     | false | `</a>`| "end"
 * **syntax** -
    A fancy term that refers to the defining rule set to determine the expected out.
    Syntax most commonly refers to the rules necessary to form a programming language, but represent the bounds by which any lexer applies even if not to form a programming language.
@@ -143,7 +143,7 @@ parse = function () {
 ```
 
 Converting the input into an array is not required, but it makes things much easier and faster to manipulate.
-Looping through a binary buffer, for instance, can be more challenging to think through as humans don't read binary or hexidecimal as fast as they read code and strings.
+Looping through a binary buffer, for instance, can be more challenging to think through as humans don't read binary or hexadecimal as fast as they read code and strings.
 Arrays are substantially faster and more expressive to evaluate than large strings.
 
 Using a *for* to iterate through an array is now considered an anti-pattern in JavaScript since the ECMAScript5 version of the language provides a foreach method.
@@ -207,6 +207,7 @@ Unfortunately, it is extremely difficult to know what is or isn't needed at pars
 Here is what the combined code looks like:
 
 ```javascript
+var myParser = function (options) {
     var token = [],
         types = [],
         parse = function () {
